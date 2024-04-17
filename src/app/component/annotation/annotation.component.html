@@ -1,0 +1,42 @@
+<div
+  class="interactive-container"
+  #container
+  (contextmenu)="createPopup($event)"
+  (mouseenter)="trackMousePosition($event)"
+>
+  <div
+    class="point"
+    *ngFor="let point of points"
+    [style.top.px]="point.y"
+    [style.left.px]="point.x"
+    (mouseenter)="activateEditing(point)"
+    (mouseleave)="deactivateEditing()"
+  >
+    <img src="../../../assets/images/comment.svg" alt="" *ngIf="showDiv" />
+    <div class="point-popup" *ngIf="point.isEditable && activePoint === point">
+      <textarea
+        [(ngModel)]="point.text"
+        (keydown.enter)="saveEditedText($event)"
+      ></textarea>
+      <button (click)="saveCustomText(point.text)">
+        <img src="../../../assets/images/save.svg" alt="" />
+      </button>
+    </div>
+  </div>
+  <div
+    *ngIf="showCustomPopup"
+    class="custom-popup"
+    [style.top.px]="customPopupY"
+    [style.left.px]="customPopupX"
+  >
+    <textarea
+      #customInput
+      type="text"
+      placeholder="Enter text for the point"
+    ></textarea>
+    <button (click)="saveCustomText(customInput.value)">
+      <img src="../../../assets/images/save.svg" alt="" />
+    </button>
+  </div>
+  <ng-content></ng-content>
+</div>

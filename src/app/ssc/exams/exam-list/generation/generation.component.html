@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <p class="mb-5">Total Question Paper: <b>30</b></p>
+    <p>Created On: <b>25/12/2023</b></p>
+  </div>
+  <button nz-button nzType="primary" (click)="cancelExam()">Cancel Exam</button>
+</div>
+<nz-table
+  #basicTable
+  [nzData]="dataSet"
+  class="generation-table"
+  [nzShowPagination]="false"
+>
+  <thead>
+    <tr>
+      <th>Date <span>(Yr. 2023-24)</span></th>
+      <th>Shift 1 <span>(9 AM - 12 PM)</span></th>
+      <th>Shift 2 <span>(12.30 PM - 3.30 PM)</span></th>
+      <th>Shift 3 <span>(4 PM - 7 PM)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>
+        <label nz-checkbox>{{ data.date }}</label>
+      </td>
+      <td
+        nzAlign="center"
+        [ngClass]="{
+          warning: data.shift1 === 'Schedule',
+          error: data.shift1 === 'Cancelled',
+          success: isNumeric(data.shift1) === true
+        }"
+      >
+        {{ data.shift1 }}
+      </td>
+      <td
+        nzAlign="center"
+        [ngClass]="{
+          warning: data.shift2 === 'Schedule',
+          error: data.shift2 === 'Cancelled',
+          success: isNumeric(data.shift2) === true
+        }"
+      >
+        {{ data.shift2 }}
+      </td>
+      <td
+        nzAlign="center"
+        [ngClass]="{
+          warning: data.shift3 === 'Schedule',
+          error: data.shift3 === 'Cancelled',
+          success: isNumeric(data.shift3) === true
+        }"
+      >
+        {{ data.shift3 }}
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

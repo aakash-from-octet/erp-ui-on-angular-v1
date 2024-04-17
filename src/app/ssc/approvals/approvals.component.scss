@@ -1,0 +1,141 @@
+.data-style-changer {
+  background: #f3f5f7;
+  border-radius: 4px;
+  label {
+    border-radius: 4px;
+    background: #f3f5f7;
+    border: 1px solid #f3f5f7;
+    &.ant-radio-button-wrapper-checked {
+      border-radius: 4px;
+      border: 1px solid #e7eaf0;
+      background: #fff;
+    }
+    &:before {
+      content: none;
+    }
+
+    &:hover {
+      background: #f3f5f7;
+    }
+    &:focus-within {
+      box-shadow: none;
+    }
+    &.ant-radio-button-wrapper {
+      padding: 0 8px;
+    }
+  }
+}
+
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  .exam-card-wrap {
+    border-radius: 4px;
+    border: 1px solid#eceff2;
+    background: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      color: #323c47;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      text-transform: capitalize;
+    }
+    p {
+      color: #475665;
+      font-size: 13px;
+      font-weight: 400;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      .text-yellow {
+        color: #875b08;
+      }
+      .text-green {
+        color: #247a5b;
+      }
+      .dot {
+        width: 4px;
+        height: 4px;
+        background: #75899d;
+        display: block;
+        border-radius: 4px;
+        margin: 0 10px;
+      }
+    }
+    div {
+      color: #475665;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 15px;
+      .ant-divider-vertical {
+        border-left: 1px solid #6f94b9;
+      }
+      .text-ellipsis {
+        width: 364px !important;
+      }
+    }
+  }
+}
+.btn-request {
+  border-radius: 6px;
+  border: 1px solid #ecf3f9;
+  background: #eff8ff;
+  color: #0074d6;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-top: 24px;
+  min-width: 175px;
+  &:hover {
+    border: 1px solid #0074d6;
+  }
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h4 {
+    color: #1d2329;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 29px;
+    margin-bottom: 0;
+  }
+  .ant-btn {
+    height: 36px;
+  }
+}
+.otp-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    float: right;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19px; /* 146.154% */
+    letter-spacing: 0.13px;
+  }
+}
+.resend-wrap {
+  color: #323c47;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 30px;
+  text-align: right;
+  span {
+    color: #0074d6;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+  }
+}

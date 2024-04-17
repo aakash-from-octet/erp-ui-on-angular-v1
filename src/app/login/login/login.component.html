@@ -1,0 +1,70 @@
+<div class="auth-title">
+  <h2>Create your onboarding account</h2>
+  <p>Begin your journey with us by creating your account.</p>
+
+  <label class="label mt-30">E-Mail</label>
+  <nz-input-group [nzPrefix]="prefixTemplateMail">
+    <input
+      type="text"
+      nz-input
+      placeholder="e.g. John.doe@gmail.com"
+      [(ngModel)]="inputValue"
+    />
+  </nz-input-group>
+  <ng-template #prefixTemplateMail
+    ><span nz-icon nzType="mail"></span
+  ></ng-template>
+
+  <label class="label mt-20">Password</label>
+  <nz-input-group [nzSuffix]="suffixTemplate" [nzPrefix]="prefixTemplateLock">
+    <input
+      [type]="passwordVisible ? 'text' : 'password'"
+      nz-input
+      placeholder="input password"
+      [(ngModel)]="password"
+    />
+  </nz-input-group>
+  <ng-template #prefixTemplateLock
+    ><span nz-icon nzType="lock"></span
+  ></ng-template>
+  <ng-template #suffixTemplate>
+    <span
+      nz-icon
+      [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+      (click)="passwordVisible = !passwordVisible"
+    ></span>
+  </ng-template>
+
+  <a
+    nz-button
+    nzSize="large"
+    nzType="primary"
+    class="mt-30"
+    nzBlock
+    (click)="onSubmit()"
+  >
+    Login<img src="../../../assets/images/arrow-right.svg" />
+  </a>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzFooter]="null"
+  nzClassName="qr-popup"
+>
+  <ng-container *nzModalContent>
+    <h2>Check your device</h2>
+    <p>Scan the QR code with your mobile device to recover your operation.</p>
+    <img src="../../../assets/images/qr.png" alt="" srcset="" class="img-qr" />
+    <div class="otp-number" [routerLink]="'/exam-agency'">
+      <span> 52 </span>
+    </div>
+    <p>
+      A notification has been sent over your <span>MetaCo</span> app, Tap on
+      number <span>52</span> to continue.
+    </p>
+  </ng-container>
+</nz-modal>

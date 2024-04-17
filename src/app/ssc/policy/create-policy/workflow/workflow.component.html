@@ -1,0 +1,58 @@
+<div nz-row [nzGutter]="20">
+  <div
+    nz-col
+    nzSpan="16"
+    class="d-flex align-items-center justify-content-between"
+  >
+    <label class="label">Approved By</label>
+    <span (click)="addApprover()" class="cursor-pointer text-blue"
+      >+ Add Approver</span
+    >
+  </div>
+  <div nz-col nzSpan="16" *ngFor="let approver of approvers; let i = index">
+    <div nz-row [nzGutter]="20">
+      <div
+        nz-col
+        nzSpan="24"
+        *ngIf="i > 0 && approvers.length > 1"
+        class="mt-15 mb-5 d-flex align-items-center justify-content-between"
+      >
+        <nz-radio-group
+          [(ngModel)]="radioValue"
+          nzButtonStyle="solid"
+          class="condition-switch"
+        >
+          <label nz-radio-button nzValue="A">AND</label>
+          <label nz-radio-button nzValue="B">OR</label>
+        </nz-radio-group>
+        <span
+          class="cursor-pointer"
+          (click)="approvers.length > 1 ? removeApprover(i) : null"
+          ><img src="../../../../../assets/images/closeIcon.svg" alt=""
+        /></span>
+      </div>
+      <div nz-col nzSpan="8">
+        <nz-input-number
+          [(ngModel)]="approver.demoValue"
+          [nzMin]="1"
+          [nzMax]="10"
+          [nzStep]="1"
+          class="w-100"
+          nzSize="large"
+        ></nz-input-number>
+      </div>
+      <div nz-col nzSpan="16">
+        <nz-select
+          [(ngModel)]="approver.selectedValue"
+          nzPlaceHolder="Approve By..."
+          class="w-100"
+          nzSize="large"
+        >
+          <nz-option nzValue="1" nzLabel="Manager"></nz-option>
+          <nz-option nzValue="2" nzLabel="Director"></nz-option>
+          <nz-option nzValue="3" nzLabel="Assistance Manager"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<nz-table #basicTable [nzData]="data" nzSize="small">
+  <thead>
+    <tr>
+      <th>Question ID</th>
+      <th>Question</th>
+      <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let data of basicTable.data"
+      (click)="goToBuilder()"
+      [class.pointer]="userValue === 't1' || userValue === 'v1'"
+    >
+      <td>
+        <span class="fw-500 text-dark">ID: {{ data.qId }}</span>
+      </td>
+      <td>
+        <h3
+          class="fw-500 text-14 text-dark"
+          nz-typography
+          nzEllipsis
+          [nzEllipsisRows]="1"
+        >
+          {{ data.question }}
+        </h3>
+        <p class="mb-0 text-13 text-ellipsis text-light">
+          <span *ngIf="userValue === '' || userValue === 'v1'"
+            >Topic: {{ data.topic }}<span class="mx-10">|</span></span
+          >
+          <span *ngIf="userValue === '' || userValue === 'v1'"
+            >Sub-topic: {{ data.subtopic }}<span class="mx-10">|</span></span
+          >
+          <span *ngIf="userValue === 't1'"
+            >Translated To: {{ data.translatedTo
+            }}<span class="mx-10">|</span></span
+          >
+          <span *ngIf="userValue === 'v1'"
+            >Language: {{ data.translatedTo }}<span class="mx-10">|</span></span
+          >
+          <span>Time Remaining: {{ data.timeRemain }}</span>
+        </p>
+      </td>
+      <td class="text-dark">{{ data.subject }}</td>
+    </tr>
+  </tbody>
+</nz-table>

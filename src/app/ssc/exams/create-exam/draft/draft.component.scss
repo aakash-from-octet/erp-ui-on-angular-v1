@@ -1,0 +1,11 @@
+.btn-language {
+  display: flex;
+  align-items: center;
+  color: #5c6f83;
+  min-width: 152px;
+  img {
+    filter: grayscale(1);
+    position: relative;
+    top: -1px;
+  }
+}

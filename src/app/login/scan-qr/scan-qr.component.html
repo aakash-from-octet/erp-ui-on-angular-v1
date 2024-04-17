@@ -1,0 +1,20 @@
+<!-- check-device -->
+<div class="auth-title" *ngIf="!showSecondDiv">
+  <h2>Check your device</h2>
+  <img src="../../../assets/images/qr.png" alt="" class="img-qr my-15" />
+  <p class="text-16">
+    Scan the QR code with your mobile device to recover your operation.
+  </p>
+  <a nz-button nzType="default" routerLink="/get-started" nzSize="large"
+    ><img src="../../../assets/images/back.svg" />Back</a
+  >
+</div>
+<!-- otp-number -->
+<div *ngIf="showSecondDiv" (click)="goToCreateAccount()">
+  <div class="otp-number"><span> 52 </span></div>
+  <p class="text-16 text-dark mt-30">
+    A notification has been sent over your
+    <span class="text-darkblue">MetaCo</span> app, Tap on number
+    <span class="text-darkblue">52</span> to continue.
+  </p>
+</div>

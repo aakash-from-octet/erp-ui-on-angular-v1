@@ -1,0 +1,55 @@
+<div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="12">
+    <label class="label">Name</label>
+    <nz-input-group [nzPrefix]="prefixTemplateUser">
+      <input type="text" nz-input placeholder="e.g. John D  Blue" />
+    </nz-input-group>
+    <ng-template #prefixTemplateUser
+      ><img src="../../../assets/images/user.svg" /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label">Legal Name</label>
+    <nz-input-group [nzPrefix]="prefixTemplateUser2">
+      <input type="text" nz-input placeholder="e.g. John D  Blue" />
+    </nz-input-group>
+    <ng-template #prefixTemplateUser2
+      ><img src="../../../assets/images/user.svg" /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">GSTIN</label>
+    <nz-input-group [nzPrefix]="prefixTemplateGSTIN">
+      <input type="text" nz-input placeholder="124535215656598" />
+    </nz-input-group>
+    <ng-template #prefixTemplateGSTIN
+      ><img src="../../../assets/images/gstin.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Website URL</label>
+    <nz-input-group [nzPrefix]="prefixTemplateWebsite">
+      <input type="text" nz-input placeholder="e.g. www.google.com" />
+    </nz-input-group>
+    <ng-template #prefixTemplateWebsite
+      ><img src="../../../assets/images/Component 64.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Upload Logo</label>
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="true"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+</div>

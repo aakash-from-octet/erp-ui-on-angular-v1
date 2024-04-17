@@ -1,0 +1,360 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center create-assessment-title mb-20">
+    <h2>CGL</h2>
+    <span class="grey-tag">2025</span>
+  </div>
+  <div class="d-flex align-items-center mb-20">
+    <h3 class="mb-0">Version </h3>
+    <span class="grey-tag">1.0</span>
+    <div class="text-blue cursor-pointer font-500 ml-20">
+      View Past Version
+    </div>
+  </div>
+</div>
+<div nz-row class="mb-20">
+  <div nz-col nzSpan="14">
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Diam vel mattis nulla pharetra elementum maecenas quis arcu volutpat. Et
+      velit blandit odio est pretium id purus. Mauris magna.
+    </p>
+  </div>
+</div>
+
+<section class="">
+  <div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="12">
+      <div class="algorithm-header">
+        <h3>Heading 1</h3>
+      </div>
+
+      <div nz-col class="p-0">
+        <label class="label">Question Bank</label>
+        <nz-select ngModel="" nzSize="large" class="w-100" nzPlaceHolder="Vault">
+          <nz-option nzValue="1" nzLabel="Vault"></nz-option>
+          <nz-option nzValue="2" nzLabel="Question 2"></nz-option>
+        </nz-select>
+      </div>
+
+      <div nz-col class="mt-20 p-0">
+        <label class="label">Duplicacy Index</label>
+        <nz-select ngModel="" nzSize="large" class="w-100" nzPlaceHolder="Select a value">
+          <nz-option nzValue="1" nzLabel="Duplicacy 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Duplicacy 2"></nz-option>
+        </nz-select>
+      </div>
+
+      <div nz-col class="mt-20 p-0">
+        <label class="label">Selection Algorithm</label>
+        <nz-select ngModel="" nzSize="large" class="w-100" nzPlaceHolder="Select a value">
+          <nz-option nzValue="1" nzLabel="Algorithm 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Algorithm 2"></nz-option>
+        </nz-select>
+        <p class="text-12 text-info mt-10">
+          *Lorem Ipsum is a Dummy selected value’s description of selection
+          algorithm
+        </p>
+      </div>
+
+    </div>
+    <div nz-col nzSpan="12">
+
+      <div class="d-flex align-items-center justify-content-between algorithm-header">
+        <h3>Exclusion Algorithm</h3>
+        <span nz-icon nzType="plus" nzTheme="outline" style="font-size: 16px; color: #323c47;"></span>
+      </div>
+
+
+      <div class="grid-2 box-styling bg-white p-10">
+        <nz-select nzSize="large" class="bg-select-box w-100" nzPlaceHolder="Select Agency Name">
+          <nz-option nzValue="1" nzLabel="Agency 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Agency 2"></nz-option>
+          <nz-option nzValue="3" nzLabel="Agency 3"></nz-option>
+          <nz-option nzValue="4" nzLabel="Agency 4"></nz-option>
+          <nz-option nzValue="5" nzLabel="Agency 5"></nz-option>
+          <nz-option nzValue="6" nzLabel="Agency 5"></nz-option>
+        </nz-select>
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+           Author 1
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 3
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 4
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+           Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+
+          <li class="add-author-card">
+            <button nz-button nz-dropdown [nzDropdownMenu]="menu01" class="text-12 text-shade-blue">
+              Add Author
+            </button>
+            <nz-dropdown-menu #menu01="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <label nz-checkbox [ngModel]="false" class="ck-false">Author 1</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 2</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 3</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 4</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 5</label>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid-2 box-styling p-10 bg-white mt-20">
+        <nz-select nzSize="large" class="bg-select-box w-100" nzPlaceHolder="Select Agency Name">
+          <nz-option nzValue="1" nzLabel="Agency 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Agency 2"></nz-option>
+          <nz-option nzValue="3" nzLabel="Agency 3"></nz-option>
+          <nz-option nzValue="4" nzLabel="Agency 4"></nz-option>
+          <nz-option nzValue="5" nzLabel="Agency 5"></nz-option>
+          <nz-option nzValue="6" nzLabel="Agency 5"></nz-option>
+        </nz-select>
+
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+           Author 1
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 3
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 4
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+           Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+
+          <li class="add-author-card">
+            <button nz-button nz-dropdown [nzDropdownMenu]="menu02" class="text-12 text-shade-blue">
+              Add Author
+            </button>
+            <nz-dropdown-menu #menu02="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <label nz-checkbox [ngModel]="false" class="ck-false">Author 1</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 2</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 3</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 4</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 5</label>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </li>
+        </ul>
+
+      </div>
+      <div class="grid-2 box-styling bg-white p-10 mt-20">
+        <nz-select nzSize="large" class="bg-select-box w-100" nzPlaceHolder="Select Agency Name">
+          <nz-option nzValue="1" nzLabel="Agency 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Agency 2"></nz-option>
+          <nz-option nzValue="3" nzLabel="Agency 3"></nz-option>
+          <nz-option nzValue="4" nzLabel="Agency 4"></nz-option>
+          <nz-option nzValue="5" nzLabel="Agency 5"></nz-option>
+          <nz-option nzValue="6" nzLabel="Agency 5"></nz-option>
+        </nz-select>
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+           Author 1
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 3
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 4
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+           Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+
+          <li class="add-author-card">
+            <button nz-button nz-dropdown [nzDropdownMenu]="menu03" class="text-12 text-shade-blue">
+              Add Author
+            </button>
+            <nz-dropdown-menu #menu03="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <label nz-checkbox [ngModel]="false" class="ck-false">Author 1</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 2</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 3</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 4</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 5</label>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </li>
+        </ul>
+      </div>
+      <div class="grid-2 box-styling bg-white p-10 mt-20">
+        <nz-select nzSize="large" class="bg-select-box w-100" nzPlaceHolder="Select Agency Name">
+          <nz-option nzValue="1" nzLabel="Agency 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Agency 2"></nz-option>
+          <nz-option nzValue="3" nzLabel="Agency 3"></nz-option>
+          <nz-option nzValue="4" nzLabel="Agency 4"></nz-option>
+          <nz-option nzValue="5" nzLabel="Agency 5"></nz-option>
+          <nz-option nzValue="6" nzLabel="Agency 5"></nz-option>
+        </nz-select>
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+           Author 1
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 2
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 3
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+            Author 4
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+           Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+            
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+             Author 5
+              <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+           
+          </li>
+
+          <li class="add-author-card">
+            <button nz-button nz-dropdown [nzDropdownMenu]="menu04" class="text-12 text-shade-blue">
+              Add Author
+            </button>
+            <nz-dropdown-menu #menu04="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <label nz-checkbox [ngModel]="false" class="ck-false">Author 1</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 2</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 3</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 4</label>
+                </li>
+                <li nz-menu-item>
+                  <label nz-checkbox class="ck-false" [ngModel]="false">Author 5</label>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

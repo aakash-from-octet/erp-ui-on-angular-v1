@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "gmail": "johndoe@dmail.com",
+    "phone": "+91 12345 67890",
+    "aadhar": "**** **** **32",
+    "login": "2hrs ago",
+    "mfa": "Enabled & Registered",
+    "esign": "Enabled",
+    "status": "Pending",
+    "approved": "Approval Pending",
+    "role": ["Author", "Translator", "Vetter A"]
+  },
+  {
+    "id": "2",
+    "name": "John Doe",
+    "gmail": "johndoe@dmail.com",
+    "phone": "+91 12345 67890",
+    "aadhar": "**** **** **32",
+    "login": "2hrs ago",
+    "mfa": "Not Registered",
+    "esign": "Enabled",
+    "status": "Draft",
+    "approved": "Harman Cole",
+    "role": ["Evaluator"]
+  },
+  {
+    "id": "3",
+    "name": "John Doe",
+    "gmail": "johndoe@dmail.com",
+    "phone": "+91 12345 67890",
+    "aadhar": "**** **** **32",
+    "login": "2hrs ago",
+    "mfa": "Registered",
+    "esign": "Enabled",
+    "status": "Active",
+    "approved": "Harman Cole",
+    "role": ["Translator Evaluator"]
+  },
+  {
+    "id": "4",
+    "name": "John Doe",
+    "gmail": "johndoe@dmail.com",
+    "phone": "+91 12345 67890",
+    "aadhar": "**** **** **32",
+    "login": "2hrs ago",
+    "mfa": "Enabled & Registered",
+    "esign": "Enabled",
+    "status": "Expired",
+    "approved": "Harman Cole",
+    "role": ["Vetter A"]
+  },
+  {
+    "id": "5",
+    "name": "John Doe",
+    "gmail": "johndoe@dmail.com",
+    "phone": "+91 12345 67890",
+    "aadhar": "**** **** **32",
+    "login": "2hrs ago",
+    "mfa": "Enabled & Registered",
+    "esign": "Enabled",
+    "status": "Draft",
+    "approved": "Harman Cole",
+    "role": ["Vetter B", "Author", "Translator"]
+  }
+]

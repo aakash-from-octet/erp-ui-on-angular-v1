@@ -1,0 +1,239 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col><h1>Approvals</h1></div>
+  <div nz-col></div>
+</div>
+<div class="container">
+  <nz-tabset [nzTabBarExtraContent]="extraTemplate" class="exam-tab">
+    <nz-tab nzTitle="Exams">
+      <div
+        class="no-data"
+        *ngIf="!hidenodata"
+        (click)="hideNoData()"
+        style="height: calc(100vh - 250px)"
+      >
+        <img src="../../../assets/images/no-data.png" alt="" />
+        <h3>Currently you are not having <br />any approvals</h3>
+        <p>No pending request available currently.</p>
+      </div>
+      <div class="exams-grid" *ngIf="hidenodata">
+        <div class="exam-card-wrap">
+          <div>
+            <h3>JEE Main</h3>
+            <p>
+              <img
+                src="../../../assets/images/pendingIcon.svg"
+                alt=""
+                class="mr-5"
+              />
+
+              <span class="text-yellow">Pending Approval</span>
+              <span class="dot"></span> 2023
+            </p>
+            <button nz-button class="btn-request" (click)="viewRequest()">
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+        <div class="exam-card-wrap">
+          <div>
+            <h3>JEE Main</h3>
+            <p>
+              <img
+                src="../../../assets/images/pendingIcon.svg"
+                alt=""
+                class="mr-5"
+              />
+
+              <span class="text-yellow">Pending Approval</span>
+              <span class="dot"></span> 2023
+            </p>
+            <button nz-button class="btn-request" (click)="viewRequest()">
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+        <div class="exam-card-wrap">
+          <div>
+            <h3>JEE Main</h3>
+            <p>
+              <img
+                src="../../../assets/images/pendingIcon.svg"
+                alt=""
+                class="mr-5"
+              />
+
+              <span class="text-yellow">Pending Approval</span>
+              <span class="dot"></span> 2023
+            </p>
+            <button nz-button class="btn-request" (click)="viewRequest()">
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </nz-tab>
+  </nz-tabset>
+  <ng-template #extraTemplate>
+    <nz-select ngModel="1">
+      <nz-option nzValue="1" nzLabel="Active"></nz-option>
+      <nz-option nzValue="2" nzLabel="Pending"></nz-option>
+    </nz-select>
+    <nz-radio-group
+      [(ngModel)]="radioValue"
+      nzButtonStyle="solid"
+      class="data-style-changer ml-10"
+    >
+      <label nz-radio-button nzValue="A"
+        ><img src="../../assets/images/listIcon.svg" alt=""
+      /></label>
+      <label nz-radio-button nzValue="B"
+        ><img src="../../assets/images/gridIcon.svg" alt=""
+      /></label>
+    </nz-radio-group>
+  </ng-template>
+</div>
+
+<nz-drawer
+  [nzWidth]="'450px'"
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  [nzTitle]="header"
+  (nzOnClose)="closeRequest()"
+>
+  <ng-container *nzDrawerContent>
+    <app-approve-details></app-approve-details>
+  </ng-container>
+  <ng-template #header>
+    <div class="title">
+      <h4>JEE MAINs</h4>
+      <div>
+        <button nz-button class="btn-black">Reject</button>
+        <button
+          nz-button
+          nzType="primary"
+          class="ml-10"
+          (click)="openAadharinfo()"
+        >
+          Approve
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</nz-drawer>
+
+<nz-modal
+  [(nzVisible)]="modal1"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+
+    <button
+      nz-button
+      nzType="primary"
+      (click)="openInputAadhar()"
+      nzSize="large"
+    >
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal2"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20">Aadhaar Number</label>
+    <nz-input-group [nzPrefix]="prefixTemplateMail">
+      <input
+        type="text"
+        nz-input
+        placeholder="e.g. 1234-1235-9856"
+        mask="00 0000 000"
+      />
+      <ng-template #prefixTemplateMail
+        ><img src="../../../assets/images/aadharIcon.svg" alt="" srcset=""
+      /></ng-template>
+    </nz-input-group>
+    <button nz-button nzType="primary" (click)="openAadharOtp()" nzSize="large">
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal3"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20 otp-label">Enter OTP <span>00:58</span></label>
+
+    <ng-otp-input [config]="{ length: 4 }"></ng-otp-input>
+    <p class="resend-wrap">
+      Didn’t receive OTP? <span class="resend-link">Resend</span>
+    </p>
+    <button nz-button nzType="primary" (click)="handleCancel()" nzSize="large">
+      Verify
+    </button>
+  </ng-container>
+</nz-modal>

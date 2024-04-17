@@ -1,0 +1,71 @@
+<nz-table
+  #basicTable
+  [nzData]="dataSet"
+  class="generation-table"
+  [nzShowPagination]="false"
+  nzSize="small"
+>
+  <thead>
+    <tr>
+      <th>Date <span>(Yr. 2023-24)</span></th>
+      <th>Shift 1 <span>(9 AM - 12 PM)</span></th>
+      <th>Shift 2 <span>(12.30 PM - 3.30 PM)</span></th>
+      <th>Shift 3 <span>(4 PM - 7 PM)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>
+        <label nz-checkbox>{{ data.date }}</label>
+      </td>
+      <td nzAlign="center">
+        <label nz-checkbox [(ngModel)]="checkboxEnabled"></label
+        ><nz-divider nzType="vertical" style="margin-right: 0"></nz-divider>
+        <nz-tree-select
+          style="width: 100px; text-align: left"
+          [(ngModel)]="value"
+          [nzNodes]="nodes"
+          [nzShowSearch]="false"
+          nzCheckable
+          nzPlaceHolder="Agency"
+          nzSize="small"
+          [nzMaxTagCount]="0"
+          [disabled]="!checkboxEnabled"
+        ></nz-tree-select>
+      </td>
+      <td nzAlign="center">
+        <label nz-checkbox [(ngModel)]="checkboxEnabled"></label
+        ><nz-divider nzType="vertical" style="margin-right: 0"></nz-divider
+        ><nz-tree-select
+          style="width: 100px; text-align: left"
+          [(ngModel)]="value"
+          [nzNodes]="nodes"
+          [nzShowSearch]="false"
+          nzCheckable
+          nzPlaceHolder="Agency"
+          nzSize="small"
+          [nzMaxTagCount]="0"
+          [disabled]="!checkboxEnabled"
+        ></nz-tree-select>
+      </td>
+      <td nzAlign="center">
+        <label nz-checkbox [(ngModel)]="checkboxEnabled"></label
+        ><nz-divider nzType="vertical" style="margin-right: 0"></nz-divider
+        ><nz-tree-select
+          style="width: 100px; text-align: left"
+          [(ngModel)]="value"
+          [nzNodes]="nodes"
+          [nzShowSearch]="false"
+          nzCheckable
+          nzPlaceHolder="Agency"
+          nzSize="small"
+          [nzMaxTagCount]="0"
+          [disabled]="!checkboxEnabled"
+        ></nz-tree-select>
+      </td>
+    </tr>
+    <tr>
+      <td>+ add details</td>
+    </tr>
+  </tbody>
+</nz-table>

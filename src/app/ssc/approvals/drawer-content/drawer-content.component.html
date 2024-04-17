@@ -1,0 +1,212 @@
+<div *ngIf="activeTab === 'Assessment'">
+  <div class="text-16 fw-500">
+    <img
+      src="../../../../assets/images/examIcon.svg"
+      alt=""
+      srcset=""
+      class="mr-5"
+    />
+    Examination Details
+  </div>
+  <div class="exam-data">
+    <h4><span>Assesments</span><span>:</span><b>JEE MAINS </b></h4>
+    <h4><span>Examination Year</span><span>:</span><b>2023-2024 </b></h4>
+    <h4><span>No. Of Questions</span><span>:</span><b>30 </b></h4>
+    <h4><span>No. Of Sections</span><span>:</span><b>8 </b></h4>
+    <h4><span>Marking Type</span><span>:</span><b>Negative </b></h4>
+    <h4><span>Approval Grade</span><span>:</span><b>Level 1 </b></h4>
+    <h4><span>Duration of Exam</span><span>:</span><b>3hrs </b></h4>
+    <h4><span>Duplicacy Index</span><span>:</span><b>Low </b></h4>
+    <h4><span>Visibility Index</span><span>:</span><b>Standard </b></h4>
+    <h4><span>Grading Type</span><span>:</span><b>Numeric </b></h4>
+    <h4><span>Created On</span><span>:</span><b>24-Mar-2023, 10.00 AM </b></h4>
+  </div>
+</div>
+
+<div *ngIf="activeTab === 'Policies'">
+  <div class="text-16 fw-500">
+    <img
+      src="../../../../assets/images/examIcon.svg"
+      alt=""
+      srcset=""
+      class="mr-5"
+    />
+    Policy Details
+  </div>
+  <div class="exam-data">
+    <h4>
+      <span>Policy Name</span><span>:</span
+      ><b>Creation central server from exam conducting agency </b>
+    </h4>
+    <h4>
+      <span>Agency Event</span><span>:</span><b>Create Central Server </b>
+    </h4>
+    <h4>
+      <span>SSC Admin Event</span><span>:</span><b>Approve Central Server </b>
+    </h4>
+    <h4><span>Policy Type</span><span>:</span><b>System Policy </b></h4>
+    <h4><span>Approval Grade</span><span>:</span><b>2 Level </b></h4>
+    <h4><span>Created On</span><span>:</span><b>24-Mar-23, 10.00 AM </b></h4>
+
+    <h4>
+      <span>Approval Required By</span><span>:</span
+      ><b>Director or Manager AND Assistance Manager </b>
+    </h4>
+  </div>
+</div>
+<div *ngIf="activeTab === 'Exam'">
+  <div class="text-16 fw-500">
+    <img
+      src="../../../../assets/images/examIcon.svg"
+      alt=""
+      srcset=""
+      class="mr-5"
+    />
+    Examination Details
+  </div>
+  <div class="exam-data">
+    <h4><span>Agency Name</span><span>:</span><b>ABC Inc. </b></h4>
+    <h4><span>Exam </span><span>:</span><b>JEE MAINS </b></h4>
+    <h4><span>Examination Year</span><span>:</span><b>2023-2024 </b></h4>
+    <h4>
+      <span>Languages</span><span>:</span
+      ><b
+        >Hindi, English, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati,
+        Kannada, Punjabi, Malayalam, Odia
+      </b>
+    </h4>
+  </div>
+</div>
+
+<div *ngIf="activeTab === 'Exam'">
+  <nz-table
+    #basicTable
+    [nzData]="shiftData"
+    nzSize="small"
+    class="mt-20"
+    [nzShowPagination]="false"
+    [className]="'shift-table'"
+  >
+    <thead>
+      <tr>
+        <th nzWidth="145px">Date <span>(Yr. 2023-24)</span></th>
+        <th>Shift 1<span>(9 AM - 12 PM)</span></th>
+        <th>Shift 2<span>(12.30 PM - 3.30 PM)</span></th>
+        <th>Shift 3<span>(4 PM - 7 PM)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data.slice(0, 5)" class="disabled">
+        <td nzWidth="145px">
+          <span class="fw-500 text-dark"
+            ><label nz-checkbox [(ngModel)]="data.checked">{{
+              data.date
+            }}</label>
+          </span>
+        </td>
+        <td nzAlign="center">
+          <ng-container *ngIf="data.shift1 === 'unchecked'; else checked">
+            <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+          </ng-container>
+          <ng-template #checked>
+            <label nz-checkbox [(ngModel)]="data.shift1"></label>
+          </ng-template>
+        </td>
+        <td nzAlign="center">
+          <ng-container *ngIf="data.shift2 === 'unchecked'; else checked">
+            <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+          </ng-container>
+          <ng-template #checked>
+            <label nz-checkbox [(ngModel)]="data.shift2"></label>
+          </ng-template>
+        </td>
+        <td nzAlign="center">
+          <ng-container *ngIf="data.shift3 === 'unchecked'; else checked">
+            <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+          </ng-container>
+          <ng-template #checked>
+            <label nz-checkbox [(ngModel)]="data.shift3"></label>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<div *ngIf="activeTab === 'Server'">
+  <div class="text-16 fw-500">
+    <img
+      src="../../../../assets/images/examIcon.svg"
+      alt=""
+      srcset=""
+      class="mr-5"
+    />
+    Examination Details
+  </div>
+  <div class="exam-data">
+    <h4><span>Agency Name</span><span>:</span><b>ABC Inc. </b></h4>
+    <h4>
+      <span>Central Server </span><span>:</span><b>www.centralserver.com </b>
+    </h4>
+    <h4>
+      <span>IP Address</span><span>:</span>
+      <div>
+        <p>235.456.894.364 | 235.456.894.364</p>
+        <p>235.456.894.364 | 235.456.894.364</p>
+      </div>
+    </h4>
+    <h4>
+      <span>Documents</span><span>:</span>
+      <div class="download-grid">
+        <a href="/" download="file1556.txt"
+          ><img src="../../../assets/images/download.svg" alt="" />
+          file1556.txt</a
+        >
+        <a href="/" download="file1556.txt"
+          ><img src="../../../assets/images/download.svg" alt="" />
+          file1556.txt</a
+        >
+        <a href="/" download="file1556.txt"
+          ><img src="../../../assets/images/download.svg" alt="" />
+          file1556.txt</a
+        >
+        <a href="/" download="file1556.txt"
+          ><img src="../../../assets/images/download.svg" alt="" />
+          file1556.txt</a
+        >
+      </div>
+    </h4>
+  </div>
+</div>
+<div *ngIf="activeTab !== 'Exam'">
+  <div class="text-16 fw-500 mt-40">
+    <img
+      src="../../../../assets/images/approvalIcon.svg"
+      alt=""
+      srcset=""
+      class="mr-5"
+    />
+    Approval Log
+  </div>
+  <div class="audit-timeline">
+    <div class="default">
+      <h4>refrence for default color</h4>
+      <p>By John Doe</p>
+      <p>24/10/2022, 10:15 PM</p>
+    </div>
+    <div class="green">
+      <h4>Approve from IT</h4>
+      <p>By John Doe</p>
+      <p>24/10/2022, 10:15 PM</p>
+    </div>
+    <div class="yellow">
+      <h4>Waiting for Legal Approval</h4>
+      <p>By John Doe</p>
+      <p>30/10/2022, 10:15 PM</p>
+    </div>
+    <div class="red">
+      <h4>refrence for red circle color</h4>
+      <p>By John Doe</p>
+      <p>30/10/2022, 10:15 PM</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="comment-card">
+  <div class="p-15">
+    <button
+      nz-button
+      nzType="dashed"
+      nzBlock
+      nzSize="small"
+      class="text-blue"
+      (click)="onCommentClick()"
+    >
+      + Add Comment
+    </button>
+    <div *ngIf="showCommentBox" class="relative">
+      <textarea
+        nz-input
+        placeholder="Enter Comment"
+        [nzAutosize]="{ minRows: 5, maxRows: 8 }"
+        (keydown.enter)="submitComment()"
+        class="comment-box"
+      ></textarea>
+      <p class="enter-guide">Press enter to add comment</p>
+    </div>
+  </div>
+  <div class="comment-list-wrap">
+    <div class="comment-list">
+      <span class="comment-number">1</span>
+      <div class="d-flex align-items-center justify-content-between">
+        <h3>John D. Blue</h3>
+        <a nz-dropdown [nzDropdownMenu]="menu1" [nzPlacement]="'bottomRight'">
+          <img src="../../../assets/images/dot-menu.svg" alt="" />
+        </a>
+        <nz-dropdown-menu #menu1="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>
+              <img src="../../../assets/images/edit.svg" alt="" class="mr-10" />
+              Edit
+            </li>
+            <li nz-menu-item>
+              <img
+                src="../../../assets/images/delete.svg"
+                alt=""
+                class="mr-10"
+              />
+              Delete
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </div>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur. Consectetur neque porttitor sem
+        vitae tempor vel porttitor.
+      </p>
+      <nz-space class="sub-text" nzAlign="center">
+        <span>7m ago</span>
+        <span class="dot"></span>
+        <img src="../../../assets/images/public.svg" alt="" class="mr-5" />
+        <span>Public</span>
+      </nz-space>
+    </div>
+    <div class="comment-list">
+      <span class="comment-number">1</span>
+      <div class="d-flex align-items-center justify-content-between">
+        <h3>John D. Blue</h3>
+        <a nz-dropdown [nzDropdownMenu]="menu2" [nzPlacement]="'bottomRight'">
+          <img src="../../../assets/images/dot-menu.svg" alt="" />
+        </a>
+        <nz-dropdown-menu #menu2="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>
+              <img src="../../../assets/images/edit.svg" alt="" class="mr-10" />
+              Edit
+            </li>
+            <li nz-menu-item>
+              <img
+                src="../../../assets/images/delete.svg"
+                alt=""
+                class="mr-10"
+              />
+              Delete
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </div>
+
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <nz-space class="sub-text" nzAlign="center">
+        <span>7m ago</span>
+        <span class="dot"></span>
+        <img src="../../../assets/images/public.svg" alt="" class="mr-5" />
+        <span>Public</span>
+      </nz-space>
+    </div>
+    <div class="comment-list">
+      <span class="comment-number">1</span>
+      <div class="d-flex align-items-center justify-content-between">
+        <h3>John D. Blue</h3>
+        <a nz-dropdown [nzDropdownMenu]="menu3" [nzPlacement]="'bottomRight'">
+          <img src="../../../assets/images/dot-menu.svg" alt="" />
+        </a>
+        <nz-dropdown-menu #menu3="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>
+              <img src="../../../assets/images/edit.svg" alt="" class="mr-10" />
+              Edit
+            </li>
+            <li nz-menu-item>
+              <img
+                src="../../../assets/images/delete.svg"
+                alt=""
+                class="mr-10"
+              />
+              Delete
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </div>
+
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <nz-space class="sub-text" nzAlign="center">
+        <span>7m ago</span>
+        <span class="dot"></span>
+        <img src="../../../assets/images/public.svg" alt="" class="mr-5" />
+        <span>Public</span>
+      </nz-space>
+    </div>
+  </div>
+  <!-- <nz-divider class="m-0"></nz-divider>
+  <input nz-input placeholder="Type your remarks.." type="text" /> -->
+</div>

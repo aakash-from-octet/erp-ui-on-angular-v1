@@ -1,0 +1,175 @@
+<!-- <div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="12">
+    <label class="label">Company Certificate</label>
+
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="false"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label">GSTIN Certificate</label>
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="false"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">ISO Certificates</label>
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="false"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Declarations</label>
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="false"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Bank Guarantees</label>
+    <nz-upload
+      class="upload-logo"
+      nzType="drag"
+      [nzMultiple]="false"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <img src="../../../assets/images/upload.svg" />
+      </p>
+      <p class="ant-upload-text">
+        Drag & Drop
+        <span class="grey-text">or </span>
+        <span class="blue-text-underline">Browse files</span>
+      </p>
+    </nz-upload>
+  </div>
+</div> -->
+
+<div>
+  <div
+    class="upload-screen-1"
+    [ngClass]="{ part1hide: isFileUploaded, part2hide: !isFileUploaded }"
+  >
+    <img src="../../../assets/images/upload.svg" />
+    <p class="mt-10">
+      Drag & Drop lorium ipsume is simplyy dummy text<br />
+      that will go here
+    </p>
+
+    <nz-upload
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      [nzFileListRender]="customFileListTemplate"
+      [nzMultiple]="true"
+      (nzChange)="handleChange()"
+    >
+      <button nz-button nzType="primary" class="mt-20 btn-upload">
+        <span nz-icon nzType="plus"></span>
+        Upload
+      </button>
+    </nz-upload>
+  </div>
+
+  <ng-template #customFileListTemplate let-fileList>
+    <nz-table
+      #basicTable
+      [nzData]="fileList"
+      [nzShowPagination]="false"
+      nzSize="small"
+    >
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of fileList">
+          <img
+            *ngIf="file.url"
+            [src]="file.url"
+            alt="{{ file.name }}"
+            style="max-width: 100%; max-height: 100%"
+          />
+          <ng-container *ngIf="!file.url">
+            <td>
+              <img src="../../../assets/images/fileIcon.svg" alt="" />
+              <span>{{ file.name }}</span>
+            </td>
+
+            <td>
+              <nz-select ngModel="1" class="select-flush">
+                <nz-option
+                  nzValue="1"
+                  nzLabel="Company Certificate"
+                ></nz-option>
+                <nz-option nzValue="2" nzLabel="GSTIN Certificate"></nz-option>
+                <nz-option nzValue="3" nzLabel="ISO Certificates"></nz-option>
+                <nz-option nzValue="4" nzLabel="Declarations"></nz-option>
+                <nz-option nzValue="5" nzLabel="Bank Guarantees"></nz-option>
+              </nz-select>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colSpan="2">
+            <div class="add-more cursor-pointer" (click)="addMore()">
+              + Add More file
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </ng-template>
+</div>

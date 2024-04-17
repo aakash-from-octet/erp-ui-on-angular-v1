@@ -1,0 +1,90 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center">
+    <img
+      src="../../../../assets/images/back-only.svg"
+      alt=""
+      [routerLink]="['/ssc/exams']"
+      class="pe"
+    />
+    <h1 class="ml-10">Assessment Summary</h1>
+  </div>
+
+  <div nz-col>
+    <button nz-button class="btn-black" (click)="showRejectModal()">
+      Reject
+    </button>
+    <button
+      nz-button
+      nzType="primary"
+      class="ml-10"
+      (click)="showApproveModal()"
+    >
+      Approve
+    </button>
+  </div>
+</div>
+<section class="summary-dashboard">
+  <app-row-card></app-row-card>
+  <div nz-row nzGutter="16">
+    <div nz-col nzSpan="8">
+      <app-section1></app-section1>
+      <app-section1></app-section1>
+      <app-section1></app-section1>
+    </div>
+    <div nz-col nzSpan="8">
+      <app-source-card></app-source-card>
+      <app-exclusions></app-exclusions>
+    </div>
+    <div nz-col nzSpan="8">
+      <app-general-instruction></app-general-instruction>
+      <app-sectional-instruction></app-sectional-instruction>
+      <app-dash-audit></app-dash-audit>
+    </div>
+  </div>
+</section>
+<nz-modal
+  [(nzVisible)]="showReject"
+  nzTitle="Rejection Feedback"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzCentered=""
+>
+  <ng-container *nzModalContent>
+    <label class="label">Description</label>
+    <textarea nz-input placeholder="Enter description"></textarea>
+  </ng-container>
+  <div *nzModalFooter>
+    <button
+      nz-button
+      nzType="primary"
+      (click)="handleOk()"
+      nzSize="small"
+      style="min-width: 160px"
+    >
+      Submit
+    </button>
+  </div>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="showApprove"
+  nzTitle="Approval Feedback"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzCentered=""
+>
+  <ng-container *nzModalContent>
+    <label class="label">Description</label>
+    <textarea nz-input placeholder="Enter description"></textarea>
+  </ng-container>
+  <div *nzModalFooter>
+    <button
+      nz-button
+      nzType="primary"
+      (click)="handleOk()"
+      nzSize="small"
+      style="min-width: 160px"
+    >
+      Submit
+    </button>
+  </div>
+</nz-modal>

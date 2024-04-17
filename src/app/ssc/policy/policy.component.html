@@ -1,0 +1,211 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center">
+    <h1>Policies</h1>
+  </div>
+  <div nz-col>
+    <button
+      nz-button
+      nzType="primary"
+      (click)="createPolicy('user-created-policy')"
+      class="d-flex align-items-center"
+    >
+      <span>+ Create Policy</span>
+    </button>
+  </div>
+</div>
+<div class="container mt-20 policy-width">
+  <nz-tabset nzType="card" class="dashboard-tab">
+    <nz-tab
+      [nzTitle]="'System Policy (4)'"
+      (nzClick)="onTabSelect('system-policy')"
+    >
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input
+                  type="text"
+                  nz-input
+                  placeholder="Search"
+                  style="min-width: 420px"
+                />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+            <button nz-button nzSize="small" class="btn-grey">
+              <img src="../../assets/images/filterIcon.svg" alt="" />
+            </button>
+          </nz-space>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="policiesData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+      >
+        <thead>
+          <tr>
+            <th>Policy Name</th>
+            <th>
+              <img src="../../../assets/images/triggerIcon.svg" alt="" />
+              Trigger
+            </th>
+            <th>Status</th>
+            <th>Created by</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let policy of policiesData"
+            [routerLink]="'create-policy'"
+            class="pointer"
+          >
+            <td>{{ policy.policy }}</td>
+            <td>
+              <img
+                src="../../../assets/images/server.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'server'"
+              />
+              <img
+                src="../../../assets/images/page.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'page'"
+              />
+              <img
+                src="../../../assets/images/key.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'key'"
+              />{{ policy.title }}
+            </td>
+            <td>
+              <p
+                class="status"
+                [ngClass]="{
+                  yellow: policy.status === 'Pending',
+                  blue: policy.status === 'Draft',
+                  green: policy.status === 'Active',
+                  red: policy.status === 'Expired'
+                }"
+              >
+                <span class="dot"></span>{{ policy.status }}
+              </p>
+            </td>
+            <td>{{ policy.createdBy }}</td>
+            <td>{{ policy.createdOn }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab
+      [nzTitle]="'User Created Policy (8)'"
+      (nzClick)="onTabSelect('user-created-policy')"
+    >
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input
+                  type="text"
+                  nz-input
+                  placeholder="Search"
+                  style="min-width: 420px"
+                />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+            <button nz-button nzSize="small" class="btn-grey">
+              <img src="../../assets/images/filterIcon.svg" alt="" />
+            </button>
+          </nz-space>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="policiesData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+      >
+        <thead>
+          <tr>
+            <th>Policy Name</th>
+            <th>
+              <img src="../../../assets/images/triggerIcon.svg" alt="" />
+              Trigger
+            </th>
+            <th>Status</th>
+            <th>Created by</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <ng-container *ngFor="let _ of [0, 1]">
+          <tbody>
+            <tr
+              *ngFor="let policy of policiesData"
+              [routerLink]="'create-policy'"
+              class="pointer"
+            >
+              <td>{{ policy.policy }}</td>
+              <td>
+                <img
+                  src="../../../assets/images/server.svg"
+                  alt=""
+                  class="mr-5"
+                  *ngIf="policy.trigger === 'server'"
+                />
+                <img
+                  src="../../../assets/images/page.svg"
+                  alt=""
+                  class="mr-5"
+                  *ngIf="policy.trigger === 'page'"
+                />
+                <img
+                  src="../../../assets/images/key.svg"
+                  alt=""
+                  class="mr-5"
+                  *ngIf="policy.trigger === 'key'"
+                />{{ policy.title }}
+              </td>
+              <td>
+                <p
+                  class="status"
+                  [ngClass]="{
+                    yellow: policy.status === 'Pending',
+                    blue: policy.status === 'Draft',
+                    green: policy.status === 'Active',
+                    red: policy.status === 'Expired'
+                  }"
+                >
+                  <span class="dot"></span>{{ policy.status }}
+                </p>
+              </td>
+              <td>{{ policy.createdBy }}</td>
+              <td>{{ policy.createdOn }}</td>
+            </tr>
+          </tbody>
+        </ng-container>
+      </nz-table>
+    </nz-tab>
+  </nz-tabset>
+</div>

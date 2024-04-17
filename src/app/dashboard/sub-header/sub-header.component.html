@@ -1,0 +1,237 @@
+<div>
+  <div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+    <div nz-col><h1>My Questions</h1></div>
+    <div nz-col>
+      <button
+        nz-button
+        nzType="primary"
+        nzSize="small"
+        (click)="showModal()"
+        *ngIf="userValue === ''"
+      >
+        + New Question
+      </button>
+    </div>
+  </div>
+  <!-- NG-ZORRO Modal -->
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Create New Question"
+    (nzOnOk)="handleOk()"
+    (nzOnCancel)="handleCancel()"
+    ngClass="create-question-modal"
+    nzWidth="1012px"
+  >
+    <div *nzModalContent class="slate-bg">
+      <div class="p-6">
+        <!-- question type div -->
+        <div class="mb-20">
+          <div class="flex-row gap-8">
+            <img
+              nz-image
+              nzDisablePreview="true"
+              width="24px"
+              height="24px"
+              nzSrc="../../../assets/images/question-idea.svg"
+              alt="idea"
+            />
+            <p class="text-16 text-dark font-500">Select Question type</p>
+          </div>
+
+          <!-- question types -->
+          <div nz-row [nzGutter]="[10, 20]" class="pl-32">
+            <!-- question type text only -->
+            <div
+              nz-col
+              class="gutter-row flex"
+              [nzMd]="8"
+              [nzSm]="12"
+              [nzXs]="24"
+            >
+              <div class="inner-box question-type-card">
+                <nz-card
+                  [nzTitle]="titleTpl"
+                  class="question-card"
+                  (click)="selectQuestionType('text')"
+                  [class.selectedQtype]="questionType === 'text'"
+                >
+                  <img
+                    nz-image
+                    nzDisablePreview="true"
+                    nzSrc="../../../assets/images/question-textonly.svg"
+                    alt="text-only"
+                    class="w-full"
+                  />
+                </nz-card>
+                <ng-template #titleTpl>
+                  <p class="text-15 text-gray-800 mb-2">Text Only</p>
+                  <p class="text-13 text-gray mb-0 whitespace-normal">
+                    Enter the text input for question options.
+                  </p>
+                </ng-template>
+              </div>
+            </div>
+            <!-- question type text-image  -->
+            <div
+              nz-col
+              class="gutter-row flex"
+              [nzMd]="8"
+              [nzSm]="12"
+              [nzXs]="24"
+            >
+              <div class="inner-box question-type-card">
+                <nz-card
+                  [nzTitle]="titleTpl2"
+                  class="question-card"
+                  (click)="selectQuestionType('textImage')"
+                  [class.selectedQtype]="questionType === 'textImage'"
+                >
+                  <img
+                    nz-image
+                    nzDisablePreview="true"
+                    nzSrc="../../../assets/images/question-textimage.svg"
+                    alt="text-image"
+                    class="w-full"
+                  />
+                </nz-card>
+                <ng-template #titleTpl2>
+                  <p class="text-15 text-gray-800 mb-2">Text-Image</p>
+                  <p class="text-13 text-gray mb-0 whitespace-normal">
+                    Create questions with Image options.
+                  </p>
+                </ng-template>
+              </div>
+            </div>
+            <!-- question type text-image-text  -->
+            <div
+              nz-col
+              class="gutter-row flex"
+              [nzMd]="8"
+              [nzSm]="12"
+              [nzXs]="24"
+            >
+              <div class="inner-box question-type-card">
+                <nz-card
+                  [nzTitle]="titleTpl3"
+                  class="question-card"
+                  (click)="selectQuestionType('textImageText')"
+                  [class.selectedQtype]="questionType === 'textImageText'"
+                >
+                  <img
+                    nz-image
+                    nzDisablePreview="true"
+                    nzSrc="../../../assets/images/question-textimagetext.svg"
+                    alt="text-image-text"
+                    class="w-full"
+                  />
+                </nz-card>
+                <ng-template #titleTpl3>
+                  <p class="text-15 text-gray-800 mb-2">Text-Image-Text</p>
+                  <p class="text-13 text-gray mb-0 whitespace-normal">
+                    Create questions with text image text format.
+                  </p>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- question topic and subtopic -->
+        <div>
+          <div class="flex-row gap-8">
+            <img
+              nz-image
+              nzDisablePreview="true"
+              width="24px"
+              height="24px"
+              nzSrc="../../../assets/images/question-idea.svg"
+              alt="idea"
+            />
+            <p class="text-16 text-dark font-500">Subject & Topic</p>
+          </div>
+          <!-- question subject, topic and subtopic -->
+          <div nz-row [nzGutter]="[10, 20]" class="pl-32">
+            <!-- question subject -->
+            <div nz-col class="gutter-row" [nzMd]="8" [nzSm]="12" [nzXs]="24">
+              <img
+                src="../../../assets/images/question-subject-img.svg"
+                class="select-subject-icon"
+                alt="subject"
+              />
+              <div class="inner-box h-full">
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Select Subject"
+                  [(ngModel)]="selectedValue"
+                  (ngModelChange)="onSubjectSelected($event)"
+                  class="w-full h-full question-meta"
+                >
+                  <nz-option nzLabel="Physics" nzValue="physics"></nz-option>
+                  <nz-option
+                    nzLabel="Chemistry"
+                    nzValue="chemistry"
+                  ></nz-option>
+                  <nz-option nzLabel="Maths" nzValue="maths"></nz-option>
+                </nz-select>
+              </div>
+            </div>
+
+            <!-- question topic -->
+            <div nz-col class="gutter-row" [nzMd]="8" [nzSm]="12" [nzXs]="24">
+              <div class="inner-box">
+                <nz-input-group
+                  [nzPrefix]="prefixTemplateUser2"
+                  class="question-meta"
+                >
+                  <input
+                    type="text"
+                    nz-input
+                    placeholder="Enter Topic"
+                    [(ngModel)]="topicInput"
+                  />
+                </nz-input-group>
+                <ng-template #prefixTemplateUser2
+                  ><img src="../../../assets/images/question-topic-img.svg"
+                /></ng-template>
+              </div>
+            </div>
+
+            <!-- question subtopic -->
+            <div nz-col class="gutter-row" [nzMd]="8" [nzSm]="12" [nzXs]="24">
+              <div class="inner-box">
+                <nz-input-group
+                  [nzPrefix]="prefixTemplateUser3"
+                  class="question-meta"
+                >
+                  <input
+                    type="text"
+                    nz-input
+                    placeholder="Enter Subtopic"
+                    [(ngModel)]="subtopicInput"
+                  />
+                </nz-input-group>
+                <ng-template #prefixTemplateUser3
+                  ><img src="../../../assets/images/question-subtopic-img.svg"
+                /></ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *nzModalFooter>
+      <button
+        nz-button
+        nzType="primary"
+        [disabled]="
+          !questionType || !topicInput || !subtopicInput || !selectedValue
+        "
+        (click)="handleOk()"
+        nzSize="small"
+      >
+        Proceed <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+      </button>
+    </div>
+  </nz-modal>
+</div>

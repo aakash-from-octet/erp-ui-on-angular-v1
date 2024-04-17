@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "date": "10 - March - 2023",
+    "checked": "checked",
+    "shift1": "checked",
+    "shift2": "checked",
+    "shift3": "checked",
+    "closed": true
+  },
+  {
+    "id": "2",
+    "date": "16 - March - 2023",
+    "checked": "checked",
+    "shift1": "checked",
+    "shift2": "unchecked",
+    "shift3": "checked",
+    "closed": true
+  },
+  {
+    "id": "3",
+    "date": "26 - March - 2023",
+    "checked": "checked",
+    "shift1": "checked",
+    "shift2": "checked",
+    "shift3": "checked",
+    "closed": true
+  },
+  {
+    "id": "4",
+    "date": "29 - March - 2023",
+    "checked": "checked",
+    "shift1": "unchecked",
+    "shift2": "checked",
+    "shift3": "unchecked",
+    "closed": true
+  },
+  {
+    "id": "5",
+    "date": "02 - April - 2023",
+    "checked": "checked",
+    "shift1": "checked",
+    "shift2": "checked",
+    "shift3": "checked",
+    "closed": true
+  },
+  {
+    "id": "6",
+    "date": "10 - April - 2023"
+  },
+  {
+    "id": "7",
+    "date": "16 - April - 2023"
+  },
+  {
+    "id": "8",
+    "date": "20 - April - 2023"
+  },
+  {
+    "id": "9",
+    "date": "22 - April - 2023"
+  },
+  {
+    "id": "10",
+    "date": "24 - April - 2023"
+  }
+]

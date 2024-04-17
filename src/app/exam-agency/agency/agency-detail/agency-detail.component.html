@@ -1,0 +1,184 @@
+<div class="bg-dark pb-30">
+  <div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+    <div nz-col><h1>ABC Inc.</h1></div>
+    <div nz-col></div>
+  </div>
+  <div class="container">
+    <div class="agency-header-detail">
+      <img src="../../../../assets/images/company-logo.svg" alt="" />
+      <div>
+        <h3>JEE Main <span class="tag green">New Request</span></h3>
+        <p>abc@Apex.com</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Vitae interdum diam dolor
+          turpis amet tincidunt
+        </p>
+      </div>
+    </div>
+    <nz-tabset [nzTabBarExtraContent]="extraTemplate" class="filled-header-tab">
+      <nz-tab nzTitle="User">
+        <nz-table
+          #basicTable
+          [nzData]="data"
+          nzSize="small"
+          class="user-table"
+          [nzShowPagination]="false"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Adhaar</th>
+              <th>Last Login</th>
+              <th>MFA</th>
+              <th>E-Sign</th>
+              <th>Status</th>
+              <th>Approved By</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td>
+                <div class="profile-wrap">
+                  <img src="../../../../assets/images/ph-profiile.svg" alt="" />
+                  <div>
+                    <h3>{{ data.name }}</h3>
+                    <h4>{{ data.gmail }}</h4>
+                    <ul class="role-tag-list">
+                      <li
+                        *ngFor="let role of data.role; let i = index"
+                        [ngClass]="{
+                          blue: role === 'Author',
+                          green: role === 'Translator',
+                          yellow: role.includes('Vetter'),
+                          red: role === 'Evaluator',
+                          orange: role === 'Translator Evaluator',
+                        }"
+                      >
+                        {{ role }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+              <td>{{ data.phone }}</td>
+              <td>{{ data.aadhar }}</td>
+              <td>{{ data.login }}</td>
+              <td><nz-switch nzSize="small" [ngModel]="true"></nz-switch></td>
+              <td><nz-switch nzSize="small" [ngModel]="true"></nz-switch></td>
+              <td>
+                <p
+                  class="status"
+                  [ngClass]="{
+                    yellow: data.status === 'Pending',
+                    blue: data.status === 'Draft',
+                    green: data.status === 'Active',
+                    red: data.status === 'Expired'
+                  }"
+                >
+                  <span class="dot"></span>{{ data.status }}
+                </p>
+              </td>
+              <td>
+                <span [class.disabled]="data.approved === 'Approval Pending'">{{
+                  data.approved
+                }}</span>
+              </td>
+              <td>
+                <a nz-dropdown [nzDropdownMenu]="menu">
+                  <img src="../../../../assets/images/dot-menu-v.svg" alt=""
+                /></a>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li nz-menu-item>Change To Pending</li>
+                    <li nz-menu-item>Change To Active</li>
+                    <li nz-menu-item>Change To Deactive</li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </nz-tab>
+      <nz-tab nzTitle="Open Request"> </nz-tab>
+      <nz-tab nzTitle="Details">
+        <div nz-row [nzGutter]="16">
+          <div nz-col nzSpan="12">
+            <div class="title-2">
+              <img src="../../../../assets/images/detailsIcon.svg" alt="" />
+              <h3>Details</h3>
+            </div>
+            <div class="exam-detail-card">
+              <h4><span>Examination</span><span>:</span><b>JEE MAINs </b></h4>
+              <h4>
+                <span>Examination Year</span><span>:</span><b>2023-24 </b>
+              </h4>
+              <h4>
+                <span>Language</span><span>:</span
+                ><b
+                  >Hindi, English, Bengali, Telugu, Marathi, Tamil, Urdu,
+                  Gujarati, Kannada, Punjabi, Malayalam, Odia
+                </b>
+              </h4>
+            </div>
+            <div class="title-2 mt-40">
+              <img src="../../../../assets/images/detailsIcon.svg" alt="" />
+              <h3>Examination Details</h3>
+            </div>
+            <div class="exam-detail-card">
+              <h4><span>Examination</span><span>:</span><b>JEE MAINs </b></h4>
+              <h4>
+                <span>Examination Year</span><span>:</span><b>2023-24 </b>
+              </h4>
+              <h4>
+                <span>Language</span><span>:</span
+                ><b
+                  >Hindi, English, Bengali, Telugu, Marathi, Tamil, Urdu,
+                  Gujarati, Kannada, Punjabi, Malayalam, Odia
+                </b>
+              </h4>
+            </div>
+          </div>
+
+          <div nz-col nzSpan="12" class="divider-left">
+            <div class="title-2">
+              <img src="../../../../assets/images/detailsIcon.svg" alt="" />
+              <h3>Documents</h3>
+            </div>
+
+            <nz-table
+              #basicTable
+              [nzData]="fileData"
+              [nzShowPagination]="false"
+              nzSize="small"
+              class="mt-20"
+            >
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of basicTable.data">
+                  <td>
+                    <img src="../../../assets/images/fileIcon.svg" alt="" />
+                    <span>File Name.pdf</span>
+                  </td>
+                  <td>Company Certificate</td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </div>
+      </nz-tab>
+    </nz-tabset>
+    <ng-template #extraTemplate>
+      <nz-select ngModel="1">
+        <nz-option nzValue="1" nzLabel="Active"></nz-option>
+        <nz-option nzValue="2" nzLabel="Pending"></nz-option>
+      </nz-select>
+    </ng-template>
+  </div>
+</div>

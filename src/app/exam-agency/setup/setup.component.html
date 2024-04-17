@@ -1,0 +1,210 @@
+<section class="setup-wrap">
+  <div class="text-center">
+    <p>Agency</p>
+    <img src="../../../assets/images/agency.svg" alt="" />
+  </div>
+  <div class="connection-wrap">
+    <span class="start-dot"></span>
+    <span class="end-dot"></span>
+    <img
+      src="../../../assets/images/frame1.png"
+      alt=""
+      class="frame frame1"
+      [style.filter]="frame1color ? 'grayscale(0)' : 'grayscale(1)'"
+    />
+    <img src="../../../assets/images/frame2.png" alt="" class="frame frame2" />
+    <img src="../../../assets/images/frame3.png" alt="" class="frame frame3" />
+    <img src="../../../assets/images/frame4.png" alt="" class="frame frame4" />
+    <p class="connection-status">
+      Currently No connections has been established
+    </p>
+    <div class="pending-wrap top">
+      Pending
+      <span
+        nz-icon
+        nzType="info-circle"
+        nzTheme="outline"
+        nz-popover
+        [nzPopoverContent]="contentTemplate"
+        nzPopoverPlacement="bottom"
+      ></span>
+      <ng-template #contentTemplate>
+        <div class="status-grid">
+          <div>
+            <p>Agency Name</p>
+            <span>:</span>
+            <div>
+              <p>ABC Inc.</p>
+            </div>
+          </div>
+          <div>
+            <p>Central Server</p>
+            <span>:</span>
+            <div><p>www.centralserver.com</p></div>
+          </div>
+          <div>
+            <p>Agency Name</p>
+            <span>:</span>
+            <div>
+              <p>235.456.894.364 | 235.456.894.364</p>
+              <p>235.456.894.364 | 235.456.894.364</p>
+            </div>
+          </div>
+          <div>
+            <p>Agency Name</p>
+            <span>:</span>
+            <div>
+              <p>
+                Lorem Ipsum is a dummy text which can be replace later by
+                original content
+              </p>
+            </div>
+          </div>
+          <div>
+            <p>Documents</p>
+            <span>:</span>
+            <div class="download-grid">
+              <a href="/" download="file1556.txt"
+                ><img src="../../../assets/images/download.svg" alt="" />
+                file1556.txt</a
+              >
+              <a href="/" download="file1556.txt"
+                ><img src="../../../assets/images/download.svg" alt="" />
+                file1556.txt</a
+              >
+              <a href="/" download="file1556.txt"
+                ><img src="../../../assets/images/download.svg" alt="" />
+                file1556.txt</a
+              >
+              <a href="/" download="file1556.txt"
+                ><img src="../../../assets/images/download.svg" alt="" />
+                file1556.txt</a
+              >
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="approve-wrap bottom">
+      Approved
+      <span
+        nz-icon
+        nzType="info-circle"
+        nzTheme="outline"
+        nz-popover
+        [nzPopoverContent]="contentTemplate"
+        nzPopoverPlacement="bottom"
+      ></span>
+    </div>
+    <span class="server1">Server 1</span>
+    <span class="server2">Server 2</span>
+  </div>
+  <div>
+    <p>SSC Admin</p>
+    <img src="../../../assets/images/sscadmin.svg" alt="" />
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <button
+          nz-button
+          nzType="primary"
+          class="btn-add-server"
+          (click)="openAddServer()"
+        >
+          <span nz-icon nzType="plus" nzTheme="outline"></span> Add Server
+        </button>
+        <div class="add-server-dropdown" *ngIf="isAddServer">
+          <div class="custom-dropdown-header">
+            <h3>Add Server</h3>
+            <span>+ Add IP Address</span>
+          </div>
+          <div nz-row [nzGutter]="[20, 20]" class="p-20">
+            <div nz-col nzSpan="12">
+              <label class="label">Central Server</label>
+              <nz-input-group [nzPrefix]="prefixTemplate1">
+                <input type="text" nz-input [(ngModel)]="centralServer" />
+              </nz-input-group>
+              <ng-template #prefixTemplate1
+                ><img src="../../../assets/images/linkIcon.svg" alt=""
+              /></ng-template>
+            </div>
+            <div nz-col nzSpan="12">
+              <label class="label">Name</label>
+              <nz-input-group [nzPrefix]="prefixTemplate2">
+                <input type="text" nz-input [(ngModel)]="name" />
+              </nz-input-group>
+              <ng-template #prefixTemplate2
+                ><img src="../../../assets/images/nameIcon.svg" alt=""
+              /></ng-template>
+            </div>
+            <div nz-col nzSpan="12">
+              <label class="label">IP Address 1</label>
+              <nz-input-group [nzPrefix]="prefixTemplate3">
+                <input type="text" nz-input [(ngModel)]="ip" />
+              </nz-input-group>
+              <ng-template #prefixTemplate3
+                ><img src="../../../assets/images/ipIcon.svg" alt=""
+              /></ng-template>
+            </div>
+            <div nz-col nzSpan="12">
+              <label class="label">IP Address 2</label>
+              <nz-input-group [nzPrefix]="prefixTemplate4">
+                <input type="text" nz-input [(ngModel)]="ip" />
+              </nz-input-group>
+              <ng-template #prefixTemplate4
+                ><img src="../../../assets/images/ipIcon.svg" alt=""
+              /></ng-template>
+            </div>
+
+            <div nz-col nzSpan="12">
+              <label class="label">Upload Logo</label>
+              <nz-upload
+                class="upload-logo"
+                nzType="drag"
+                [nzMultiple]="true"
+                nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                (nzChange)="handleChange($event)"
+              >
+                <p class="ant-upload-drag-icon">
+                  <img src="../../../assets/images/upload.svg" />
+                </p>
+                <p class="ant-upload-text">
+                  Drag & Drop
+                  <span class="grey-text">or </span>
+                  <span class="blue-text-underline">Browse files</span>
+                </p>
+              </nz-upload>
+            </div>
+            <div nz-col nzSpan="12">
+              <label class="label">Description</label>
+              <textarea rows="6" nz-input [(ngModel)]="description"></textarea>
+            </div>
+            <div nz-col nzSpan="24">
+              <button
+                nz-button
+                nzType="default"
+                nzSize="large"
+                (click)="closeAddServer()"
+              >
+                Cancel
+              </button>
+              <button
+                nz-button
+                nzType="primary"
+                nzSize="large"
+                class="ml-15"
+                (click)="submitAddServer()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

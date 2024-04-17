@@ -1,0 +1,101 @@
+<div class="d-flex align-items-center gap-20 mb-20 overview-tab">
+  <h3 class="mb-0">Creation central server from exam conducting agency</h3><span class="status yellow">
+    <span class="dot"></span>Pending
+  </span>
+</div>
+<div nz-row class="mb-30">
+  <div nz-col nzSpan="14">
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Diam vel mattis nulla pharetra elementum maecenas quis arcu volutpat. Et
+      velit blandit odio est pretium id purus. Mauris magna.
+    </p>
+  </div>
+</div>
+
+<section class="policy-overview-block">
+  <div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="12">
+      <div class="overview-header">
+        <h4>Conditions</h4>
+      </div>
+      <div class="overview-grid">
+        <div>
+          <h6>Content Agency</h6>
+          <span>:</span>
+          <ul class="content-agency-checkboxes btnCheckbox">
+            <li *ngFor="let data of checkOptionsOne">
+              <label nz-checkbox [nzChecked]="data.checked"><img src="{{ data.imageUrl }}" alt="" srcset="" />
+                {{ data.label }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <div>
+          <h6>Examination Agency</h6>
+          <span>:</span>
+          <ul class="content-agency-checkboxes btnCheckbox">
+            <li *ngFor="let data of checkOptionsTwo">
+              <label nz-checkbox [nzChecked]="data.checked"><img src="{{ data.imageUrl }}" alt="" srcset="" />
+                {{ data.label }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <div>
+          <h6>SSC Admin</h6>
+          <span>:</span>
+          <ul class="content-agency-checkboxes btnCheckbox">
+            <li *ngFor="let data of checkOptionsThree">
+              <label nz-checkbox [nzChecked]="data.checked"><img src="{{ data.imageUrl }}" alt="" srcset="" />
+                {{ data.label }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="mb-15">Additional Conditions</h3>
+      <div class="overview-grid w-90">
+        <div>
+          <h6>Without</h6>
+          <span>:</span>
+          <ul>
+            <li class="list-item d-flex"><span class="list-icon"></span><span>Lorem Ipsum</span></li>
+            <li class="list-item d-flex"><span class="list-icon"></span><span>Lorem Ipsum</span></li>
+            <li class="list-item d-flex"><span class="list-icon"></span><span>Lorem Ipsum</span></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div nz-col nzSpan="12">
+      <div class="overview-header">
+        <h4>Approval Workflow</h4>
+      </div>
+      <div class="grid-2 box-styling bg-white p-10 mb-10 d-flex align-items-center justify-content-between w-80">        
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+            Manager
+            <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+
+          </li>
+          <li class="author-card text-12 text-shade-blue">
+           Assistant Manager
+            <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+          </li>          
+        </ul>
+        <div class="step-workflow"><span>Step 1/2</span></div>
+      </div>
+      <div class="grid-2 box-styling bg-white p-10 d-flex align-items-center justify-content-between w-80">        
+        <ul class="author-list">
+          <li class="author-card text-12 text-shade-blue">
+            Director
+            <img src="../../../../../assets/images/grey-close-icon.svg" alt="" />
+          </li>                  
+        </ul>
+        <div class="step-workflow"><span>Step 2/2</span></div>
+      </div>
+    </div>
+  </div>
+</section>

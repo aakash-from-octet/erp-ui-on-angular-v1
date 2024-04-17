@@ -1,0 +1,30 @@
+.table-search {
+  width: 420px;
+}
+.data-style-changer {
+  background: #f3f5f7;
+  border-radius: 4px;
+  label {
+    border-radius: 4px;
+    background: #f3f5f7;
+    border: 1px solid #f3f5f7;
+    &.ant-radio-button-wrapper-checked {
+      border-radius: 4px;
+      border: 1px solid #e7eaf0;
+      background: #fff;
+    }
+    &:before {
+      content: none;
+    }
+
+    &:hover {
+      background: #f3f5f7;
+    }
+    &:focus-within {
+      box-shadow: none;
+    }
+    &.ant-radio-button-wrapper {
+      padding: 0 8px;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.summary-card {
+  border-radius: 8px;
+  border: 1px solid #ced5dd;
+  background: #fafdff;
+  padding: 50px 30px 30px 30px;
+  position: relative;
+  width: 100%;
+
+  .title {
+    color: #323c47;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.24px;
+    margin-bottom: 0;
+  }
+  .grey-tag {
+    color: #323c47;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    border-radius: 68px;
+    border: 1px solid #ced5dd;
+    background: #fbfcfc;
+    padding: 6px 12px;
+  }
+  .blue-tag {
+    color: #0074d6;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    border-radius: 68px;
+    border: 1px solid #d6ecff;
+    background: #eff8ff;
+    padding: 6px 12px;
+  }
+}
+.summary-card-type-2 {
+  border-radius: 8px;
+  border: 1px solid #ced5dd;
+  background: #fff;
+  padding: 20px;
+  min-height: 194px;
+  h4 {
+    color: #323c47;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    margin-bottom: 0;
+  }
+
+  h6 {
+    color: #5c6f83;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    margin-bottom: 0;
+  }
+  h5 {
+    color: #323c47;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}
+.legend-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+    color: #5c6f83;
+    display: inline-block;
+    margin-right: 9px;
+    b {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12px;
+      color: #323c47;
+    }
+    .legend-square {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background: #8079ff;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+  }
+}
+.chart-div {
+  margin-top: -20px;
+}

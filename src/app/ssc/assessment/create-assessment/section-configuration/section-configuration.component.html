@@ -1,0 +1,38 @@
+<div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="12">
+    <label class="label">Section Source</label>
+
+    <nz-select nzSize="large" class="w-100" nzPlaceHolder="Choose a source">
+      <nz-option nzValue="1" nzLabel="Source 1"></nz-option>
+      <nz-option nzValue="2" nzLabel="Source 2"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="6">
+    <label class="label mt-20">Max. Limit Per Question</label>
+    <nz-input-group [nzPrefix]="prefixTemplateQuestion">
+      <input type="text" nz-input placeholder="Enter a number" />
+    </nz-input-group>
+    <ng-template #prefixTemplateQuestion
+      ><img src="../../../assets/images/questionIcon.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="6">
+    <label class="label mt-20">Max. Unique Set</label>
+    <input type="text" nz-input [ngModel]="'1'" />
+  </div>
+</div>
+<div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Question Order</label>
+
+    <label nz-checkbox [(ngModel)]="checked1" class="mt-10"
+      >Shuffle Questions Within Section</label
+    >
+    <br />
+    <label nz-checkbox [(ngModel)]="checked2" class="mt-10"
+      >Shuffle Answers</label
+    >
+  </div>
+</div>

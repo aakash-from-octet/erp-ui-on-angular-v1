@@ -1,0 +1,479 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col><h1>Approvals</h1></div>
+  <div nz-col></div>
+</div>
+<div class="container">
+  <nz-tabset
+    [nzTabBarExtraContent]="extraTemplate"
+    class="exam-tab"
+    [nzSelectedIndex]="0"
+    (nzSelectChange)="onTabChange($event)"
+  >
+    <nz-tab nzTitle="Assessment">
+      <div class="exams-grid" *ngIf="radioValue === 'B'">
+        <div class="exam-card-wrap" *ngFor="let assessment of assessmentData">
+          <div>
+            <h3>{{ assessment.title }}</h3>
+            <p>
+              <span class="text-yellow">{{ assessment.status }}</span>
+              <span class="dot"></span> {{ assessment.hr }}
+            </p>
+            <div>
+              Examination Year: {{ assessment.examinationYear }}
+              <nz-divider nzType="vertical"></nz-divider> Duration:
+              {{ assessment.duration }}
+              <nz-divider nzType="vertical"></nz-divider> No. of Questions:
+              {{ assessment.questions }}
+              <nz-divider nzType="vertical"></nz-divider> Created On:
+              {{ assessment.createdOn }}
+            </div>
+            <button
+              nz-button
+              nzBlock
+              class="btn-request"
+              (click)="viewRequest()"
+            >
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="assessmentData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+        *ngIf="radioValue === 'A'"
+      >
+        <thead>
+          <tr>
+            <th>Examination Name</th>
+            <th>Examination Year</th>
+            <th>Duration</th>
+            <th>Status</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let assessment of assessmentData">
+            <td>{{ assessment.title }}</td>
+            <td>{{ assessment.examinationYear }}</td>
+            <td>{{ assessment.duration }}</td>
+            <td>
+              <p
+                class="status"
+                [ngClass]="{
+                  yellow: assessment.status === 'Pending',
+                  blue: assessment.status === 'Draft',
+                  green: assessment.status === 'Active',
+                  red: assessment.status === 'Expired'
+                }"
+              >
+                <span class="dot"></span>{{ assessment.status }}
+              </p>
+            </td>
+            <td>{{ assessment.createdOn }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Policies">
+      <div class="exams-grid" *ngIf="radioValue === 'B'">
+        <div class="exam-card-wrap" *ngFor="let policy of policiesData">
+          <div>
+            <h3>{{ policy.title }}</h3>
+            <p>
+              <span class="text-yellow">{{ policy.status }}</span>
+              <span class="dot"></span> {{ policy.hr }}
+            </p>
+            <div>
+              Policy: {{ policy.policy }}
+              <nz-divider nzType="vertical"></nz-divider> Approval Grade:
+              {{ policy.approvalGrade }}
+              <nz-divider nzType="vertical"></nz-divider> Created On:
+              {{ policy.createdOn }}
+            </div>
+            <button
+              nz-button
+              nzBlock
+              class="btn-request"
+              (click)="viewRequest()"
+            >
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="policiesData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+        *ngIf="radioValue === 'A'"
+      >
+        <thead>
+          <tr>
+            <th>Policy Name</th>
+            <th>
+              <img src="../../../assets/images/triggerIcon.svg" alt="" />
+              Trigger
+            </th>
+            <th>Status</th>
+            <th>Created by</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let policy of policiesData">
+            <td>{{ policy.policy }}</td>
+            <td>
+              <img
+                src="../../../assets/images/server.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'server'"
+              />
+              <img
+                src="../../../assets/images/page.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'page'"
+              />
+              <img
+                src="../../../assets/images/key.svg"
+                alt=""
+                class="mr-5"
+                *ngIf="policy.trigger === 'key'"
+              />{{ policy.title }}
+            </td>
+            <td>
+              <p
+                class="status"
+                [ngClass]="{
+                  yellow: policy.status === 'Pending',
+                  blue: policy.status === 'Draft',
+                  green: policy.status === 'Active',
+                  red: policy.status === 'Expired'
+                }"
+              >
+                <span class="dot"></span>{{ policy.status }}
+              </p>
+            </td>
+            <td>{{ policy.createdBy }}</td>
+            <td>{{ policy.createdOn }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Exam">
+      <div class="exams-grid" *ngIf="radioValue === 'B'">
+        <div class="exam-card-wrap" *ngFor="let exam of examsData">
+          <div>
+            <h3>{{ exam.title }}</h3>
+            <p>
+              <span class="text-yellow">{{ exam.status }}</span>
+              <span class="dot"></span> {{ exam.hr }}
+            </p>
+            <div>
+              Agency Name: {{ exam.agencyName }}
+              <nz-divider nzType="vertical"></nz-divider> Examination Year:
+              {{ exam.examinationYear }}
+              <nz-divider nzType="vertical"></nz-divider> Languages:
+              {{ exam.languages }}
+            </div>
+            <button
+              nz-button
+              nzBlock
+              class="btn-request"
+              (click)="viewRequest()"
+            >
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="examsData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+        *ngIf="radioValue === 'A'"
+      >
+        <thead>
+          <tr>
+            <th>Agency Name</th>
+            <th>Examination Name</th>
+            <th>Examination Year</th>
+            <th>Status</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exam of examsData">
+            <td>{{ exam.agencyName }}</td>
+            <td>
+              {{ exam.title }}
+            </td>
+            <td>
+              {{ exam.examinationYear }}
+            </td>
+            <td>
+              <p
+                class="status"
+                [ngClass]="{
+                  yellow: exam.status === 'Pending',
+                  blue: exam.status === 'Draft',
+                  green: exam.status === 'Active',
+                  red: exam.status === 'Expired'
+                }"
+              >
+                <span class="dot"></span>{{ exam.status }}
+              </p>
+            </td>
+
+            <td>{{ exam.createdOn }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Server">
+      <div class="exams-grid" *ngIf="radioValue === 'B'">
+        <div class="exam-card-wrap" *ngFor="let server of serverData">
+          <div>
+            <h3>{{ server.title }}</h3>
+            <p>
+              <span class="text-yellow">{{ server.status }}</span>
+              <span class="dot"></span> {{ server.hr }}
+            </p>
+            <div>
+              Central Server: {{ server.centralServer }}
+              <nz-divider nzType="vertical"></nz-divider> IP Address:
+              <span class="text-ellipsis">{{ server.ipAddress }}</span>
+            </div>
+            <button
+              nz-button
+              nzBlock
+              class="btn-request"
+              (click)="viewRequest()"
+            >
+              View Request
+            </button>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <nz-table
+        #basicTable
+        [nzData]="serverData"
+        [nzShowPagination]="false"
+        nzSize="small"
+        class="user-table"
+        *ngIf="radioValue === 'A'"
+      >
+        <thead>
+          <tr>
+            <th>Agency Name</th>
+            <th>Central Server</th>
+            <th>No. of IP Address</th>
+            <th>Status</th>
+            <th>Created On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let server of serverData">
+            <td>{{ server.title }}</td>
+            <td>
+              {{ server.centralServer }}
+            </td>
+            <td>
+              {{ server.ipAddress.length }}
+            </td>
+            <td>
+              <p
+                class="status"
+                [ngClass]="{
+                  yellow: server.status === 'Pending',
+                  blue: server.status === 'Draft',
+                  green: server.status === 'Active',
+                  red: server.status === 'Expired'
+                }"
+              >
+                <span class="dot"></span>{{ server.status }}
+              </p>
+            </td>
+
+            <td>{{ server.createdOn }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+  </nz-tabset>
+  <ng-template #extraTemplate>
+    <nz-select ngModel="1">
+      <nz-option nzValue="1" nzLabel="Active"></nz-option>
+      <nz-option nzValue="2" nzLabel="Pending"></nz-option>
+    </nz-select>
+    <nz-radio-group
+      [(ngModel)]="radioValue"
+      nzButtonStyle="solid"
+      class="data-style-changer ml-10"
+    >
+      <label nz-radio-button nzValue="A"
+        ><img src="../../assets/images/listIcon.svg" alt=""
+      /></label>
+      <label nz-radio-button nzValue="B"
+        ><img src="../../assets/images/gridIcon.svg" alt=""
+      /></label>
+    </nz-radio-group>
+  </ng-template>
+</div>
+
+<nz-drawer
+  [nzWidth]="'450px'"
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  [nzTitle]="header"
+  (nzOnClose)="closeRequest()"
+>
+  <ng-container *nzDrawerContent>
+    <app-drawer-content></app-drawer-content>
+  </ng-container>
+  <ng-template #header>
+    <div class="title">
+      <h4>JEE MAINs</h4>
+      <div>
+        <button nz-button class="btn-black">Reject</button>
+        <button
+          nz-button
+          nzType="primary"
+          class="ml-10"
+          (click)="openAadharinfo()"
+        >
+          Approve
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</nz-drawer>
+
+<nz-modal
+  [(nzVisible)]="modal1"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+
+    <button
+      nz-button
+      nzType="primary"
+      (click)="openInputAadhar()"
+      nzSize="large"
+    >
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal2"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20">Aadhaar Number</label>
+    <nz-input-group [nzPrefix]="prefixTemplateMail">
+      <input
+        type="text"
+        nz-input
+        placeholder="e.g. 1234-1235-9856"
+        mask="00 0000 000"
+      />
+      <ng-template #prefixTemplateMail
+        ><img src="../../../assets/images/aadharIcon.svg" alt="" srcset=""
+      /></ng-template>
+    </nz-input-group>
+    <button nz-button nzType="primary" (click)="openAadharOtp()" nzSize="large">
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal3"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20 otp-label">Enter OTP <span>00:58</span></label>
+
+    <ng-otp-input [config]="{ length: 4 }"></ng-otp-input>
+    <p class="resend-wrap">
+      Didn’t receive OTP? <span class="resend-link">Resend</span>
+    </p>
+    <button nz-button nzType="primary" (click)="handleCancel()" nzSize="large">
+      Verify
+    </button>
+  </ng-container>
+</nz-modal>

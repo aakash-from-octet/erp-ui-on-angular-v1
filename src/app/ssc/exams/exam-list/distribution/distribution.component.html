@@ -1,0 +1,246 @@
+<section>
+  <nz-card>
+    <div class="p-20">
+      <div
+        nz-row
+        nzAlign="middle"
+        nzJustify="center"
+        nzJustify="space-between"
+        class="w-100"
+      >
+        <div nz-col>
+          <h3 class="mb-0">Selected exam allotted to below agencies :</h3>
+        </div>
+        <div nz-col>
+          <img
+            src="../../../../../assets/images/filterFilledIcon.svg"
+            alt=""
+            srcset=""
+          />
+        </div>
+      </div>
+      <ul class="btnGreenCheckbox mt-15">
+        <li *ngFor="let data of checkOptionsOne">
+          <label nz-checkbox>
+            {{ data.label }}
+            <img src="../../../../../assets/images/checked-green.svg" alt=""
+          /></label>
+        </li>
+      </ul>
+    </div>
+    <nz-table
+      #nestedTable
+      [nzData]="listOfParentData"
+      nzShowPagination="false"
+      nzSize="small"
+    >
+      <thead>
+        <tr>
+          <th>Date <span>(Yr. 2023-24)</span></th>
+          <th>
+            <label nz-checkbox>Shift 1 <span>(9 AM - 12 PM)</span></label>
+          </th>
+          <th>
+            <label nz-checkbox>Shift 2<span>(12.30 PM - 3.30 PM)</span></label>
+          </th>
+          <th>
+            <label nz-checkbox>Shift 3<span>(4 PM - 7 PM)</span></label>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+          <tr>
+            <td width="26%">
+              <label nz-checkbox>{{ data.date }}</label>
+            </td>
+            <td width="20%">
+              <nz-select
+                [(ngModel)]="selectedValue"
+                nzBorderless
+                nzSize="small"
+                [ngClass]="selectedColor(selectedValue)"
+              >
+                <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                <nz-option
+                  nzValue="2"
+                  nzLabel="Pending Distribution"
+                ></nz-option>
+                <nz-option
+                  nzValue="3"
+                  nzLabel="Uploaded Successfully"
+                ></nz-option>
+                <nz-option nzValue="4" nzLabel="Uploaded Failed"></nz-option>
+                <nz-option
+                  nzValue="5"
+                  nzLabel="Series ID: 123548448"
+                ></nz-option>
+                <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+              </nz-select>
+            </td>
+            <td width="20%">
+              <nz-select
+                [(ngModel)]="selectedValue"
+                nzBorderless
+                nzSize="small"
+                [ngClass]="selectedColor(selectedValue)"
+              >
+                <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                <nz-option
+                  nzValue="2"
+                  nzLabel="Pending Distribution"
+                ></nz-option>
+                <nz-option
+                  nzValue="3"
+                  nzLabel="Uploaded Successfully"
+                ></nz-option>
+                <nz-option nzValue="4" nzLabel="Uploaded Failed"></nz-option>
+                <nz-option
+                  nzValue="5"
+                  nzLabel="Series ID: 123548448"
+                ></nz-option>
+                <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+              </nz-select>
+            </td>
+            <td width="20%">
+              <nz-select
+                [(ngModel)]="selectedValue"
+                nzBorderless
+                nzSize="small"
+                [ngClass]="selectedColor(selectedValue)"
+              >
+                <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                <nz-option
+                  nzValue="2"
+                  nzLabel="Pending Distribution"
+                ></nz-option>
+                <nz-option
+                  nzValue="3"
+                  nzLabel="Uploaded Successfully"
+                ></nz-option>
+                <nz-option nzValue="4" nzLabel="Uploaded Failed"></nz-option>
+                <nz-option
+                  nzValue="5"
+                  nzLabel="Series ID: 123548448"
+                ></nz-option>
+                <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+              </nz-select>
+            </td>
+            <td [(nzExpand)]="data.expand"></td>
+          </tr>
+
+          <tr [nzExpand]="data.expand">
+            <nz-table
+              #innerTable
+              [nzData]="listOfChildrenData"
+              nzShowPagination="false"
+              nzSize="small"
+            >
+              <thead>
+                <tr></tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of innerTable.data">
+                  <td width="30%">
+                    <div nz-space nzAlign="center">
+                      <img
+                        src="../../../../../assets/images/tcs.svg"
+                        alt=""
+                        width="25px"
+                        *nzSpaceItem
+                      />
+                      <span *nzSpaceItem>{{ data.companyName }}</span>
+                    </div>
+                  </td>
+                  <td width="20%">
+                    <nz-select
+                      [(ngModel)]="selectedValue"
+                      nzBorderless
+                      nzSize="small"
+                      [ngClass]="selectedColor(selectedValue)"
+                    >
+                      <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                      <nz-option
+                        nzValue="2"
+                        nzLabel="Pending Distribution"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="3"
+                        nzLabel="Uploaded Successfully"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="4"
+                        nzLabel="Uploaded Failed"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="5"
+                        nzLabel="Series ID: 123548448"
+                      ></nz-option>
+                      <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+                    </nz-select>
+                  </td>
+                  <td width="20%">
+                    <nz-select
+                      [(ngModel)]="selectedValue"
+                      nzBorderless
+                      nzSize="small"
+                      [ngClass]="selectedColor(selectedValue)"
+                    >
+                      <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                      <nz-option
+                        nzValue="2"
+                        nzLabel="Pending Distribution"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="3"
+                        nzLabel="Uploaded Successfully"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="4"
+                        nzLabel="Uploaded Failed"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="5"
+                        nzLabel="Series ID: 123548448"
+                      ></nz-option>
+                      <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+                    </nz-select>
+                  </td>
+                  <td width="20%">
+                    <nz-select
+                      [(ngModel)]="selectedValue"
+                      nzBorderless
+                      nzSize="small"
+                      [ngClass]="selectedColor(selectedValue)"
+                    >
+                      <nz-option nzValue="1" nzLabel="Schedule"></nz-option>
+                      <nz-option
+                        nzValue="2"
+                        nzLabel="Pending Distribution"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="3"
+                        nzLabel="Uploaded Successfully"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="4"
+                        nzLabel="Uploaded Failed"
+                      ></nz-option>
+                      <nz-option
+                        nzValue="5"
+                        nzLabel="Series ID: 123548448"
+                      ></nz-option>
+                      <nz-option nzValue="6" nzLabel="Cancelled"></nz-option>
+                    </nz-select>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </tr>
+        </ng-template>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</section>

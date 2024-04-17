@@ -1,0 +1,302 @@
+[
+  {
+    "id": "1",
+    "examName": "JEE Main",
+    "status": "Pending Approval",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "examName": "GATE Exam",
+    "status": "Approved",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "examName": "JEE Main",
+    "status": "Pending Approval",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "examName": "JEE Main",
+    "status": "Pending Approval",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Approved",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Approved",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "examName": "CAT Exam",
+    "status": "Pending Approval",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Approved",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "examName": "GATE Exam",
+    "status": "Approved",
+    "year": "2023",
+    "shiftDetail": [
+      {
+        "id": "1",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "2",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "3",
+        "date": "10-Mar-2023",
+        "shift1": "Approved",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "4",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "5",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      },
+      {
+        "id": "6",
+        "date": "10-Mar-2023",
+        "shift1": "Pending approval",
+        "shift2": "Pending approval",
+        "shift3": "Pending approval"
+      }
+    ]
+  }
+]

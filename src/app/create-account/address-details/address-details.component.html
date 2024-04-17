@@ -1,0 +1,47 @@
+<div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="12">
+        <label class="label">Pincode</label>
+        <nz-input-group [nzPrefix]="prefixTemplatePincode">
+            <input type="text" nz-input placeholder="e.g. 311557" />
+        </nz-input-group>
+        <ng-template #prefixTemplatePincode><span nz-icon nzType="home"></span></ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+        <label class="label">State</label>
+        <nz-input-group [nzPrefix]="prefixTemplateState">
+            <input type="text" nz-input placeholder="Enter State" />
+        </nz-input-group>
+        <ng-template #prefixTemplateState><img src="../../../assets/images/house.svg" /></ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+        <label class="label mt-20">District</label>
+        <nz-input-group [nzPrefix]="prefixTemplateDistrict">
+            <input type="text" nz-input placeholder="Enter District" />
+        </nz-input-group>
+        <ng-template #prefixTemplateDistrict><img src="../../../assets/images/stamp.svg" /></ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+        <label class="label mt-20">City</label>
+        <nz-input-group [nzPrefix]="prefixTemplateCity">
+            <input type="text" nz-input placeholder="Enter City" />
+        </nz-input-group>
+        <ng-template #prefixTemplateCity><img src="../../../assets/images/city.svg" /></ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+        <label class="label mt-20">Address Line 1</label>
+        <nz-input-group>
+            <textarea rows="4" class="textbox-border" nz-input placeholder="Enter address line 1 "></textarea>
+        </nz-input-group>
+        <ng-template #prefixTemplateAddr1><img src="../../../assets/images/location.svg" /></ng-template>
+
+    </div>
+
+
+    <div nz-col nzSpan="12">
+        <label class="label mt-20">Address Line 2</label>
+        <nz-input-group>
+            <textarea rows="4" class="textbox-border" nz-input placeholder="Enter address line 2 "></textarea>
+        </nz-input-group>
+        <ng-template #prefixTemplateAddr2><img src="../../../assets/images/location.svg" /></ng-template>
+    </div>
+</div>

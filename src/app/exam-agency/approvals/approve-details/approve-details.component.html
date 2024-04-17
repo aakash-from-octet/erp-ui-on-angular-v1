@@ -1,0 +1,91 @@
+<div class="text-16 fw-500">
+  <img
+    src="../../../../assets/images/examIcon.svg"
+    alt=""
+    srcset=""
+    class="mr-5"
+  />
+  Examination Details
+</div>
+<div class="exam-data">
+  <h4><span>Assesments</span><span>:</span><b>JEE MAINS </b></h4>
+  <h4><span>Examination Year</span><span>:</span><b>2023-2024 </b></h4>
+  <h4>
+    <span>Languages</span><span>:</span
+    ><b
+      >Hindi, English, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada,
+      Punjabi, Malayalam, Odia
+    </b>
+  </h4>
+</div>
+<nz-table
+  #basicTable
+  [nzData]="shiftData"
+  nzSize="small"
+  class="mt-20"
+  [nzShowPagination]="false"
+  [className]="'shift-table'"
+>
+  <thead>
+    <tr>
+      <th nzWidth="145px">Date <span>(Yr. 2023-24)</span></th>
+      <th>Shift 1<span>(9 AM - 12 PM)</span></th>
+      <th>Shift 2<span>(12.30 PM - 3.30 PM)</span></th>
+      <th>Shift 3<span>(4 PM - 7 PM)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data.slice(0, 5)">
+      <td nzWidth="145px">
+        <span class="fw-500 text-dark"
+          ><label nz-checkbox [(ngModel)]="data.checked">{{ data.date }}</label>
+        </span>
+      </td>
+      <td nzAlign="center">
+        <ng-container *ngIf="data.shift1 === 'unchecked'; else checked">
+          <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+        </ng-container>
+        <ng-template #checked>
+          <label nz-checkbox [(ngModel)]="data.shift1"></label>
+        </ng-template>
+      </td>
+      <td nzAlign="center">
+        <ng-container *ngIf="data.shift2 === 'unchecked'; else checked">
+          <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+        </ng-container>
+        <ng-template #checked>
+          <label nz-checkbox [(ngModel)]="data.shift2"></label>
+        </ng-template>
+      </td>
+      <td nzAlign="center">
+        <ng-container *ngIf="data.shift3 === 'unchecked'; else checked">
+          <img src="../../../../assets/images/checkbox-cross.svg" alt="" />
+        </ng-container>
+        <ng-template #checked>
+          <label nz-checkbox [(ngModel)]="data.shift3"></label>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<div class="text-16 fw-500 mt-40">
+  <img
+    src="../../../../assets/images/approvalIcon.svg"
+    alt=""
+    srcset=""
+    class="mr-5"
+  />
+  Approval Log
+</div>
+<div class="audit-timeline">
+  <div>
+    <h4>Approve from IT</h4>
+    <p>By John Doe</p>
+    <p>24/10/2022, 10:15 PM</p>
+  </div>
+  <div>
+    <h4>Waiting for Legal Approval</h4>
+    <p>By John Doe</p>
+    <p>30/10/2022, 10:15 PM</p>
+  </div>
+</div>

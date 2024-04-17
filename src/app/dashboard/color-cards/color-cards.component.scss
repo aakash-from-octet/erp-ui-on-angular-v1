@@ -1,0 +1,56 @@
+.dash-color-cards {
+  padding: 16px;
+  border-radius: 6px;
+  &.blue {
+    border: 1px solid rgba(63, 112, 246, 0.3);
+    background: #e8f5fe;
+    h3 {
+      color: #3f70f6;
+    }
+  }
+  &.purple {
+    border: 1px solid rgba(93, 76, 180, 0.3);
+    background: #f6f3fe;
+    h3 {
+      color: #5d4bb4;
+    }
+  }
+  &.green {
+    border: 1px solid rgba(78, 139, 86, 0.3);
+    background: #e6f5ea;
+    h3 {
+      color: #579761;
+    }
+  }
+  &.orange {
+    border: 1px solid rgba(236, 98, 62, 0.3);
+    background: #fcf1ea;
+    h3 {
+      color: #ec623e;
+    }
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 0;
+    ~ img {
+      margin-left: 8px;
+    }
+  }
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.14px;
+  }
+  p {
+    color: #323c47;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.14px;
+    margin-bottom: 0;
+  }
+}

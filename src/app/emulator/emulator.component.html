@@ -1,0 +1,94 @@
+<app-emulator-header></app-emulator-header>
+<div class="container mt-20 mb-20">
+  <div nz-row [nzGutter]="[40]">
+    <div nz-col nzSpan="12">
+      <div class="sticky">
+        <h3>Welcome to Emulator</h3>
+        <h6>Lorem ih6sum is a dummy text</h6>
+        <div nz-row [nzGutter]="[20, 20]">
+          <div nz-col nzSpan="12">
+            <div class="widget active">
+              <img src="../../assets/images/upload.svg" alt="" />
+              <p>Drag and drop widgets here</p>
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <div class="widget">
+              <img src="../../assets/images/upload.svg" alt="" />
+              <p>Drag and drop widgets here</p>
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <div class="widget">
+              <img src="../../assets/images/upload.svg" alt="" />
+              <p>Drag and drop widgets here</p>
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <div class="widget">
+              <img src="../../assets/images/upload.svg" alt="" />
+              <p>Drag and drop widgets here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div class="card">
+        <h3>List of exams</h3>
+        <h6>Lorem ipsum is a dummy text</h6>
+        <nz-table
+          #basicTable
+          [nzData]="examsData"
+          [nzShowPagination]="false"
+          nzSize="small"
+          class="user-table"
+        >
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Total Questions</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <ng-container *ngFor="let _ of [0, 1, 2]">
+            <tbody>
+              <tr *ngFor="let exam of examsData" (click)="showModal()">
+                <td>{{ exam.id }}</td>
+                <td>{{ exam.name }}</td>
+                <td>{{ exam.type }}</td>
+                <td>{{ exam.question }}</td>
+                <td>{{ exam.remark }}</td>
+              </tr>
+            </tbody>
+          </ng-container>
+        </nz-table>
+      </div>
+    </div>
+  </div>
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Open Emulator"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzCentered=""
+  [nzFooter]="modalFooter"
+>
+  <ng-container *nzModalContent>
+    <label class="label">Key</label>
+    <input
+      [inputMask]="keyInputMask"
+      [formControl]="keyFC"
+      placeholder="********   -   ********   -  ********"
+      class="ant-input"
+    />
+  </ng-container>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="handleOk()">
+      Open Emulator
+    </button>
+  </ng-template>
+</nz-modal>

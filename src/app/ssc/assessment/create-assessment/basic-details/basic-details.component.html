@@ -1,0 +1,66 @@
+<div nz-row [nzGutter]="20">
+  <div nz-col nzSpan="12">
+    <label class="label">Exam Name</label>
+    <nz-input-group [nzPrefix]="prefixTemplateExamName">
+      <input type="text" nz-input [ngModel]="'JEE MAINs'" />
+    </nz-input-group>
+    <ng-template #prefixTemplateExamName
+      ><img src="../../../assets/images/examNameIcon.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label">Exam Year</label>
+
+    <nz-select ngModel="1" nzSize="large" class="w-100">
+      <nz-option nzValue="1" nzLabel="2023-24"></nz-option>
+      <nz-option nzValue="2" nzLabel="2024-25"></nz-option>
+    </nz-select>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Number of Questions</label>
+    <nz-input-group [nzPrefix]="prefixTemplateQuestion">
+      <input type="text" nz-input [ngModel]="'30'" />
+    </nz-input-group>
+    <ng-template #prefixTemplateQuestion
+      ><img src="../../../assets/images/questionIcon.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Number of Sections</label>
+    <nz-input-group [nzPrefix]="prefixTemplateQuestion">
+      <input type="text" nz-input [ngModel]="'8'" />
+    </nz-input-group>
+    <ng-template #prefixTemplateQuestion
+      ><img src="../../../assets/images/questionIcon.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Marking Type</label>
+
+    <nz-select ngModel="1" nzSize="large" class="w-100">
+      <nz-option nzValue="1" nzLabel="Negative"></nz-option>
+      <nz-option nzValue="2" nzLabel="Positive"></nz-option>
+    </nz-select>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Duration of Exam (Hr.)</label>
+    <nz-input-group [nzPrefix]="prefixTemplateClock">
+      <input type="text" nz-input [ngModel]="'6'" />
+    </nz-input-group>
+    <ng-template #prefixTemplateClock
+      ><img src="../../../assets/images/clockIcon.svg"
+    /></ng-template>
+  </div>
+  <div nz-col nzSpan="12">
+    <label class="label mt-20">Question Navigation</label>
+
+    <nz-select
+      nzSize="large"
+      class="w-100"
+      nzPlaceHolder="Choose a navigation type"
+    >
+      <nz-option nzValue="1" nzLabel="Type 1"></nz-option>
+      <nz-option nzValue="2" nzLabel="Type 2"></nz-option>
+    </nz-select>
+  </div>
+</div>

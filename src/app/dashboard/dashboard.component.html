@@ -1,0 +1,134 @@
+<app-header></app-header>
+<app-sub-header></app-sub-header>
+<div class="container">
+  <app-color-cards></app-color-cards>
+
+  <nz-tabset nzType="card" class="dashboard-tab">
+    <nz-tab
+      [nzTitle]="'In Process (4)'"
+      *ngIf="userValue === '' || userValue === 't1' || userValue === 'v1'"
+    >
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input type="text" nz-input placeholder="Search" />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+            <button nz-button nzSize="small" class="btn-grey">
+              <img src="../../assets/images/filterIcon.svg" alt="" />
+            </button>
+          </nz-space>
+        </div>
+        <div nz-col>
+          <nz-radio-group
+            [(ngModel)]="radioValue"
+            nzButtonStyle="solid"
+            class="data-style-changer"
+          >
+            <label nz-radio-button nzValue="A"
+              ><img src="../../assets/images/listIcon.svg" alt=""
+            /></label>
+            <label nz-radio-button nzValue="B"
+              ><img src="../../assets/images/gridIcon.svg" alt=""
+            /></label>
+          </nz-radio-group>
+        </div>
+      </div>
+      <app-question-list *ngIf="radioValue === 'A'"></app-question-list>
+      <app-question-grid *ngIf="radioValue === 'B'"></app-question-grid
+    ></nz-tab>
+    <nz-tab
+      [nzTitle]="'Reverted Question (4)'"
+      *ngIf="userValue === '' || userValue === 't1'"
+    >
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input type="text" nz-input placeholder="Search" />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+            <button nz-button nzSize="small" class="btn-grey">
+              <img src="../../assets/images/filterIcon.svg" alt="" />
+            </button>
+          </nz-space>
+        </div>
+        <div nz-col>
+          <nz-radio-group
+            [(ngModel)]="radioValue"
+            nzButtonStyle="solid"
+            class="data-style-changer"
+          >
+            <label nz-radio-button nzValue="A"
+              ><img src="../../assets/images/listIcon.svg" alt=""
+            /></label>
+            <label nz-radio-button nzValue="B"
+              ><img src="../../assets/images/gridIcon.svg" alt=""
+            /></label>
+          </nz-radio-group>
+        </div>
+      </div>
+      <app-reverted-list *ngIf="radioValue === 'A'"></app-reverted-list>
+      <app-reverted-grid *ngIf="radioValue === 'B'"></app-reverted-grid>
+    </nz-tab>
+    <nz-tab
+      [nzTitle]="'In Review (4)'"
+      *ngIf="userValue === 'e1' || userValue === 'te1'"
+    >
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input type="text" nz-input placeholder="Search" />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+            <button nz-button nzSize="small" class="btn-grey">
+              <img src="../../assets/images/filterIcon.svg" alt="" />
+            </button>
+          </nz-space>
+        </div>
+        <div nz-col>
+          <nz-radio-group
+            [(ngModel)]="radioValue"
+            nzButtonStyle="solid"
+            class="data-style-changer"
+          >
+            <label nz-radio-button nzValue="A"
+              ><img src="../../assets/images/listIcon.svg" alt=""
+            /></label>
+            <label nz-radio-button nzValue="B"
+              ><img src="../../assets/images/gridIcon.svg" alt=""
+            /></label>
+          </nz-radio-group>
+        </div>
+      </div>
+      <app-review-list *ngIf="radioValue === 'A'"></app-review-list>
+      <app-review-grid *ngIf="radioValue === 'B'"></app-review-grid>
+    </nz-tab>
+  </nz-tabset>
+</div>

@@ -1,0 +1,323 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center" nzSpan="8">
+    <img
+      src=".././../../assets/images/back-only.svg"
+      alt=""
+      [routerLink]="['/emulator']"
+    />
+    <h1>Emulator</h1>
+  </div>
+  <div nz-col></div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="tool-wrap mt-20">
+      <div class="tool-ele" (click)="move('prev')">
+        <img src="../../../assets/images/prev.svg" alt="" />
+      </div>
+      <div
+        *ngFor="let item of toolData; let i = index"
+        class="tool-ele"
+        [ngClass]="{
+          active: i === currentIndex,
+          success: item.status === 'success',
+          warning: item.status === 'warning',
+          reject: item.status === 'reject'
+        }"
+        (click)="makeActive(i)"
+      >
+        <span>{{ i + 1 }}</span>
+        <img
+          src="../../../assets/images/reject.svg"
+          alt=""
+          *ngIf="item.status === 'reject'"
+        /><img
+          src="../../../assets/images/success.svg"
+          alt=""
+          *ngIf="item.status === 'success'"
+        /><img
+          src="../../../assets/images/warning.svg"
+          alt=""
+          *ngIf="item.status === 'warning'"
+        />
+      </div>
+      <div class="tool-ele" (click)="move('next')">
+        <img src="../../../assets/images/next.svg" alt="" />
+      </div>
+    </div>
+
+    <div class="card mt-50">
+      <div class="question-list">
+        <nz-space
+          ><div *nzSpaceItem class="title-number">Q{{ currentIndex + 1 }}</div>
+          <div *nzSpaceItem class="title">
+            Question{{ currentIndex + 1 }}
+          </div></nz-space
+        >
+        <div class="question-content">
+          <p>
+            Read the given statements and conclusions carefully. Assuming that
+            the information given in the statements is true, even if it appears
+            to be at variance with commonly known facts, decide which of the
+            given conclusions logically follow(s) from the statements.
+            Statements: I. All cards are boxes. II. All boxes are torches. III.
+            All torches are shoes. Conclusions: I. All shoes are torches. II.
+            All torches are boxes. III. All boxes are cards.
+          </p>
+          <br />
+          <p>Statements:</p>
+          <ol style="list-style-type: upper-roman">
+            <li>All cards are boxes.</li>
+            <li>All boxes are torches.</li>
+            <li>All torches are shoes.</li>
+          </ol>
+          <br />
+          <p>Conclusions:</p>
+          <ol style="list-style-type: upper-roman">
+            <li>All shoes are torches.</li>
+            <li>All torches are boxes.</li>
+            <li>All boxes are cards.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="answer-list mt-20">
+        <!-- list answers 1-->
+
+        <div nz-row>
+          <div nz-col nzSpan="24">
+            <div class="answer-text-list">
+              <div class="answer-text-list-item">
+                A. Only conclusion IV follows
+              </div>
+              <div class="answer-text-list-item">
+                B. Only conclusions II and III follow
+              </div>
+              <div class="answer-text-list-item">
+                C. Only conclusions I and II follow
+              </div>
+              <div class="answer-text-list-item">
+                D. Only conclusion III follows
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="radio-card-list mt-20">
+      <nz-radio-group [(ngModel)]="radioValue" nzButtonStyle="solid">
+        <label nz-radio nzValue="A">Approve</label>
+        <label nz-radio nzValue="B">Reject</label>
+        <label nz-radio nzValue="C">Other Options</label>
+        <label nz-radio nzValue="D">Other Options</label>
+        <label nz-radio nzValue="E">Other Options</label>
+      </nz-radio-group>
+    </div>
+    <div class="card mt-20 p-0">
+      <div nz-row [nzGutter]="[20]">
+        <div nz-col nzSpan="8" class="border-right">
+          <div class="padding-inner">
+            <h3>Text</h3>
+            <p class="sub-text">Lorem ipsum is a dummy text</p>
+          </div>
+        </div>
+        <div nz-col nzSpan="16">
+          <div class="padding-inner">
+            <div nz-row [nzGutter]="[20, 20]">
+              <div nz-col nzSpan="12">
+                <label class="label">Lorem Ipsum</label>
+                <input nz-input placeholder="Lorem Ipsum" type="number" />
+              </div>
+              <div nz-col nzSpan="12">
+                <label class="label">Lorem Ipsum</label>
+                <input nz-input placeholder="Lorem Ipsum" type="number" />
+              </div>
+              <div nz-col nzSpan="12">
+                <label class="label">Lorem Ipsum</label>
+                <input nz-input placeholder="Lorem Ipsum" type="number" />
+              </div>
+              <div nz-col nzSpan="12">
+                <label class="label">Lorem Ipsum</label>
+                <input nz-input placeholder="Lorem Ipsum" type="number" />
+              </div>
+              <div nz-col nzSpan="24">
+                <label class="label">Lorem Ipsum</label>
+                <input nz-input placeholder="Lorem Ipsum" type="number" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  nz-row
+  nzJustify="space-between"
+  nzAlign="middle"
+  class="p-15 bg-white border-top footer-sticky"
+>
+  <div nz-col></div>
+  <div nz-col class="d-flex align-items-center">
+    <button nz-button>Cancel</button>
+    <button nz-button nzType="primary" class="ml-15" (click)="showSummary()">
+      Save
+    </button>
+  </div>
+</div>
+<nz-modal
+  [(nzVisible)]="summaryVisible"
+  nzTitle="Summary"
+  nzCentered
+  (nzOnCancel)="summaryhide()"
+  nzFooter="nzModalFooter"
+>
+  <ng-container *nzModalContent>
+    <h3 class="mb-0">Summary View</h3>
+    <p class="sub-text">
+      Here’s a summary of the 5 total questions you have audited
+    </p>
+    <div class="tool-summary-list">
+      <div class="tool-summary-card rejected">
+        <div class="d-flex align-items-center">
+          <img src="../../../assets/images/reject.svg" alt="" /><span
+            >Rejected</span
+          >
+        </div>
+
+        <span class="number">1</span>
+      </div>
+      <div class="tool-summary-card success">
+        <div class="d-flex align-items-center">
+          <img src="../../../assets/images/success.svg" alt="" /><span
+            >Approved</span
+          >
+        </div>
+
+        <span class="number">3</span>
+      </div>
+      <div class="tool-summary-card warning">
+        <div class="d-flex align-items-center">
+          <img src="../../../assets/images/warning.svg" alt="" /><span
+            >Other</span
+          >
+        </div>
+
+        <span class="number">1</span>
+      </div>
+    </div>
+    <label class="label">Remarks</label>
+    <textarea nz-input placeholder="Enter description"></textarea>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <button nz-button nzType="primary" (click)="openAadharinfo()">
+      Submit
+    </button>
+  </ng-container>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="modal1"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+
+    <button
+      nz-button
+      nzType="primary"
+      (click)="openInputAadhar()"
+      nzSize="large"
+    >
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal2"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20">Aadhaar Number</label>
+    <nz-input-group [nzPrefix]="prefixTemplateMail">
+      <input
+        type="text"
+        nz-input
+        placeholder="e.g. 1234-1235-9856"
+        mask="00 0000 000"
+      />
+      <ng-template #prefixTemplateMail
+        ><img src="../../../assets/images/aadharIcon.svg" alt="" srcset=""
+      /></ng-template>
+    </nz-input-group>
+    <button nz-button nzType="primary" (click)="openAadharOtp()" nzSize="large">
+      Next
+    </button>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modal3"
+  nzTitle=""
+  (nzOnCancel)="handleCancel()"
+  nzCentered
+  [nzFooter]="null"
+  nzClassName="esign-modal"
+>
+  <ng-container *nzModalContent>
+    <h3>
+      <img src="../../../assets/images/aadharIcon.svg" alt="" srcset="" />
+      Verify Using E-signing
+    </h3>
+    <p>
+      To submit the following request user needs to e-sign using Aadhar number
+      XXXX XXXX 7895
+    </p>
+    <img
+      src="../../../assets/images/ph-aadhar.png"
+      alt=""
+      srcset=""
+      style="max-width: 330px"
+      class="mt-20"
+    />
+    <label class="label mt-20 otp-label">Enter OTP <span>00:58</span></label>
+
+    <ng-otp-input [config]="{ length: 4 }"></ng-otp-input>
+    <p class="resend-wrap">
+      Didn’t receive OTP? <span class="resend-link">Resend</span>
+    </p>
+    <button nz-button nzType="primary" (click)="handleCancel()" nzSize="large">
+      Verify
+    </button>
+  </ng-container>
+</nz-modal>

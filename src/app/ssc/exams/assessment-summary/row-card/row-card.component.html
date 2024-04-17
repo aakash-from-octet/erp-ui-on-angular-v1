@@ -1,0 +1,132 @@
+<div nz-row>
+  <div nz-col nzSpan="24">
+    <div class="summary-card">
+      <a
+        nz-dropdown
+        [nzDropdownMenu]="menu"
+        class="approval-tag-wrap"
+        nzOverlayClassName="approval-tag-content"
+      >
+        <span class="approval-tag">Pending Approval</span>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>Action 1</li>
+          <li nz-menu-item>Action 2</li>
+          <li nz-menu-item>Action 3</li>
+        </ul>
+      </nz-dropdown-menu>
+      <div nz-row nzJustify="space-between">
+        <div nz-col>
+          <div nz-space nzAlign="center">
+            <img
+              src="../../../../../assets/images/docIcon.svg"
+              alt=""
+              *nzSpaceItem
+            />
+            <h2 class="title" *nzSpaceItem>CGL</h2>
+            <span class="grey-tag" *nzSpaceItem>2025</span>
+          </div>
+        </div>
+        <div nz-col>
+          <div nz-space nzAlign="center">
+            <span class="grey-tag" *nzSpaceItem>Lorem Ipsum</span
+            ><span class="blue-tag" *nzSpaceItem>MCQ</span>
+          </div>
+        </div>
+      </div>
+      <div nz-row nzGutter="20" class="mt-20">
+        <div nz-col nzSpan="6">
+          <div class="summary-card-type-2">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h6>Active</h6>
+                <h5>4,209</h5>
+              </div>
+              <div class="chart-div">
+                <google-chart [data]="chartData"></google-chart>
+              </div>
+            </div>
+            <ul class="legend-list">
+              <li>
+                <span class="legend-square" style="background: #8079ff"></span
+                ><b>62%</b> High
+              </li>
+              <li>
+                <span class="legend-square" style="background: #f6c454"></span
+                ><b>13%</b> Medium
+              </li>
+              <li>
+                <span class="legend-square" style="background: #f0835d"></span
+                ><b>23%</b> Low
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div class="summary-card-type-2">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h6>Active</h6>
+                <h5>4,209</h5>
+              </div>
+              <div class="chart-div">
+                <google-chart [data]="subjectData"></google-chart>
+              </div>
+            </div>
+            <ul class="legend-list">
+              <li>
+                <span class="legend-square" style="background: #8079ff"></span
+                >Math
+              </li>
+              <li>
+                <span class="legend-square" style="background: #f6c454"></span
+                >Quant
+              </li>
+              <li>
+                <span class="legend-square" style="background: #f0835d"></span
+                >Analytics
+              </li>
+              <li>
+                <span class="legend-square" style="background: #4daaf8"></span
+                >GK
+              </li>
+              <li>
+                <span class="legend-square" style="background: #4d7df8"></span
+                >Analytics
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div class="summary-card-type-2">
+            <h4>Question Bank Volume</h4>
+            <h6 class="mt-15">Shifts Planned</h6>
+            <h5>28</h5>
+            <h6 class="mt-15">Question Volume</h6>
+            <h5>2160</h5>
+          </div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div class="summary-card-type-2">
+            <h4>Assessment Complexity</h4>
+            <div
+              class="d-flex align-items-center justify-content-between mt-15"
+            >
+              <div>
+                <h6>Above Average</h6>
+                <h5>2.5 Hours</h5>
+              </div>
+              <div>
+                <h6>Average</h6>
+                <h5>3.5 Hours</h5>
+              </div>
+            </div>
+            <h6 class="mt-15">Below Average</h6>
+            <h5>5 Hours</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

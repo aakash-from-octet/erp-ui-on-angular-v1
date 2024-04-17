@@ -1,0 +1,57 @@
+<nz-space [nzSize]="8">
+  <img src="../../assets/images/complexityIcon.svg" alt="" *nzSpaceItem />
+  <h3 *nzSpaceItem>Complexity</h3>
+</nz-space>
+
+<!-- Container for dynamically added selects -->
+<div
+  *ngFor="let pair of gradeLevelPairs; let i = index"
+  class="complexity-wrap"
+>
+  <div class="mt-15 w-100 complexity-wrap-list">
+    <div>
+      <nz-select
+        class="grade-select"
+        [(ngModel)]="pair.grade"
+        nzAllowClear
+        nzPlaceHolder="+ Choose Grade"
+        (ngModelChange)="onGradeSelectChange(pair)"
+      >
+        <nz-option nzValue="X" nzLabel="X"></nz-option>
+        <nz-option nzValue="XII" nzLabel="XII"></nz-option>
+        <nz-option nzValue="Graduate" nzLabel="Graduate"></nz-option>
+      </nz-select>
+    </div>
+    <div>
+      <nz-select
+        ngModel=""
+        nzAllowClear
+        nzPlaceHolder="Level"
+        class="level-select"
+        *ngIf="pair.showLevelSelect"
+      >
+        <nz-option nzValue="easy" nzLabel="Easy"></nz-option>
+        <nz-option nzValue="medium" nzLabel="Medium"></nz-option>
+        <nz-option nzValue="advanced" nzLabel="Advanced"></nz-option>
+        <nz-option nzValue="hard" nzLabel="Hard"></nz-option>
+      </nz-select>
+    </div>
+
+    <div
+      *ngIf="gradeLevelPairs.length > 1"
+      class="btn-checkbox minus-icon"
+      (click)="onRemoveGradeClick(i)"
+      style="max-width: 20px"
+    >
+      <img src="../../../assets/images/closeIcon.svg" />
+    </div>
+  </div>
+</div>
+
+<div nz-row class="mt-15">
+  <div nz-col>
+    <span class="btn-checkbox" (click)="onChooseGradeClick()"
+      >+ Choose Grade</span
+    >
+  </div>
+</div>

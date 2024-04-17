@@ -1,0 +1,37 @@
+<div *ngIf="tabValue === 'user-created-policy'">
+  <div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="12">
+      <label class="label">Policy Name </label>
+      <nz-input-group [nzPrefix]="prefixTemplateExamName">
+        <input type="text" nz-input placeholder="e.g. John D  Blue" />
+      </nz-input-group>
+      <ng-template #prefixTemplateExamName
+        ><img src="../../../assets/images/user.svg"
+      /></ng-template>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="12">
+      <label class="label mt-20">Description</label>
+      <textarea placeholder="Write a description...." nz-input></textarea>
+    </div>
+  </div>
+</div>
+<div *ngIf="tabValue === 'system-policy'">
+  <div class="overview-grid" *ngFor="let overview of overviewData">
+    <div>
+      <h6>{{ overview.label }}</h6>
+      <span>:</span>
+
+      <ng-container *ngIf="isArray(overview.labelInfo); else otherContent">
+        <ul>
+          <li *ngFor="let item of overview.labelInfo">{{ item }}</li>
+        </ul>
+      </ng-container>
+
+      <ng-template #otherContent>
+        <h4>{{ overview.labelInfo }}</h4>
+      </ng-template>
+    </div>
+  </div>
+</div>

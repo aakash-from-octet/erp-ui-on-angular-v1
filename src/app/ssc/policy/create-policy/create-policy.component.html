@@ -1,0 +1,157 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center" nzSpan="6">
+    <img
+      src="../../../../assets/images/back-only.svg"
+      alt=""
+      [routerLink]="['/ssc/policy']"
+      class="pe"
+    />
+    <h1 class="ml-10">Create Policy</h1>
+  </div>
+  <div nz-col nzSpan="12">
+    <nz-steps
+      [nzCurrent]="current"
+      class="create-policy-steps"
+      nzDirection="horizontal"
+      (nzIndexChange)="onIndexChange($event)"
+    >
+      <ng-container *ngFor="let step of steps; let i = index">
+        <!-- Skip the second step in the left side -->
+        <nz-step
+          *ngIf="!(step.content === 'Second-content' && hideConditionsStep)"
+          [nzTitle]="step.title"
+          [class]="step.iconClass"
+        ></nz-step>
+      </ng-container>
+    </nz-steps>
+  </div>
+  <div nz-col nzSpan="6"></div>
+</div>
+<div class="container mt-20 create-policy-box">
+  <div nz-row>
+    <div
+      nz-col
+      nzSpan="24"
+      class="box-styling box-style-2"
+      *ngIf="tabValue === 'user-created-policy'"
+    >
+      <div class="auth-title">
+        <div *ngIf="steps[current].content === 'First-content'">
+          <h3>Basic Details</h3>
+          <div class="steps-action">
+            <app-policy-basic-details></app-policy-basic-details>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="steps[current].content === 'Second-content'">
+          <h3>Conditions</h3>
+          <div class="steps-action">
+            <app-conditions></app-conditions>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="steps[current].content === 'Third-content'">
+          <h3>Workflow</h3>
+          <div class="steps-action">
+            <app-workflow></app-workflow>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="steps[current].content === 'Forth-content'">
+          <h3>Overview</h3>
+          <div class="steps-action">
+            <app-policy-overview></app-policy-overview>
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="small"
+              class="mt-40"
+              (click)="goTODashboard()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      nz-col
+      nzSpan="24"
+      class="box-styling box-style-2"
+      *ngIf="tabValue === 'system-policy'"
+    >
+      <div class="auth-title">
+        <div *ngIf="steps[current].content === 'First-content'">
+          <h3>Basic Details</h3>
+          <div class="steps-action">
+            <app-policy-basic-details></app-policy-basic-details>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="steps[current].content === 'Second-content'">
+          <h3>Workflow</h3>
+          <div class="steps-action">
+            <app-workflow></app-workflow>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="steps[current].content === 'Third-content'">
+          <h3>Overview</h3>
+          <div class="steps-action">
+            <app-policy-overview></app-policy-overview>
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="small"
+              class="mt-40"
+              (click)="goTODashboard()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

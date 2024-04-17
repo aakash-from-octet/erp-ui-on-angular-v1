@@ -1,0 +1,134 @@
+.summary-card-type-3 {
+  border-radius: 8px;
+  border: 1px solid #ced5dd;
+  background: #fff;
+  position: relative;
+  width: 100%;
+
+  h3 {
+    border-radius: 8px 8px 0px 0px;
+    background: #eff8ff;
+    padding: 10px 20px;
+    margin-bottom: 0;
+  }
+  .summary-body {
+    padding: 10px 20px;
+    h4,
+    h6 {
+      color: #323c47;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.14px;
+      margin-bottom: 0;
+    }
+    h5 {
+      color: #323c47;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+  }
+  .chart-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .legend-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.12px;
+        color: #5c6f83;
+        display: block;
+        margin-right: 9px;
+        b {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.12px;
+          color: #323c47;
+        }
+        .legend-square {
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background: #8079ff;
+          border-radius: 3px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #eceff2;
+  }
+  p {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.13px;
+    color: #475665;
+
+    b {
+      font-weight: 500;
+    }
+  }
+  .subject-title {
+    color: #323c47;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.14px;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+  .subject-subtitle {
+    color: #475665;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.13px;
+    margin-bottom: 10px;
+  }
+  .point-list {
+    list-style-type: none;
+    display: inline-block;
+    li {
+      color: #1d2329;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.14px;
+      display: inline-block;
+      padding: 3px 16px;
+      margin-left: 4px;
+      border-radius: 60px;
+    }
+  }
+  .summary-footer {
+    border-top: 1px solid #eceff2;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    img {
+      transform: rotate(0deg);
+    }
+    &.clicked {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .number-list {
+    list-style-type: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+    li {
+      border-radius: 20px;
+      border: 1px solid #ced5dd;
+      background: #fbfcfc;
+      padding: 8px 10px;
+      margin: 0 10px 10px 0;
+      display: inline-block;
+    }
+  }
+}

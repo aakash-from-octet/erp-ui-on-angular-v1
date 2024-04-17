@@ -1,0 +1,113 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center" nzSpan="8">
+    <img
+      src="../../../../assets/images/back-only.svg"
+      alt=""
+      [routerLink]="['/ssc/exams']"
+      class="pe"
+    />
+    <h1 class="ml-10">Create Assessment</h1>
+  </div>
+  <div nz-col nzSpan="8">
+    <nz-space class="cred-tab style-2">
+      <div class="active">Stage 1</div>
+      <div>Stage 2</div>
+      <div>Stage 3</div>
+    </nz-space>
+  </div>
+  <div nz-col nzSpan="8"></div>
+</div>
+<div class="container mt-20">
+  <div nz-row class="account-grid">
+    <div class="grid-1 box-styling">
+      <nz-steps
+        [nzCurrent]="current"
+        class="steps-vertical-view"
+        nzDirection="vertical"
+        (nzIndexChange)="onIndexChange($event)"
+      >
+        <nz-step nzTitle="Draft" class="draft-icon"></nz-step>
+        <nz-step nzTitle="Algorithm" class="algorithm-icon"></nz-step>
+        <nz-step nzTitle="Section" class="table-icon"></nz-step>
+        <nz-step nzTitle="Instructions" class="instructions-icon"></nz-step>
+        <nz-step nzTitle="Preview" class="preview-icon"></nz-step>
+      </nz-steps>
+    </div>
+    <div class="grid-2 box-styling grid-overflow">
+      <div class="auth-title">
+        <div *ngIf="index === 'First-content'">
+          <div class="steps-action">
+            <app-draft></app-draft>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Second-content'">
+          <div class="steps-action">
+            <app-source></app-source>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Third-content'">          
+          <div class="steps-action">
+            <app-section></app-section>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="index === 'Forth-content'">          
+          <div class="steps-action">
+            <app-instructions></app-instructions>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Fifth-content'">
+          <h3>Preview</h3>
+          <div class="steps-action">
+            <app-preview-details></app-preview-details>
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="small"
+              class="mt-40"
+              (click)="goTODashboard()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

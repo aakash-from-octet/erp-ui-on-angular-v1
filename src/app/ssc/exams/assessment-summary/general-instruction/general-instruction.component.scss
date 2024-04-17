@@ -1,0 +1,55 @@
+.summary-card-type-3 {
+  border-radius: 8px;
+  border: 1px solid #ced5dd;
+  background: #fff;
+  position: relative;
+  width: 100%;
+
+  h3 {
+    border-radius: 8px 8px 0px 0px;
+    background: #eff8ff;
+    padding: 10px 20px;
+    margin-bottom: 0;
+  }
+  .summary-body {
+    padding: 10px 20px;
+
+    h5 {
+      color: #323c47;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #eceff2;
+  }
+
+  .summary-footer {
+    border-top: 1px solid #eceff2;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    img {
+      transform: rotate(0deg);
+    }
+    &.clicked {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .instruction-list {
+    margin: 20px 0px 0 20px;
+    padding: 0;
+    li {
+      margin: 10px 0px 10px 0;
+      color: #475665;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.14px;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.bg-auth {
+  background: #036;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: url("../../../assets/images/dots1.png");
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 234px;
+    height: 110px;
+  }
+  &::before {
+    content: url("../../../assets/images/dots2.png");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 224px;
+    height: 170px;
+  }
+  .auth-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(1, 1fr);
+      overflow: auto;
+      padding: 15px;
+    }
+  }
+}
+.auth-left {
+  max-width: 565px;
+  margin: auto;
+  h1 {
+    color: #a3d5ff;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 50px;
+  }
+  p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.16px;
+  }
+  span {
+    color: #b0bcc7;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 40px;
+    @media (max-width: 992px) {
+      display: none;
+    }
+    a {
+      color: #fbfcfc;
+      font-weight: 600;
+    }
+  }
+}
+.auth-right {
+  .card {
+    max-width: 545px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: #fff;
+  }
+}

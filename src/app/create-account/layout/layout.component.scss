@@ -1,0 +1,49 @@
+.account-card-wrap {
+  background: #036;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  &::after {
+    content: url("../../../assets/images/dots1.png");
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 234px;
+    height: 110px;
+  }
+
+  &::before {
+    content: url("../../../assets/images/dots2.png");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 224px;
+    height: 170px;
+  }
+}
+
+.account-card {
+  background: #fff;
+  padding: 30px 40px;
+  width: calc(100vw - 60px);
+  margin: 30px auto;
+  border-radius: 4px 4px 4px 4px;
+  min-height: calc(100vh - 60px);
+
+  h2 {
+    color: #1d2329;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+  }
+
+  p {
+    color: #75899d;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.16px;
+  }
+}

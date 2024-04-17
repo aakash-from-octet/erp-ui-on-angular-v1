@@ -1,0 +1,144 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="preview-header">
+  <div nz-col>
+    <nz-space [nzSize]="12">
+      <img
+        src="../../../assets/images/back-round.svg"
+        alt=""
+        class="back"
+        (click)="onBackButtonClick()"
+        *nzSpaceItem
+      />
+      <div *nzSpaceItem>
+        <h2>Preview</h2>
+        <h4>ID: #145548878S</h4>
+      </div>
+    </nz-space>
+  </div>
+  <div nz-col>
+    <span class="text-blue"
+      >Option <span nz-icon nzType="down" nzTheme="outline"></span
+    ></span>
+  </div>
+</div>
+<div class="preview-body">
+  <div class="question-list">
+    <div class="question-list-left">
+      <nz-space
+        ><div *nzSpaceItem class="title-number">Q1</div>
+        <div *nzSpaceItem class="title">Question</div></nz-space
+      >
+      <div class="question-content" *ngIf="questionType === 'text'">
+        <p>
+          Read the given statements and conclusions carefully. Assuming that the
+          information given in the statements is true, even if it appears to be
+          at variance with commonly known facts, decide which of the given
+          conclusions logically follow(s) from the statements. Statements: I.
+          All cards are boxes. II. All boxes are torches. III. All torches are
+          shoes. Conclusions: I. All shoes are torches. II. All torches are
+          boxes. III. All boxes are cards.
+        </p>
+        <br />
+        <p>Statements:</p>
+        <ol style="list-style-type: upper-roman">
+          <li>All cards are boxes.</li>
+          <li>All boxes are torches.</li>
+          <li>All torches are shoes.</li>
+        </ol>
+        <br />
+        <p>Conclusions:</p>
+        <ol style="list-style-type: upper-roman">
+          <li>All shoes are torches.</li>
+          <li>All torches are boxes.</li>
+          <li>All boxes are cards.</li>
+        </ol>
+      </div>
+      <div class="question-content" *ngIf="questionType === 'textImage'">
+        <p>
+          Which figure should replace the question mark (?) if the series were
+          to be continued?
+        </p>
+        <br />
+        <img src="../../../assets/images/q1.png" alt="" />
+      </div>
+      <div class="question-content" *ngIf="questionType === 'textImageText'">
+        <p>
+          Which figure should replace the question mark (?) if the series were
+          to be continued?
+        </p>
+        <br />
+        <img src="../../../assets/images/q2.png" alt="" />
+        <br />
+        <p>
+          Select the cube that can be formed by folding the given sheet along
+          the lines.
+        </p>
+      </div>
+    </div>
+    <div class="question-list-right">
+      <h3 class="title">Select an Option</h3>
+      <!-- list answers 1-->
+      <div nz-row *ngIf="questionType === 'text'">
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="selected" class="answer-text-list">
+            <div class="answer-text-list-item" *ngFor="let o of radioOptions">
+              <label nz-radio [nzValue]="o.value"
+                >{{ o.id }}. {{ o.value }}</label
+              >
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+      <div nz-row *ngIf="questionType === 'textImage'">
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="selected" class="answer-text-list">
+            <div class="answer-text-list-item" *ngFor="let o of radioOptions1">
+              <label nz-radio [nzValue]="o.value"
+                >{{ o.id }}.
+                <img
+                  [src]="'../../../assets/images/' + o.value + '.png'"
+                  alt=""
+                  srcset=""
+                />
+              </label>
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+      <div nz-row *ngIf="questionType === 'textImageText'">
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="selected" class="answer-text-list">
+            <div nz-row nzGutter="20">
+              <div nz-col nzSpan="12" *ngFor="let o of radioOptions2">
+                <div class="answer-text-list-item">
+                  <label nz-radio [nzValue]="o.value"
+                    >{{ o.id }}.
+                    <img
+                      [src]="'../../../assets/images/' + o.value + '.png'"
+                      alt=""
+                      srcset=""
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <div nz-row nzJustify="space-between" nzAlign="middle">
+      <div nz-col [nzSpan]="2">
+        <button nz-button nzType="default">
+          <span nz-icon nzType="left" nzTheme="outline"></span>Previous
+        </button>
+      </div>
+      <div nz-col><span>1/8</span></div>
+      <div nz-col [nzSpan]="2" class="text-right">
+        <button nz-button nzType="primary">
+          Next<span nz-icon nzType="right" nzTheme="outline"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

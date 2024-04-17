@@ -1,0 +1,393 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col *ngIf="exam" class="d-flex align-items-center">
+    <img
+      src="./../../../../assets/images/back-only.svg"
+      class="mr-10"
+      [routerLink]="['/exam-agency/exams/']"
+    />
+    <h1>{{ exam.examName }} Exam</h1>
+  </div>
+  <div nz-col>
+    <ng-container *ngIf="exam.status === 'Approved'; else pending">
+      <button
+        nz-button
+        nzType="default"
+        nzSize="small"
+        ngClass="btn-green-light"
+      >
+        <img src="../../../../assets/images/approvedIcon.svg" class="mr-5" />{{
+          exam.status
+        }}
+      </button>
+    </ng-container>
+    <ng-template #pending>
+      <button
+        nz-button
+        nzType="default"
+        nzSize="small"
+        ngClass="btn-yellow-light"
+      >
+        <img src="../../../../assets/images/pendingIcon.svg" class="mr-5" />{{
+          exam.status
+        }}
+      </button>
+    </ng-template>
+  </div>
+</div>
+<div class="container">
+  <div class="exam-detail-card">
+    <h1>Question Paper</h1>
+    <p>Lorem ipsum is a dummy text which can be modify later on.....</p>
+    <h4><span>Examination</span><span>:</span><b>JEE MAINs </b></h4>
+    <h4><span>Year</span><span>:</span><b>2023-24 </b></h4>
+    <h4>
+      <span>Language</span><span>:</span
+      ><b>Hindi, English, Marathi, Punjabi </b>
+    </h4>
+
+    <nz-table
+      #basicTable
+      [nzData]="tabledData"
+      nzSize="small"
+      class="mt-20"
+      [nzShowPagination]="false"
+    >
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Shift 1</th>
+          <th>Shift 2</th>
+          <th>Shift 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>
+            <span class="fw-500 text-dark">{{ data.date }}</span>
+          </td>
+          <td>
+            <span
+              class="status"
+              [class.text-yellow]="data.shift1 === 'Pending approval'"
+              [class.text-green]="data.shift1 === 'Approved'"
+              >{{ data.shift1 }}</span
+            ><span class="seperator">|</span>
+            <ng-container *ngIf="data.shift1 === 'Approved'; else pendingIcon">
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: data.shift1 === 'Approved' && !isDownloadSuccess,
+                  greenIcon: isDownloadSuccess
+                }"
+                (click)="downloadSuccess()"
+                nz-popover
+                [nzPopoverContent]="contentTemplate"
+                [nzPopoverOverlayClassName]="'download-content-wrap'"
+                nzPopoverTrigger="click"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M8 4.5V5.66667V10.3333M8 10.3333L5.66667 8M8 10.3333L10.3333 8M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <ng-template #contentTemplate
+                ><div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="100"
+                    nzStatus="exception"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Error</span>
+                </div></ng-template
+              >
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: isDownloadSuccess,
+                  greenIcon: isKeyDownload
+                }"
+                (click)="keyDownload()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M7 7.5C7 8.32843 6.32843 9 5.5 9C4.67157 9 4 8.32843 4 7.5C4 6.67157 4.67157 6 5.5 6C6.32843 6 7 6.67157 7 7.5ZM7 7.5H11.5V9M9.25 8.25V7.5M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </ng-container>
+            <ng-template #pendingIcon>
+              <img
+                src="../../../../assets/images/downloadGreyIcon.svg"
+                alt=""
+                class="greyIcon"
+              />
+              <img src="../../../../assets/images/keyGreyIcon.svg" alt="" />
+            </ng-template>
+          </td>
+          <td>
+            <span
+              class="status"
+              [class.text-yellow]="data.shift2 === 'Pending approval'"
+              [class.text-green]="data.shift2 === 'Approved'"
+              >{{ data.shift2 }}</span
+            ><span class="seperator">|</span>
+            <ng-container *ngIf="data.shift2 === 'Approved'; else pendingIcon">
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: data.shift2 === 'Approved' && !isDownloadSuccess,
+                  greenIcon: isDownloadSuccess
+                }"
+                (click)="downloadSuccess()"
+                nz-popover
+                [nzPopoverContent]="contentTemplate"
+                [nzPopoverOverlayClassName]="'download-content-wrap'"
+                nzPopoverTrigger="click"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M8 4.5V5.66667V10.3333M8 10.3333L5.66667 8M8 10.3333L10.3333 8M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <ng-template #contentTemplate
+                ><div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="100"
+                    nzStatus="exception"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Error</span>
+                </div></ng-template
+              >
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: isDownloadSuccess,
+                  greenIcon: isKeyDownload
+                }"
+                (click)="keyDownload()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M7 7.5C7 8.32843 6.32843 9 5.5 9C4.67157 9 4 8.32843 4 7.5C4 6.67157 4.67157 6 5.5 6C6.32843 6 7 6.67157 7 7.5ZM7 7.5H11.5V9M9.25 8.25V7.5M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </ng-container>
+            <ng-template #pendingIcon>
+              <img
+                src="../../../../assets/images/downloadGreyIcon.svg"
+                alt=""
+                class="greyIcon"
+              />
+              <img src="../../../../assets/images/keyGreyIcon.svg" alt="" />
+            </ng-template>
+          </td>
+          <td>
+            <span
+              class="status"
+              [class.text-yellow]="data.shift3 === 'Pending approval'"
+              [class.text-green]="data.shift3 === 'Approved'"
+              >{{ data.shift3 }}</span
+            ><span class="seperator">|</span>
+            <ng-container *ngIf="data.shift3 === 'Approved'; else pendingIcon">
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: data.shift3 === 'Approved' && !isDownloadSuccess,
+                  greenIcon: isDownloadSuccess
+                }"
+                (click)="downloadSuccess()"
+                nz-popover
+                [nzPopoverContent]="contentTemplate"
+                [nzPopoverOverlayClassName]="'download-content-wrap'"
+                nzPopoverTrigger="click"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M8 4.5V5.66667V10.3333M8 10.3333L5.66667 8M8 10.3333L10.3333 8M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <ng-template #contentTemplate
+                ><div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="0"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Pending</span>
+                </div>
+                <div class="download-content">
+                  <img
+                    src="../../../../assets/images/pdfIcon.svg"
+                    alt=""
+                  /><span>JEE - English</span>
+                  <nz-progress
+                    [nzPercent]="100"
+                    nzStatus="exception"
+                    [nzShowInfo]="false"
+                  ></nz-progress>
+                  <span>Error</span>
+                </div></ng-template
+              >
+              <div
+                class="greyIcon"
+                [ngClass]="{
+                  blueIcon: isDownloadSuccess,
+                  greenIcon: isKeyDownload
+                }"
+                (click)="keyDownload()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M7 7.5C7 8.32843 6.32843 9 5.5 9C4.67157 9 4 8.32843 4 7.5C4 6.67157 4.67157 6 5.5 6C6.32843 6 7 6.67157 7 7.5ZM7 7.5H11.5V9M9.25 8.25V7.5M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </ng-container>
+            <ng-template #pendingIcon>
+              <img
+                src="../../../../assets/images/downloadGreyIcon.svg"
+                alt=""
+                class="greyIcon"
+              />
+              <img src="../../../../assets/images/keyGreyIcon.svg" alt="" />
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

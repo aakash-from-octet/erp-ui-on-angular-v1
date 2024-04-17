@@ -1,0 +1,196 @@
+<nz-tabset class="vetter-tab">
+  <nz-tab nzTitle="English (Default)">
+    <h3 class="question-title"><span>1</span>Question</h3>
+    <app-annotation [preventContextMenu]="preventContextMenu"
+      ><app-text-editor [defaultHtmlContent]="englishContent"></app-text-editor
+    ></app-annotation>
+
+    <h3 class="question-title mt-15"><span>2</span>Answer</h3>
+    <div class="pl-32">
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="radioValue" class="answer-text-list">
+            <div nz-row [nzGutter]="20">
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="A">A</label>
+                  <img src="../../../assets/images/a1.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="B">B</label>
+                  <img src="../../../assets/images/a2.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="C">C</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="D">D</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="hindi">
+    <ng-template #hindi>
+      <img src="../../../assets/images/language-icon/hindi.svg" alt="" />
+      Hindi
+    </ng-template>
+    <h3 class="question-title"><span>1</span>Question</h3>
+    <div>
+      <app-annotation [preventContextMenu]="preventContextMenu"
+        ><app-text-editor [defaultHtmlContent]="hindiContent"></app-text-editor
+      ></app-annotation>
+    </div>
+
+    <h3 class="question-title mt-15"><span>2</span>Answer</h3>
+    <div class="pl-32">
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="radioValue" class="answer-text-list">
+            <div nz-row [nzGutter]="20">
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="A">A</label>
+                  <img src="../../../assets/images/a1.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="B">B</label>
+                  <img src="../../../assets/images/a2.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="C">C</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="D">D</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="punjabi">
+    <ng-template #punjabi>
+      <img src="../../../assets/images/language-icon/punjabi.svg" alt="" />
+      Punjabi
+    </ng-template>
+    <h3 class="question-title"><span>1</span>Question</h3>
+    <div>
+      <app-annotation [preventContextMenu]="preventContextMenu"
+        ><app-text-editor
+          [defaultHtmlContent]="punjabiContent"
+        ></app-text-editor
+      ></app-annotation>
+    </div>
+
+    <h3 class="question-title mt-15"><span>2</span>Answer</h3>
+    <div class="pl-32">
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-radio-group [(ngModel)]="radioValue" class="answer-text-list">
+            <div nz-row [nzGutter]="20">
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="A">A</label>
+                  <img src="../../../assets/images/a1.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="B">B</label>
+                  <img src="../../../assets/images/a2.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="C">C</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <div class="answer-text-list-item">
+                  <label nz-radio nzValue="D">D</label>
+                  <img src="../../../assets/images/a3.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </nz-radio-group>
+        </div>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="bengali">
+    <ng-template #bengali>
+      <img src="../../../assets/images/language-icon/bengali.svg" alt="" />
+      Bengali
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="telugu">
+    <ng-template #telugu>
+      <img src="../../../assets/images/language-icon/telugu.svg" alt="" />
+      Telugu
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="marathi">
+    <ng-template #marathi>
+      <img src="../../../assets/images/language-icon/marathi.svg" alt="" />
+      Marathi
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="tamil">
+    <ng-template #tamil>
+      <img src="../../../assets/images/language-icon/tamil.svg" alt="" />
+      Tamil
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="urdu">
+    <ng-template #urdu>
+      <img src="../../../assets/images/language-icon/urdu.svg" alt="" />
+      Urdu
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="gujarati">
+    <ng-template #gujarati>
+      <img src="../../../assets/images/language-icon/gujarati.svg" alt="" />
+      Gujarati
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="kannada">
+    <ng-template #kannada>
+      <img src="../../../assets/images/language-icon/kannada.svg" alt="" />
+      Kannada
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="malayalam">
+    <ng-template #malayalam>
+      <img src="../../../assets/images/language-icon/malayalam.svg" alt="" />
+      Malayalam
+    </ng-template>
+  </nz-tab>
+  <nz-tab [nzTitle]="odia">
+    <ng-template #odia>
+      <img src="../../../assets/images/language-icon/odia.svg" alt="" />
+      Odia
+    </ng-template>
+  </nz-tab>
+</nz-tabset>

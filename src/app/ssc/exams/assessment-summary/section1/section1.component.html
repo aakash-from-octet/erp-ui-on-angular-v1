@@ -1,0 +1,100 @@
+<div class="summary-card-type-3 mt-20">
+  <a
+    nz-dropdown
+    [nzDropdownMenu]="menu"
+    class="approval-tag-wrap"
+    nzOverlayClassName="approval-tag-content"
+  >
+    <span class="approval-tag">Pending Approval</span>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>Action 1</li>
+      <li nz-menu-item>Action 2</li>
+      <li nz-menu-item>Action 3</li>
+    </ul>
+  </nz-dropdown-menu>
+  <h3>Section1</h3>
+  <div class="summary-body">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <h6>Total Question</h6>
+        <h5>5</h5>
+      </div>
+      <div class="chart-div">
+        <ul class="legend-list">
+          <li>
+            <span class="legend-square" style="background: #8079ff"></span
+            ><b>62%</b> High
+          </li>
+          <li>
+            <span class="legend-square" style="background: #f6c454"></span
+            ><b>13%</b> Medium
+          </li>
+          <li>
+            <span class="legend-square" style="background: #f0835d"></span
+            ><b>23%</b> Low
+          </li>
+        </ul>
+        <google-chart [data]="chartData"></google-chart>
+      </div>
+    </div>
+    <section *ngIf="visible">
+      <hr class="mb-15" />
+      <div nz-row nzJustify="space-between" nzAlign="middle">
+        <div nz-col>
+          <p>Point of contact: <b>John Doe</b></p>
+        </div>
+        <div nz-col>
+          <p>Point of contact: <b>John Doe</b></p>
+        </div>
+      </div>
+      <div nz-row nzJustify="space-between" nzAlign="middle">
+        <div nz-col>
+          <h3 class="subject-title">Maths</h3>
+          <p class="subject-subtitle">Time and distance</p>
+        </div>
+        <div nz-col>
+          <ul class="point-list">
+            <li style="background: #8079ff">5</li>
+            <li style="background: #f6c454">5</li>
+            <li style="background: #f0835d">5</li>
+          </ul>
+        </div>
+      </div>
+      <div nz-row nzJustify="space-between" nzAlign="middle">
+        <div nz-col>
+          <h3 class="subject-title">Maths</h3>
+          <p class="subject-subtitle">Time and distance</p>
+        </div>
+        <div nz-col>
+          <ul class="point-list">
+            <li style="background: #8079ff">5</li>
+            <li style="background: #f6c454">5</li>
+            <li style="background: #f0835d">5</li>
+          </ul>
+        </div>
+      </div>
+      <div nz-row nzJustify="space-between" nzAlign="middle">
+        <div nz-col>
+          <h3 class="subject-title">Maths</h3>
+          <p class="subject-subtitle">Time and distance</p>
+        </div>
+        <div nz-col>
+          <ul class="point-list">
+            <li style="background: #8079ff">5</li>
+            <li style="background: #f6c454">5</li>
+            <li style="background: #f0835d">5</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div
+    class="summary-footer"
+    [ngClass]="{ clicked: visible }"
+    (click)="divOpen()"
+  >
+    <img src="../../../../../assets/images/arrow-down.svg" alt="" srcset="" />
+  </div>
+</div>

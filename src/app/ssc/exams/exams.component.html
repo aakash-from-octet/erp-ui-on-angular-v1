@@ -1,0 +1,97 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center">
+    <h1>Exam</h1>
+  </div>
+  <div nz-col class="d-flex align-items-center">
+    <button
+      nz-button
+      nzType="default"
+      [routerLink]="['create-assessment']"
+      class="d-flex align-items-center btn-grey"
+    >
+      <img src="../../../assets/images/uploadIcon.svg" alt="" />
+      <span>Upload</span>
+    </button>
+    <button nz-button nzType="primary" class="d-flex align-items-center ml-10">
+      <span (click)="addNewExamModal()">+ Add New</span>
+    </button>
+  </div>
+</div>
+<nz-modal
+  [(nzVisible)]="newExamModal"
+  nzTitle="Add New"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="closeExamModal()"
+  (nzOnOk)="closeExamModal()"
+>
+  <ng-container *nzModalContent>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="gutter-row">
+        <label class="label">Exam Name </label>
+        <nz-input-group [nzPrefix]="prefixTemplateUser">
+          <input type="text" nz-input placeholder="Enter your username" />
+        </nz-input-group>
+        <ng-template #prefixTemplateUser
+          ><span nz-icon nzType="user"></span
+        ></ng-template>
+      </div>
+      <div nz-col nzSpan="24" class="gutter-row">
+        <label class="label mt-20">Year </label>
+        <nz-input-group>
+          <nz-select
+            ngModel="1"
+            nzPlaceHolder="Select a Year"
+            nzSize="large"
+            class="w-100"
+          >
+            <nz-option nzValue="1" nzLabel="2022"></nz-option>
+            <nz-option nzValue="2" nzLabel="2023"></nz-option>
+          </nz-select>
+        </nz-input-group>
+      </div>
+      <div nz-col nzSpan="24" class="gutter-row">
+        <label class="label mt-20">Month </label>
+        <nz-input-group>
+          <nz-select
+            ngModel="1"
+            nzPlaceHolder="Select a Month"
+            nzSize="large"
+            class="w-100"
+          >
+            <nz-option nzValue="1" nzLabel="January"></nz-option>
+            <nz-option nzValue="2" nzLabel="February"></nz-option>
+          </nz-select>
+        </nz-input-group>
+      </div>
+      <div nz-col nzSpan="24" class="gutter-row">
+        <label class="label mt-20">Description </label>
+        <nz-input-group>
+          <textarea
+            nz-input
+            placeholder="Lorem Ipsum is a dummy text which can be replaced by the original text later."
+            [nzAutosize]="{ minRows: 3, maxRows: 6 }"
+          ></textarea>
+        </nz-input-group>
+      </div>
+      <div nz-col nzSpan="24" class="gutter-row">
+        <label class="label mt-20">Language </label>
+        <ul class="btnCheckbox">
+          <li *ngFor="let data of checkOptionsOne">
+            <label nz-checkbox
+              ><img src="{{ data.imageUrl }}" alt="" srcset="" />
+              {{ data.label }}</label
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="closeExamModal()">
+      Submit
+    </button>
+  </ng-template>
+</nz-modal>
+<div class="container">
+  <app-exam-list></app-exam-list>
+</div>

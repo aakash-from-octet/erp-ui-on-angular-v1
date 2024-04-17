@@ -1,0 +1,153 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center">
+    <img
+      src="./../../../../assets/images/back-only.svg"
+      class="mr-10"
+      [routerLink]="['/exam-agency/exams/']"
+    />
+    <h1>Request Examination</h1>
+  </div>
+  <div nz-col></div>
+</div>
+<div class="container">
+  <div class="exam-req-title">
+    <div>
+      <h2>Exam Requisition</h2>
+      <p>
+        Lorem Ipsum is a dummy text to help us understand you better. Your
+        information will be treated with utmost confidentiality and used solely
+        for providing you with the best possible experience.
+      </p>
+    </div>
+
+    <button
+      nz-button
+      nzType="primary"
+      class="btn-add-server"
+      (click)="dataShow()"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+<div class="container mt-20">
+  <div nz-row [nzGutter]="40">
+    <div nz-col nzSpan="12">
+      <div class="exam-card">
+        <div class="title-2">
+          <img src="../../../../assets/images/detailsIcon.svg" alt="" />
+          <h3>Details</h3>
+        </div>
+        <h4>Examination details</h4>
+        <div nz-row nzGutter="10">
+          <div nz-col nzSpan="12">
+            <div class="select-with-icon">
+              <nz-select ngModel="jeemains" style="width: 100%" nzSize="large">
+                <nz-option nzValue="jeemains" nzLabel="JEE MAINs"></nz-option>
+                <nz-option nzValue="gate" nzLabel="GATE"></nz-option>
+              </nz-select>
+              <img src="../../../../assets/images/exam-blackIcon.svg" alt="" />
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <div class="select-with-icon">
+              <nz-select ngModel="1" style="width: 100%" nzSize="large">
+                <nz-option nzValue="1" nzLabel="2023-24"></nz-option>
+                <nz-option nzValue="2" nzLabel="2024-25"></nz-option>
+              </nz-select>
+              <img
+                src="../../../../assets/images/calendar-blackIcon.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mt-20">
+          <ul class="btnCheckbox">
+            <li *ngFor="let data of checkOptionsOne">
+              <label nz-checkbox
+                ><img src="{{ data.imageUrl }}" alt="" srcset="" />
+                {{ data.label }}</label
+              >
+            </li>
+          </ul>
+        </div>
+
+        <p class="text-red">
+          *Above language will be available and shared with CBT.
+        </p>
+      </div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div class="title-2">
+        <img src="../../../../assets/images/calendarIcon.svg" alt="" />
+        <h3>Please choose the date & shift for required question paper.</h3>
+      </div>
+
+      <nz-table
+        #basicTable
+        [nzData]="shiftData"
+        nzSize="small"
+        class="mt-20"
+        [nzShowPagination]="false"
+        [className]="'shift-table'"
+      >
+        <thead>
+          <tr>
+            <th>Date <span>(Yr. 2023-24)</span></th>
+            <th>Shift 1<span>(9 AM - 12 PM)</span></th>
+            <th>Shift 2<span>(12.30 PM - 3.30 PM)</span></th>
+            <th>Shift 3<span>(4 PM - 7 PM)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let data of basicTable.data"
+            [class.disabled]="data.closed"
+          >
+            <td>
+              <span class="fw-500 text-dark"
+                ><label nz-checkbox [(ngModel)]="data.checked">{{
+                  data.date
+                }}</label>
+              </span>
+            </td>
+            <td nzAlign="center">
+              <ng-container *ngIf="data.shift1 === 'unchecked'; else checked">
+                <img
+                  src="../../../../assets/images/checkbox-cross.svg"
+                  alt=""
+                />
+              </ng-container>
+              <ng-template #checked>
+                <label nz-checkbox [(ngModel)]="data.shift1"></label>
+              </ng-template>
+            </td>
+            <td nzAlign="center">
+              <ng-container *ngIf="data.shift2 === 'unchecked'; else checked">
+                <img
+                  src="../../../../assets/images/checkbox-cross.svg"
+                  alt=""
+                />
+              </ng-container>
+              <ng-template #checked>
+                <label nz-checkbox [(ngModel)]="data.shift2"></label>
+              </ng-template>
+            </td>
+            <td nzAlign="center">
+              <ng-container *ngIf="data.shift3 === 'unchecked'; else checked">
+                <img
+                  src="../../../../assets/images/checkbox-cross.svg"
+                  alt=""
+                />
+              </ng-container>
+              <ng-template #checked>
+                <label nz-checkbox [(ngModel)]="data.shift3"></label>
+              </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>

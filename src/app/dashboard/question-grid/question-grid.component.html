@@ -1,0 +1,32 @@
+<div class="data-card-grid">
+  <div
+    *ngFor="let data of data"
+    class="data-card"
+    (click)="goToBuilder()"
+    [class.pointer]="userValue === 't1' || userValue === 'v1'"
+  >
+    <span>ID: {{ data.qId }}</span>
+    <h3 class="fw-500 text-14 text-dark text-ellipsis mt-10">
+      {{ data.question }}
+    </h3>
+    <p class="mb-0 text-13 text-light">
+      <span *ngIf="userValue === 'v1'"
+        >Subject: {{ data.subject }}<span class="mx-10">|</span></span
+      >
+      <span *ngIf="userValue === '' || userValue === 'v1'"
+        >Topic: {{ data.topic }}<span class="mx-10">|</span></span
+      >
+      <span *ngIf="userValue === ''"
+        >Sub-topic: {{ data.subtopic }}<span class="mx-10">|</span></span
+      >
+      <span *ngIf="userValue === 't1'"
+        >Translated To: {{ data.translatedTo
+        }}<span class="mx-10">|</span></span
+      >
+      <span *ngIf="userValue === 'v1'"
+        >Language: {{ data.translatedTo }}<span class="mx-10">|</span></span
+      >
+      <span>Time Remaining: {{ data.timeRemain }}</span>
+    </p>
+  </div>
+</div>

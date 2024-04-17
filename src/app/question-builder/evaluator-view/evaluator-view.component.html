@@ -1,0 +1,42 @@
+<h3 class="question-title"><span>1</span>Question</h3>
+<!-- question only -->
+<div class="relative">
+  <div class="q-translate">
+    Do you want to translate?
+    <nz-switch nzSize="small" [ngModel]="false"></nz-switch>
+  </div>
+  <app-annotation [preventContextMenu]="preventContextMenu">
+    <app-text-editor
+      [defaultHtmlContent]="defaultHtmlContent"
+    ></app-text-editor>
+  </app-annotation>
+</div>
+<div>
+  <h3 class="question-title mt-30"><span>2</span>Set Answers</h3>
+
+  <div nz-row class="pl-32">
+    <div nz-col nzSpan="24">
+      <app-annotation [preventContextMenu]="preventContextMenu">
+        <nz-radio-group [(ngModel)]="answerValue" class="answer-text-list">
+          <div class="answer-text-list-item">
+            <label nz-radio nzValue="A">A</label>
+            <input nz-input [(ngModel)]="answer1" type="text" />
+          </div>
+
+          <div class="answer-text-list-item">
+            <label nz-radio nzValue="B">B</label>
+            <input nz-input [(ngModel)]="answer1" type="text" />
+          </div>
+          <div class="answer-text-list-item selected">
+            <label nz-radio nzValue="C">C</label>
+            <input nz-input [(ngModel)]="answer1" type="text" />
+          </div>
+          <div class="answer-text-list-item">
+            <label nz-radio nzValue="D">D</label>
+            <input nz-input [(ngModel)]="answer1" type="text" />
+          </div>
+        </nz-radio-group>
+      </app-annotation>
+    </div>
+  </div>
+</div>

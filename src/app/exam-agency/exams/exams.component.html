@@ -1,0 +1,162 @@
+<div *ngIf="isExamData">
+  <div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+    <div nz-col><h1>All Activity</h1></div>
+    <div nz-col>
+      <button nz-button nzType="primary" nzSize="small">+ New Question</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div nz-row nzJustify="start" [nzGutter]="20" class="mt-25 mb-20">
+      <div nz-col nzXs="24" nzMd="6">
+        <div class="dash-color-cards blue">
+          <nz-space
+            ><img src="../../assets/images/question-created.svg" />
+            <div class="ml-15">
+              <nz-space nzAlign="center">
+                <h3>70</h3>
+                <img src="../../assets/images/trending_up.svg" alt="" />
+                <span class="text-green">10%</span>
+              </nz-space>
+
+              <p>Total Exam Conducted</p>
+            </div>
+          </nz-space>
+        </div>
+      </div>
+      <div nz-col nzXs="24" nzMd="6">
+        <div class="dash-color-cards purple">
+          <nz-space
+            ><img src="../../assets/images/q-submitted.svg" />
+            <div class="ml-15">
+              <nz-space nzAlign="center">
+                <h3>5</h3>
+                <img src="../../assets/images/trending_up.svg" alt="" />
+                <span class="text-green">10%</span>
+              </nz-space>
+
+              <p>Approval Pending</p>
+            </div>
+          </nz-space>
+        </div>
+      </div>
+      <div nz-col nzXs="24" nzMd="6">
+        <div class="dash-color-cards orange">
+          <nz-space
+            ><img src="../../assets/images/rejected-ques.svg" />
+            <div class="ml-15">
+              <nz-space nzAlign="center">
+                <h3>6</h3>
+                <img src="../../assets/images/trending_up.svg" alt="" />
+                <span class="text-green">10%</span>
+              </nz-space>
+
+              <p>Records Received</p>
+            </div>
+          </nz-space>
+        </div>
+      </div>
+      <div nz-col nzXs="24" nzMd="6">
+        <div class="dash-color-cards green">
+          <nz-space
+            ><img src="../../assets/images/revert-ques.svg" />
+            <div class="ml-15">
+              <nz-space nzAlign="center">
+                <h3>70</h3>
+                <img src="../../assets/images/trending_down.svg" alt="" />
+                <span class="text-green">10%</span>
+              </nz-space>
+
+              <p>Records distributed</p>
+            </div>
+          </nz-space>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div nz-row nzJustify="space-between" nzAlign="bottom" class="mb-20">
+        <div nz-col>
+          <nz-space>
+            <div class="mr-10">
+              <nz-input-group
+                [nzPrefix]="prefixIconSearch"
+                nzSize="small"
+                class="inputgroup-grey table-search"
+              >
+                <input type="text" nz-input placeholder="Search Exam" />
+              </nz-input-group>
+              <ng-template #prefixIconSearch>
+                <span nz-icon nzType="search"></span>
+              </ng-template>
+            </div>
+          </nz-space>
+        </div>
+        <div nz-col>
+          <nz-select ngModel="1">
+            <nz-option nzValue="1" nzLabel="Active Requests"></nz-option>
+            <nz-option nzValue="2" nzLabel="Pending Requests"></nz-option>
+            <nz-option nzValue="3" nzLabel="Approved Requests"></nz-option>
+          </nz-select>
+          <nz-select ngModel="1" class="ml-15">
+            <nz-option nzValue="1" nzLabel="2023"></nz-option>
+            <nz-option nzValue="2" nzLabel="2022"></nz-option>
+            <nz-option nzValue="3" nzLabel="2021"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <div class="exams-grid">
+        <div
+          class="exam-card-wrap"
+          *ngFor="let exam of exams"
+          [routerLink]="['/exam-agency/exams/', exam.id]"
+        >
+          <div>
+            <h3>{{ exam.examName }}</h3>
+            <p>
+              <ng-container *ngIf="exam.status === 'Approved'; else pending">
+                <img
+                  src="../../../assets/images/approvedIcon.svg"
+                  alt=""
+                  class="mr-5"
+                />
+              </ng-container>
+              <ng-template #pending>
+                <img
+                  src="../../../assets/images/pendingIcon.svg"
+                  alt=""
+                  class="mr-5"
+                  #pending
+                />
+              </ng-template>
+
+              <span
+                [class]="
+                  exam.status === 'Approved' ? 'text-green' : 'text-yellow'
+                "
+                >{{ exam.status }}</span
+              >
+              <span class="dot"></span> {{ exam.year }}
+            </p>
+          </div>
+          <div>
+            <img src="../../../assets/images/dot-menu-v.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="exam-wrap" *ngIf="!isExamData">
+  <img src="../../../assets/images/no-data.svg" alt="" />
+  <h3>Currently you are not having any exams</h3>
+  <p>Lorium ipsum is simplyy dummy text that will go here for long text</p>
+  <button
+    nz-button
+    nzType="primary"
+    class="btn-add-server"
+    [routerLink]="['/exam-agency/exams/request-examination']"
+  >
+    <span nz-icon nzType="plus" nzTheme="outline"></span> Request Examination
+  </button>
+</div>

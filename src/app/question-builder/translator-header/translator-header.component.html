@@ -1,0 +1,117 @@
+<div class="builder-header">
+  <nz-space nzSize="small">
+    <app-logo *nzSpaceItem></app-logo>
+    <div *nzSpaceItem>
+      <h2>Translator</h2>
+      <h4>
+        Translate for Question ID: 12RF892SD
+        <span class="in-progress"><span>&bull;</span> In Progress</span>
+      </h4>
+    </div>
+  </nz-space>
+
+  <div>
+    <nz-space [nzSize]="10">
+      <button
+        nz-button
+        class="primary-outline"
+        *nzSpaceItem
+        (click)="goToPreview()"
+      >
+        <span nz-icon nzType="eye"></span>
+      </button>
+
+      <button nz-button nzType="primary" *nzSpaceItem (click)="submitChanges()">
+        Submit
+      </button>
+      <button nz-button class="close" *nzSpaceItem (click)="saveChanges()">
+        <img src="../../../assets/images/closeIcon.svg" alt="" />
+      </button>
+    </nz-space>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  (nzOnOk)="handleOk()"
+  nzClassName="modal-full"
+  [nzFooter]="null"
+  nzClosable="false"
+>
+  <ng-container *nzModalContent>
+    <app-preview (backClicked)="handleBackClicked()"></app-preview>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isChange"
+  (nzOnOk)="handleOk()"
+  [nzFooter]="null"
+  nzClosable="false"
+  nzCentered=""
+  nzClassName="save-changes-popup"
+>
+  <ng-container *nzModalContent>
+    <img src="../../../assets/images/bg-popup.png" alt="" />
+    <h3>Save Changes?</h3>
+    <p>Your unsaved changes will be lost.</p>
+    <p>Save as draft before closing?</p>
+    <br />
+    <br />
+    <nz-space [nzSize]="10" class="mb-20">
+      <button
+        nz-button
+        nzType="primary"
+        nzDanger
+        *nzSpaceItem
+        (click)="handleCancel()"
+      >
+        Discard
+      </button>
+      <button nz-button nzType="primary" *nzSpaceItem (click)="goToHome()">
+        Save As Draft
+      </button>
+    </nz-space>
+  </ng-container>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isApprove"
+  (nzOnOk)="backApproveChanges()"
+  [nzFooter]="null"
+  nzClosable="false"
+  nzCentered=""
+  nzClassName="common-modal"
+>
+  <ng-container *nzModalContent>
+    <img src="../../../assets/images/approve.svg" alt="" />
+    <h3>Are you sure you want to Approve?</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Adipiscing mauris luctus ultrices
+      commodo elementum donec pharetra consectetur fames. Ac enim ullamcorper a
+      lorem amet tincidunt.
+    </p>
+
+    <br />
+    <nz-space [nzSize]="10" class="mb-20">
+      <button
+        nz-button
+        class="primary-outline"
+        *nzSpaceItem
+        (click)="backApproveChanges()"
+        style="width: 170px"
+      >
+        Go Back
+      </button>
+      <button
+        nz-button
+        nzType="primary"
+        *nzSpaceItem
+        (click)="submitApproveChanges()"
+        style="width: 170px"
+      >
+        Approve and Submit
+      </button>
+    </nz-space>
+  </ng-container>
+</nz-modal>

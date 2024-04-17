@@ -1,0 +1,25 @@
+<!-- login/layout/layout.component.html -->
+
+<div class="bg-auth">
+  <div nz-row nzJustify="space-around" nzAlign="middle" class="auth-grid">
+    <div class="auth-left">
+      <h1>Transforming Digital Asset Financing for Institutions</h1>
+      <p>
+        Experience peace of mind on our secure platform, designed exclusively
+        for institutions seeking trustworthy borrowing and lending solutions in
+        the digital asset space.
+      </p>
+      <span
+        >By creating an account with CLST you agree to our
+        <a [routerLink]="['/']">Terms of Use</a>,
+        <a [routerLink]="['/']">Privacy Policy</a> and
+        <a [routerLink]="['/']">Disclaimer</a>
+      </span>
+    </div>
+    <div class="auth-right">
+      <nz-card nzBorderless class="card">
+        <router-outlet></router-outlet>
+      </nz-card>
+    </div>
+  </div>
+</div>

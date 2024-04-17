@@ -1,0 +1,60 @@
+<header>
+  <div nz-row nzJustify="space-between" nzAlign="middle">
+    <div nz-col>
+      <nz-space>
+        <a routerLink="/dashboard" class="logo">
+          <img src="../../../assets/images/logo.png" alt="" />
+        </a>
+        <ul nz-menu nzMode="horizontal">
+          <li nz-menu-item [nzMatchRouter]="true">
+            <img src="../../../assets/images/dashboardIcon.svg" alt="" />
+            Dashboard
+          </li>
+
+          <li nz-menu-item [routerLink]="'emulator'" nzSelected>
+            <span nz-icon nzType="appstore"></span>
+            Emulator
+          </li>
+          <li nz-menu-item [routerLink]="'/emulator-audior'">
+            <span nz-icon nzType="appstore"></span>
+            Auditor Emulator
+          </li>
+          <li nz-menu-item [routerLink]="'/emulator-student'">
+            <span nz-icon nzType="appstore"></span>
+            Student Emulator
+          </li>
+        </ul>
+      </nz-space>
+    </div>
+    <div nz-col>
+      <nz-space nzAlign="center" [nzSize]="20">
+        <img
+          src="../../../assets/images/notification.svg"
+          alt=""
+          class="pointer"
+        />
+        <nz-divider nzType="vertical" class="menu-right-divider"></nz-divider>
+        <div>
+          <a
+            nz-dropdown
+            [nzDropdownMenu]="menu"
+            [nzPlacement]="'bottomRight'"
+            class="header-profile-menu"
+          >
+            <img src="../../../assets/images/profile.svg" alt="" />
+            Apex Finance
+            <span nz-icon nzType="down"></span>
+          </a>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item>1st menu item</li>
+              <li nz-menu-item>2nd menu item</li>
+              <li nz-menu-divider></li>
+              <li nz-menu-item (click)="onLogout()">Logout</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+      </nz-space>
+    </div>
+  </div>
+</header>

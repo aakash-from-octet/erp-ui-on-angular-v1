@@ -1,0 +1,29 @@
+.generation-table {
+  border: 1px solid #ced5dd;
+  border-radius: 8px;
+  overflow: hidden;
+  th {
+    padding: 7px 10px;
+    span {
+      color: #75899d;
+      font-size: 12px;
+      font-weight: 400;
+      display: block;
+    }
+  }
+  td {
+    min-width: 145px;
+    &.warning {
+      background: #fcf0d4;
+      color: #b77e0c;
+    }
+    &.error {
+      background: #fce2dd;
+      color: #9f1f0b;
+    }
+    &.success {
+      background: #f0fdf8;
+      color: #06b217;
+    }
+  }
+}

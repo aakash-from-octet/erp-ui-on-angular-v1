@@ -1,0 +1,158 @@
+<div class="bg-dark pb-30">
+  <div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+    <div nz-col><h1>CAA Users</h1></div>
+    <div nz-col>
+      <button nz-button nzType="primary" (click)="addUser()">+ Add User</button>
+    </div>
+  </div>
+  <div class="container">
+    <nz-table
+      #basicTable
+      [nzData]="data"
+      nzSize="small"
+      class="user-table"
+      [nzShowPagination]="false"
+    >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Adhaar</th>
+          <th>Last Login</th>
+          <th>MFA</th>
+          <th>E-Sign</th>
+          <th>Status</th>
+          <th>Approved By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>
+            <div class="profile-wrap">
+              <img src="../../../../assets/images/ph-profiile.svg" alt="" />
+              <div>
+                <h3>{{ data.name }}</h3>
+                <h4>{{ data.gmail }}</h4>
+                <ul class="role-tag-list">
+                  <li
+                    *ngFor="let role of data.role; let i = index"
+                    [ngClass]="{
+                      blue: role === 'Author',
+                      green: role === 'Translator',
+                      yellow: role.includes('Vetter')
+                    }"
+                  >
+                    {{ role }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </td>
+          <td>{{ data.phone }}</td>
+          <td>{{ data.aadhar }}</td>
+          <td>{{ data.login }}</td>
+          <td>{{ data.mfa }}</td>
+          <td>{{ data.esign }}</td>
+          <td>
+            <p
+              class="status"
+              [ngClass]="{
+                yellow: data.status === 'Pending',
+                blue: data.status === 'Draft',
+                green: data.status === 'Active',
+                red: data.status === 'Expired'
+              }"
+            >
+              <span class="dot"></span>{{ data.status }}
+            </p>
+          </td>
+          <td>
+            <span [class.disabled]="data.approved === 'Approval Pending'">{{
+              data.approved
+            }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="New CAA User"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzClassName="user-modal custom-modal"
+  nzCentered
+>
+  <ng-template [nzModalFooter]>
+    <button nz-button nzType="primary" (click)="handleOk()">
+      Add New User
+    </button>
+  </ng-template>
+  <ng-container *nzModalContent
+    ><div nz-row [nzGutter]="[20, 20]">
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Type of user</label>
+        <nz-select
+          ngModel=""
+          style="width: 100%"
+          nzSize="large"
+          nzPlaceHolder="Select type of user"
+        >
+          <nz-option nzValue="1" nzLabel="User 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="User 2"></nz-option>
+        </nz-select>
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Name</label>
+        <input
+          nz-input
+          placeholder="Enter First Name"
+          type="text"
+          nzSize="large"
+        />
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Email</label>
+        <input
+          nz-input
+          placeholder="Enter Email ID"
+          type="text"
+          nzSize="large"
+        />
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Phone</label>
+        <input
+          nz-input
+          placeholder="Enter Phone No."
+          type="text"
+          nzSize="large"
+        />
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Role</label>
+        <input nz-input placeholder="Enter Role" type="text" nzSize="large" />
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">Agency</label>
+        <nz-select
+          ngModel=""
+          style="width: 100%"
+          nzSize="large"
+          nzPlaceHolder="Select Agency"
+        >
+          <nz-option nzValue="1" nzLabel=" Agency 1"></nz-option>
+          <nz-option nzValue="2" nzLabel="Agency 2"></nz-option>
+        </nz-select>
+      </div>
+      <div nz-col nzSpan="12" class="gutter-row">
+        <label class="label">E-Sign</label>
+        <nz-select ngModel="1" style="width: 100%" nzSize="large">
+          <nz-option nzValue="1" nzLabel=" Enabled"></nz-option>
+          <nz-option nzValue="2" nzLabel="Disabled"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+  </ng-container>
+</nz-modal>

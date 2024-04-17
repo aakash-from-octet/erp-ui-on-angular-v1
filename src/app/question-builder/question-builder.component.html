@@ -1,0 +1,574 @@
+<div class="builder-wrapper">
+  <app-builder-header *ngIf="userValue === ''"></app-builder-header>
+  <app-evaluator-header *ngIf="userValue === 'e1'"></app-evaluator-header>
+  <app-translator-header *ngIf="userValue === 't1'"></app-translator-header>
+  <app-transeval-header *ngIf="userValue === 'te1'"></app-transeval-header>
+  <app-vetter-header *ngIf="userValue === 'v1'"></app-vetter-header>
+  <div class="body-wrapper">
+    <div
+      class="comment-overlay"
+      *ngIf="shadowDiv"
+      (click)="onCommentClick()"
+    ></div>
+    <div class="builder-grid">
+      <div
+        [ngClass]="{
+          'left-manager':
+            userValue === '' || userValue === 'e1' || userValue === 'v1'
+        }"
+      >
+        <div
+          class="main-card-header"
+          *ngIf="userValue === '' || userValue === 'e1' || userValue === 'v1'"
+        >
+          <div class="d-flex">
+            <nz-tag>#12RF892SD</nz-tag
+            ><nz-tag nzColor="default">
+              <span nz-icon
+                ><img src="../../assets/images/chatIcon.svg" alt=""
+              /></span>
+              <span>Physics</span>
+            </nz-tag>
+            <nz-tag nzColor="default">
+              <span nz-icon
+                ><img src="../../assets/images/bookIcon.svg" alt=""
+              /></span>
+              <span>Quantum Mechanics</span>
+            </nz-tag>
+            <nz-tag nzColor="default">
+              <span nz-icon
+                ><img src="../../assets/images/penIcon.svg" alt=""
+              /></span>
+              <span>Model Of Atoms...</span>
+            </nz-tag>
+          </div>
+          <div>
+            <nz-tag nzColor="success">
+              <span nz-icon
+                ><img src="../../assets/images/timerIcon.svg" alt=""
+              /></span>
+              <span>02:00 Remaining</span>
+            </nz-tag>
+          </div>
+        </div>
+
+        <div
+          [ngClass]="{
+            'p-15': userValue === '' || userValue === 'e1'
+          }"
+        >
+          <!-- author view -->
+          <div *ngIf="userValue === ''">
+            <h3 class="question-title"><span>1</span>Question</h3>
+
+            <div class="relative" [class.translateActive]="translate">
+              <div class="q-translate">
+                Do you want to translate?
+                <nz-switch nzSize="small" [(ngModel)]="translate"></nz-switch>
+              </div>
+              <app-annotation [preventContextMenu]="preventContextMenu"
+                ><app-text-editor
+                  [defaultHtmlContent]="defaultHtmlContent"
+                ></app-text-editor
+              ></app-annotation>
+            </div>
+
+            <h3 class="question-title mt-30">
+              <span>2</span>Select answer type
+            </h3>
+            <div nz-row [nzGutter]="10" class="pl-32" *ngIf="!questionType">
+              <!-- answer type: text only -->
+              <div
+                nz-col
+                class="gutter-row flex"
+                [nzMd]="8"
+                [nzSm]="12"
+                [nzXs]="24"
+              >
+                <div class="inner-box question-type-card">
+                  <nz-card
+                    [nzTitle]="titleTpl"
+                    class="question-card"
+                    (click)="selectQuestionType('text')"
+                    [class.selectedQtype]="questionType === 'text'"
+                  >
+                    <img
+                      nz-image
+                      nzDisablePreview="true"
+                      nzSrc="../../../assets/images/answer-textonly.png"
+                      alt="text-only"
+                      class="w-full"
+                    />
+                  </nz-card>
+                  <ng-template #titleTpl>
+                    <p class="text-15 text-gray-800 mb-2">Text Only</p>
+                    <p class="text-13 text-gray mb-0 whitespace-normal">
+                      Enter the text input for answer options.
+                    </p>
+                  </ng-template>
+                </div>
+              </div>
+              <!-- answer type: image list -->
+              <div
+                nz-col
+                class="gutter-row flex"
+                [nzMd]="8"
+                [nzSm]="12"
+                [nzXs]="24"
+              >
+                <div class="inner-box question-type-card">
+                  <nz-card
+                    [nzTitle]="titleTpl2"
+                    class="question-card"
+                    (click)="selectQuestionType('textImage')"
+                    [class.selectedQtype]="questionType === 'textImage'"
+                  >
+                    <img
+                      nz-image
+                      nzDisablePreview="true"
+                      nzSrc="../../../assets/images/answer-textimage.png"
+                      alt="text-image"
+                      class="w-full"
+                    />
+                  </nz-card>
+                  <ng-template #titleTpl2>
+                    <p class="text-15 text-gray-800 mb-2">
+                      Image Only Vertical
+                    </p>
+                    <p class="text-13 text-gray mb-0 whitespace-normal">
+                      Enter Image options for answer.
+                    </p>
+                  </ng-template>
+                </div>
+              </div>
+              <!-- answer type: image grid  -->
+              <div
+                nz-col
+                class="gutter-row flex"
+                [nzMd]="8"
+                [nzSm]="12"
+                [nzXs]="24"
+              >
+                <div class="inner-box question-type-card">
+                  <nz-card
+                    [nzTitle]="titleTpl3"
+                    class="question-card"
+                    (click)="selectQuestionType('textImageText')"
+                    [class.selectedQtype]="questionType === 'textImageText'"
+                  >
+                    <img
+                      nz-image
+                      nzDisablePreview="true"
+                      nzSrc="../../../assets/images/answer-imageonly.png"
+                      alt="text-image-text"
+                      class="w-full"
+                    />
+                  </nz-card>
+                  <ng-template #titleTpl3>
+                    <p class="text-15 text-gray-800 mb-2">
+                      Image Only Horizontal
+                    </p>
+                    <p class="text-13 text-gray mb-0 whitespace-normal">
+                      Enter Image options for answer.
+                    </p>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <!-- list answers 1-->
+            <div nz-row class="pl-32" *ngIf="questionType === 'text'">
+              <div nz-col nzSpan="24">
+                <nz-radio-group
+                  [(ngModel)]="radioValue"
+                  class="answer-text-list"
+                >
+                  <div class="translate-wrap">
+                    <div class="answer-text-list-item">
+                      <label nz-radio nzValue="A">A</label>
+                      <quill-editor
+                        placeholder="Enter some text here"
+                        [(ngModel)]="tanswer1"
+                        [modules]="editorConfig"
+                        [theme]="'bubble'"
+                        class="quill-editor flush-editor answer-align"
+                      ></quill-editor>
+                    </div>
+                    <div class="btn-translate">
+                      <p>Translate</p>
+                      <nz-switch nzSize="small"></nz-switch>
+                    </div>
+                  </div>
+                  <div class="translate-wrap">
+                    <div class="answer-text-list-item">
+                      <label nz-radio nzValue="B">B</label>
+                      <quill-editor
+                        placeholder="Enter some text here"
+                        [(ngModel)]="tanswer2"
+                        [modules]="editorConfig"
+                        [theme]="'bubble'"
+                        class="quill-editor flush-editor answer-align"
+                      ></quill-editor>
+                    </div>
+                    <div class="btn-translate">
+                      <p>Translate</p>
+                      <nz-switch nzSize="small"></nz-switch>
+                    </div>
+                  </div>
+                  <div class="translate-wrap">
+                    <div class="answer-text-list-item">
+                      <label nz-radio nzValue="C">C</label>
+                      <quill-editor
+                        placeholder="Enter some text here"
+                        [(ngModel)]="tanswer3"
+                        [modules]="editorConfig"
+                        [theme]="'bubble'"
+                        class="quill-editor flush-editor answer-align"
+                      ></quill-editor>
+                    </div>
+                    <div class="btn-translate">
+                      <p>Translate</p>
+                      <nz-switch nzSize="small"></nz-switch>
+                    </div>
+                  </div>
+                  <div class="translate-wrap">
+                    <div class="answer-text-list-item">
+                      <label nz-radio nzValue="D">D</label>
+                      <quill-editor
+                        placeholder="Enter some text here"
+                        [(ngModel)]="tanswer4"
+                        [modules]="editorConfig"
+                        [theme]="'bubble'"
+                        class="quill-editor flush-editor answer-align"
+                      ></quill-editor>
+                    </div>
+                    <div class="btn-translate">
+                      <p>Translate</p>
+                      <nz-switch nzSize="small"></nz-switch>
+                    </div>
+                  </div>
+                </nz-radio-group>
+              </div>
+            </div>
+            <!-- list answers 2-->
+            <div nz-row class="pl-32" *ngIf="questionType === 'textImage'">
+              <div nz-col nzSpan="24">
+                <nz-radio-group
+                  [(ngModel)]="radioValue"
+                  class="answer-text-list"
+                >
+                  <div class="answer-text-list-item">
+                    <label nz-radio nzValue="A">A</label>
+                    <nz-upload
+                      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                      [nzHeaders]="{ authorization: 'authorization-text' }"
+                      (nzChange)="handleChange($event)"
+                      class="answer-image"
+                    >
+                      <button nz-button class="answer-upload">
+                        <div>
+                          <img
+                            src=".../../../../assets/images/upload-1.svg"
+                            alt=""
+                            class="upload-1"
+                          />
+                          <img
+                            src=".../../../../assets/images/upload-2.svg"
+                            alt=""
+                            class="upload-2"
+                          />
+                        </div>
+
+                        <h4>Upload</h4>
+                      </button>
+                    </nz-upload>
+                  </div>
+
+                  <div class="answer-text-list-item">
+                    <label nz-radio nzValue="B">B</label>
+                    <nz-upload
+                      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                      [nzHeaders]="{ authorization: 'authorization-text' }"
+                      (nzChange)="handleChange($event)"
+                      class="answer-image"
+                    >
+                      <button nz-button class="answer-upload">
+                        <div>
+                          <img
+                            src=".../../../../assets/images/upload-1.svg"
+                            alt=""
+                            class="upload-1"
+                          />
+                          <img
+                            src=".../../../../assets/images/upload-2.svg"
+                            alt=""
+                            class="upload-2"
+                          />
+                        </div>
+
+                        <h4>Upload</h4>
+                      </button>
+                    </nz-upload>
+                  </div>
+                  <div class="answer-text-list-item">
+                    <label nz-radio nzValue="C">C</label>
+                    <nz-upload
+                      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                      [nzHeaders]="{ authorization: 'authorization-text' }"
+                      (nzChange)="handleChange($event)"
+                      class="answer-image"
+                    >
+                      <button nz-button class="answer-upload">
+                        <div>
+                          <img
+                            src=".../../../../assets/images/upload-1.svg"
+                            alt=""
+                            class="upload-1"
+                          />
+                          <img
+                            src=".../../../../assets/images/upload-2.svg"
+                            alt=""
+                            class="upload-2"
+                          />
+                        </div>
+
+                        <h4>Upload</h4>
+                      </button>
+                    </nz-upload>
+                  </div>
+                  <div class="answer-text-list-item">
+                    <label nz-radio nzValue="D">D</label>
+                    <nz-upload
+                      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                      [nzHeaders]="{ authorization: 'authorization-text' }"
+                      (nzChange)="handleChange($event)"
+                      class="answer-image"
+                    >
+                      <button nz-button class="answer-upload">
+                        <div>
+                          <img
+                            src=".../../../../assets/images/upload-1.svg"
+                            alt=""
+                            class="upload-1"
+                          />
+                          <img
+                            src=".../../../../assets/images/upload-2.svg"
+                            alt=""
+                            class="upload-2"
+                          />
+                        </div>
+
+                        <h4>Upload</h4>
+                      </button>
+                    </nz-upload>
+                  </div>
+                </nz-radio-group>
+              </div>
+            </div>
+            <!-- list answers 3-->
+            <nz-card
+              class="grid-answer-style"
+              *ngIf="questionType === 'textImageText'"
+            >
+              <div nz-row>
+                <div nz-col nzSpan="24">
+                  <nz-radio-group
+                    [(ngModel)]="radioValue"
+                    class="answer-text-list"
+                  >
+                    <div nz-row [nzGutter]="[20, 20]">
+                      <div nz-col [nzSpan]="12">
+                        <div class="answer-text-list-item">
+                          <label nz-radio nzValue="A">A</label>
+                          <nz-upload
+                            nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                            [nzHeaders]="{
+                              authorization: 'authorization-text'
+                            }"
+                            (nzChange)="handleChange($event)"
+                            class="answer-image"
+                          >
+                            <button nz-button class="answer-upload">
+                              <div>
+                                <img
+                                  src=".../../../../assets/images/upload-1.svg"
+                                  alt=""
+                                  class="upload-1"
+                                />
+                                <img
+                                  src=".../../../../assets/images/upload-2.svg"
+                                  alt=""
+                                  class="upload-2"
+                                />
+                              </div>
+
+                              <h4>Upload</h4>
+                            </button>
+                          </nz-upload>
+                        </div>
+                      </div>
+                      <div nz-col [nzSpan]="12">
+                        <div class="answer-text-list-item">
+                          <label nz-radio nzValue="B">B</label>
+                          <nz-upload
+                            nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                            [nzHeaders]="{
+                              authorization: 'authorization-text'
+                            }"
+                            (nzChange)="handleChange($event)"
+                            class="answer-image"
+                          >
+                            <button nz-button class="answer-upload">
+                              <div>
+                                <img
+                                  src=".../../../../assets/images/upload-1.svg"
+                                  alt=""
+                                  class="upload-1"
+                                />
+                                <img
+                                  src=".../../../../assets/images/upload-2.svg"
+                                  alt=""
+                                  class="upload-2"
+                                />
+                              </div>
+
+                              <h4>Upload</h4>
+                            </button>
+                          </nz-upload>
+                        </div>
+                      </div>
+                      <div nz-col [nzSpan]="12">
+                        <div class="answer-text-list-item">
+                          <label nz-radio nzValue="C">C</label>
+                          <nz-upload
+                            nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                            [nzHeaders]="{
+                              authorization: 'authorization-text'
+                            }"
+                            (nzChange)="handleChange($event)"
+                            class="answer-image"
+                          >
+                            <button nz-button class="answer-upload">
+                              <div>
+                                <img
+                                  src=".../../../../assets/images/upload-1.svg"
+                                  alt=""
+                                  class="upload-1"
+                                />
+                                <img
+                                  src=".../../../../assets/images/upload-2.svg"
+                                  alt=""
+                                  class="upload-2"
+                                />
+                              </div>
+
+                              <h4>Upload</h4>
+                            </button>
+                          </nz-upload>
+                        </div>
+                      </div>
+                      <div nz-col [nzSpan]="12">
+                        <div class="answer-text-list-item">
+                          <label nz-radio nzValue="D">D</label>
+                          <nz-upload
+                            nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                            [nzHeaders]="{
+                              authorization: 'authorization-text'
+                            }"
+                            (nzChange)="handleChange($event)"
+                            class="answer-image"
+                          >
+                            <button nz-button class="answer-upload">
+                              <div>
+                                <img
+                                  src=".../../../../assets/images/upload-1.svg"
+                                  alt=""
+                                  class="upload-1"
+                                />
+                                <img
+                                  src=".../../../../assets/images/upload-2.svg"
+                                  alt=""
+                                  class="upload-2"
+                                />
+                              </div>
+
+                              <h4>Upload</h4>
+                            </button>
+                          </nz-upload>
+                        </div>
+                      </div>
+                    </div>
+                  </nz-radio-group>
+                </div>
+              </div>
+            </nz-card>
+          </div>
+          <!-- evaluator view -->
+          <div *ngIf="userValue === 'e1'">
+            <app-evaluator-view></app-evaluator-view>
+          </div>
+          <!-- evaluator view -->
+          <div *ngIf="userValue === 't1'">
+            <app-translator-view></app-translator-view>
+          </div>
+          <!-- translator evaluator view -->
+          <div *ngIf="userValue === 'te1'">
+            <app-translator-view></app-translator-view>
+          </div>
+          <!-- vetter view -->
+          <div *ngIf="userValue === 'v1'">
+            <app-vetter-view></app-vetter-view>
+          </div>
+        </div>
+      </div>
+      <div class="right-manager" *ngIf="userValue !== 't1'">
+        <nz-space
+          class="cred-tab w-100 mb-15"
+          *ngIf="
+            userValue === 'e1' || userValue === 'te1' || userValue === 'v1'
+          "
+        >
+          <div
+            [class.active]="activeTab === 'comments'"
+            class="w-50"
+            (click)="toggleTab('comments')"
+          >
+            Comments
+            <span
+              nz-icon
+              [nzType]="showCommentBubble ? 'eye' : 'eye-invisible'"
+              [ngClass]="{ 'text-blue': showCommentBubble }"
+              nzTheme="outline"
+              (click)="toggleCommentBubble()"
+            ></span>
+          </div>
+          <div
+            [class.active]="activeTab === 'attributes'"
+            class="w-50"
+            (click)="toggleTab('attributes')"
+          >
+            Attributes
+          </div>
+        </nz-space>
+        <div
+          *ngIf="
+            activeTab === 'comments' &&
+            (userValue === 'e1' || userValue === 'te1' || userValue === 'v1')
+          "
+        >
+          <app-comment></app-comment>
+        </div>
+        <div *ngIf="activeTab === 'attributes' || userValue === ''">
+          <nz-card class="custom-card">
+            <app-complexity></app-complexity>
+          </nz-card>
+          <nz-card class="custom-card">
+            <app-applicable-exam></app-applicable-exam>
+          </nz-card>
+          <nz-card class="custom-card">
+            <app-audit-log></app-audit-log>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

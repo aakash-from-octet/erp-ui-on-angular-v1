@@ -1,0 +1,339 @@
+<nz-collapse nzExpandIconPosition="right" class="mt-20 exam-collapse">
+  <nz-collapse-panel
+    *ngFor="let panel of panels"
+    [nzHeader]="collapseHeader"
+    [nzActive]="panel.active"
+  >
+    <div>
+      <div nz-row nzGutter="16" class="mt-20">
+        <div nz-col nzSpan="8" *ngFor="let data of panel.panelData">
+          <div class="card-full">
+            <div
+              class="card-header d-flex align-items-center justify-content-between"
+            >
+              <div>
+                <b>{{ data.examName }}</b>
+              </div>
+              <div>
+                <span class="time">Time Remain: 00:00:00</span>
+                <span nz-icon nzType="eye" nzTheme="outline"></span>
+              </div>
+            </div>
+            <div
+              class="card-body"
+              [ngClass]="{ 'cancelled-body': data.isCancelled }"
+            >
+              <div nz-row>
+                <div nz-col nzSpan="14">
+                  <div class="d-flex align-items-center">
+                    <nz-progress
+                      [nzPercent]="100"
+                      nzType="circle"
+                      [nzWidth]="30"
+                    ></nz-progress>
+                    <span class="ml-10">Assessment</span>
+                  </div>
+                </div>
+                <div nz-col nzSpan="10">
+                  <ul class="exam-status-list">
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 1"
+                      (click)="createAssessment()"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-1.svg"
+                        alt=""
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 2"
+                      (click)="assessmentSummary()"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-2.svg"
+                        alt=""
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 3"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-3.svg"
+                        alt=""
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 4"
+                      (click)="showGeneration()"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-3.svg"
+                        alt=""
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div nz-row class="mt-10">
+                <div nz-col nzSpan="14">
+                  <div class="d-flex align-items-center">
+                    <nz-progress
+                      [nzPercent]="50"
+                      nzType="circle"
+                      [nzWidth]="30"
+                    ></nz-progress>
+                    <span class="ml-10">Vendor Allocation</span>
+                  </div>
+                </div>
+                <div nz-col nzSpan="10">
+                  <ul class="exam-status-list">
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 1"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-1.svg"
+                        alt=""
+                        (click)="showVendorTable()"
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 2"
+                      (click)="showVendorAllocation()"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-4.svg"
+                        alt=""
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 3"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-3.svg"
+                        alt=""
+                      />
+                    </li>
+                    <li
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 4"
+                    >
+                      <img
+                        src="../../../../assets/images/exam-status-3.svg"
+                        alt=""
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div nz-row class="mt-10">
+                <div nz-col nzSpan="13">
+                  <div class="d-flex align-items-center">
+                    <nz-progress
+                      [nzPercent]="0"
+                      nzType="circle"
+                      [nzWidth]="30"
+                    ></nz-progress>
+                    <span class="ml-10">Distribution</span>
+                  </div>
+                </div>
+                <div nz-col nzSpan="11">
+                  <div class="d-flex align-items-center flex-end">
+                    <div
+                      nz-tooltip
+                      nzTooltipOverlayClassName="whiteTooltip"
+                      nzTooltipTitle="Stage 1"
+                    >
+                      <img
+                        src="../../../../assets/images/pending-cgl.svg"
+                        alt=""
+                        class="mr-10"
+                      />
+                      <!-- add new image added here -->
+                      <!-- <img
+                        src="../../../../assets/images/btn-add-new.svg"
+                        alt=""
+                        class="mr-10"
+                      /> -->
+                    </div>
+
+                    <ul class="exam-status-list p-0 mb-0">
+                      <li
+                        nz-tooltip
+                        nzTooltipOverlayClassName="whiteTooltip"
+                        nzTooltipTitle="Stage 2"
+                        (click)="showDistribution()"
+                      >
+                        <img
+                          src="../../../../assets/images/exam-status-3.svg"
+                          alt=""
+                        />
+                      </li>
+                      <li
+                        nz-tooltip
+                        nzTooltipOverlayClassName="whiteTooltip"
+                        nzTooltipTitle="Stage 3"
+                      >
+                        <img
+                          src="../../../../assets/images/exam-status-3.svg"
+                          alt=""
+                        />
+                      </li>
+                      <li
+                        nz-tooltip
+                        nzTooltipOverlayClassName="whiteTooltip"
+                        nzTooltipTitle="Stage 4"
+                      >
+                        <img
+                          src="../../../../assets/images/exam-status-3.svg"
+                          alt=""
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cancel-notification" *ngIf="data.isCancelled">
+              <span nz-icon nzType="warning" nzTheme="outline"></span> The
+              examination is being cancelled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #collapseHeader>
+      <div class="exam-custom-header">
+        <div>
+          <span class="collapse-title">{{ panel.name }}</span>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Diam vel mattis nulla
+            pharetra elementum maecenas quis arcu volutpat. Et velit blandit
+            odio est pretium id purus. Mauris magna.
+          </p>
+        </div>
+        <div class="d-flex align-items-center">
+          <nz-checkbox-group [(ngModel)]="checkOptionsOne"></nz-checkbox-group>
+          <img
+            src="../../../../assets/images/filterFilledIcon.svg"
+            alt=""
+            class="filter-icon"
+          />
+          <ul class="cgl-list">
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="success">CGL : <span>Pending</span></li>
+            <li class="info">CGL : <span>Pending</span></li>
+            <li class="error">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+            <li class="warning">CGL : <span>Pending</span></li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </nz-collapse-panel>
+</nz-collapse>
+<nz-modal
+  [(nzVisible)]="isVendor"
+  nzTitle="Vendor Allocation"
+  [nzFooter]="null"
+  nzCentered
+  nzClassName="full-screen-modal"
+  (nzOnCancel)="handleCancel()"
+>
+  <ng-container *nzModalContent
+    ><app-vendor-allocation></app-vendor-allocation>
+  </ng-container>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="isDistribution"
+  nzTitle="Distribution"
+  [nzFooter]="null"
+  nzCentered
+  nzClassName="full-screen-modal"
+  (nzOnCancel)="handleCancel()"
+>
+  <ng-container *nzModalContent
+    ><app-distribution></app-distribution>
+  </ng-container>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="isGeneration"
+  nzTitle="Generation"
+  [nzFooter]="null"
+  nzCentered
+  (nzOnCancel)="handleCancel()"
+  nzWidth="[655px]"
+>
+  <ng-container *nzModalContent>
+    <app-generation (cancelClicked)="handleGenerationCancel()"></app-generation>
+  </ng-container>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="isCancel"
+  nzTitle="Cancel Exam"
+  [nzFooter]="modalFooter"
+  nzCentered
+  (nzOnCancel)="handleCancel()"
+  nzWidth="[655px]"
+>
+  <ng-container *nzModalContent>
+    <div class="text-center mb-30">
+      <nz-checkbox-group [(ngModel)]="shiftck"></nz-checkbox-group>
+    </div>
+    <h3 class="text-center">
+      Are you certain you wish to proceed with canceling the CGL Exam<br />
+      scheduled for April 22, 2023?
+    </h3>
+    <p class="text-center">
+      Alternatively, you can cancel one or more shifts for the specific day by
+      clicking on the <br />'Cancel Shift'
+    </p></ng-container
+  >
+  <ng-template #modalFooter>
+    <button nz-button class="btn-black" (click)="handleCancel()">
+      Cancel Shift
+    </button>
+    <button nz-button nzType="primary" (click)="handleCancel()">
+      Cancel Date
+    </button>
+  </ng-template>
+</nz-modal>
+<nz-modal
+  [(nzVisible)]="isVendorTable"
+  nzTitle="Vendor Allocation"
+  [nzFooter]="modalFooter2"
+  nzCentered
+  (nzOnCancel)="handleCancel()"
+  nzWidth="650"
+>
+  <ng-container *nzModalContent>
+    <p>
+      Click on the checkbox to enable the shift for the day before selecting
+      multiple agencies from the dropdown.
+    </p>
+    <app-allocation-table></app-allocation-table>
+  </ng-container>
+  <ng-template #modalFooter2>
+    <button nz-button nzType="primary" (click)="handleCancel()">Submit</button>
+  </ng-template>
+</nz-modal>

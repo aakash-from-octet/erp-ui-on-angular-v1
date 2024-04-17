@@ -1,0 +1,200 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col><h1>Emulator</h1></div>
+  <div nz-col></div>
+</div>
+<div class="emulator-container">
+  <div nz-row nzGutter="10" class="mt-10">
+    <div nz-col nzSpan="18">
+      <div class="header-card">
+        <div nz-row nzJustify="space-between" class="mb-10">
+          <div nz-col>
+            <h5>
+              <b
+                ><span class="sub-link">Exam1</span
+                ><span class="sub-link">Exam2</span></b
+              >
+            </h5>
+          </div>
+          <div nz-col>
+            <p>
+              Complexity: <span class="red-tag">X : High</span
+              ><span class="green-tag ml-10">XI : Low</span>
+            </p>
+          </div>
+        </div>
+        <div nz-row nzJustify="space-between">
+          <div nz-col>
+            <p class="mb-0">
+              <span>Email ID </span>:<b>lucky.sharma@apex.com</b>
+            </p>
+          </div>
+          <div nz-col>
+            <p><span>Email ID </span>:<b>lucky.sharma@apex.com</b></p>
+          </div>
+        </div>
+      </div>
+      <div nz-row nzGutter="10" class="mt-10">
+        <div nz-col nzSpan="13">
+          <div class="preview-card fixed-height">
+            <nz-space
+              ><div *nzSpaceItem class="title-number">Q1</div>
+              <div *nzSpaceItem class="title">Question</div></nz-space
+            >
+            <div class="question-content">
+              <p>
+                Read the given statements and conclusions carefully. Assuming
+                that the information given in the statements is true, even if it
+                appears to be at variance with commonly known facts, decide
+                which of the given conclusions logically follow(s) from the
+                statements. Statements: I. All cards are boxes. II. All boxes
+                are torches. III. All torches are shoes. Conclusions: I. All
+                shoes are torches. II. All torches are boxes. III. All boxes are
+                cards.
+              </p>
+              <br />
+              <p>Statements:</p>
+              <ol style="list-style-type: upper-roman">
+                <li>All cards are boxes.</li>
+                <li>All boxes are torches.</li>
+                <li>All torches are shoes.</li>
+              </ol>
+              <br />
+              <p>Conclusions:</p>
+              <ol style="list-style-type: upper-roman">
+                <li>All shoes are torches.</li>
+                <li>All torches are boxes.</li>
+                <li>All boxes are cards.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="11">
+          <div class="preview-card fixed-height">
+            <h3>Select an Option</h3>
+            <ul class="answer-list">
+              <li>A. Only conclusion IV follows</li>
+              <li>B. Only conclusion IV follows</li>
+              <li>C. Only conclusion IV follows</li>
+              <li>D. Only conclusion IV follows</li>
+            </ul>
+          </div>
+        </div>
+        <div nz-col nzSpan="24" class="mt-20">
+          <nz-radio-group [(ngModel)]="radioValue">
+            <label nz-radio nzValue="A">Option A</label>
+            <label nz-radio nzValue="B">Option B</label>
+            <label nz-radio nzValue="C">Option C</label>
+            <label nz-radio nzValue="D">Option D</label>
+          </nz-radio-group>
+        </div>
+        <div
+          nz-row
+          nzGutter="10"
+          class="mt-20 mb-20 w-100"
+          nzJustify="space-between"
+          nzAlign="middle"
+        >
+          <div nz-col>
+            <button nz-button class="btn-black">Clear Response</button>
+          </div>
+          <div nz-col>
+            <button nz-button class="btn-black">Save for Review</button>
+            <button nz-button nzType="primary" class="ml-10">
+              Save & Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="6">
+      <nz-collapse
+        nzExpandIconPosition="right"
+        class="emulator-panel"
+        [nzBordered]="false"
+      >
+        <nz-collapse-panel [nzHeader]="auditHeader" nzActive="true">
+          <ul class="reasoning-list">
+            <li
+              *ngFor="let number of numbersArray"
+              [ngClass]="getRandomColorClass()"
+            >
+              {{ number }}
+            </li>
+          </ul>
+          <ng-template #auditHeader>
+            <h3>Audit Summary</h3>
+            <div
+              class="d-flex align-items-center justify-content-between w-100"
+            >
+              <p class="mb-0">Total Reviewed<b class="ml-10">09</b></p>
+              <span class="text-link">In Progress</span>
+            </div>
+          </ng-template>
+        </nz-collapse-panel>
+        <nz-collapse-panel [nzHeader]="auditHeader2" nzActive="true">
+          <div
+            class="d-flex align-items-center justify-content-between response-list"
+          >
+            <div nz-space>
+              <p class="mb-0" *nzSpaceItem><b>Quality</b> Create Assessment</p>
+              <img
+                src="../../../assets/images/grey-info.svg"
+                alt=""
+                *nzSpaceItem
+                nz-tooltip
+                nzTooltipOverlayClassName="whiteTooltip"
+                nzTooltipTitle="industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"
+              />
+            </div>
+            <div>
+              <nz-checkbox-group
+                [(ngModel)]="checkOptionsOne"
+              ></nz-checkbox-group>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between response-list"
+          >
+            <div nz-space>
+              <p class="mb-0" *nzSpaceItem><b>Quality</b> Create Assessment</p>
+              <img
+                src="../../../assets/images/grey-info.svg"
+                alt=""
+                *nzSpaceItem
+              />
+            </div>
+            <div>
+              <span class="text-link">Pending</span>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between response-list"
+          >
+            <div nz-space>
+              <p class="mb-0" *nzSpaceItem><b>Quality</b> Create Assessment</p>
+              <img
+                src="../../../assets/images/grey-info.svg"
+                alt=""
+                *nzSpaceItem
+              />
+            </div>
+            <div>
+              <nz-checkbox-group
+                [(ngModel)]="checkOptionsOne"
+              ></nz-checkbox-group>
+            </div>
+          </div>
+          <ng-template #auditHeader2>
+            <div
+              class="d-flex align-items-center justify-content-between w-100"
+            >
+              <h3 class="mb-0">Auditor Response</h3>
+              <button nz-button nzType="default">Save</button>
+              <button nz-button nzType="default">Save</button>
+            </div>
+          </ng-template>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+  </div>
+</div>

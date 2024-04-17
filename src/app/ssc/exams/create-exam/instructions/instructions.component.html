@@ -1,0 +1,299 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center create-assessment-title mb-20">
+    <h2>CGL</h2>
+    <span class="grey-tag">2025</span>
+  </div>
+  <div class="d-flex align-items-center mb-20">
+    <p class="text-gray-800 font-500 mb-0">2323264656</p>
+    <span class="grey-tag">NA</span>
+  </div>
+</div>
+<div nz-row class="mb-20">
+  <div nz-col nzSpan="14">
+    <p>
+      Lorem ipsum dolor sit amet consectetur. Diam vel mattis nulla pharetra
+      elementum maecenas quis arcu volutpat. Et velit blandit odio est pretium
+      id purus. Mauris magna.
+    </p>
+  </div>
+</div>
+<section class="instructions-card p-10 mt-20">
+  <div class="instructions-header pl-0 px-0 pb-20 mb-20">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between gap-10">
+        <div class="instructions-img">General Instructions</div>
+        <span class="blue-bg-tag ml-10">Edit</span>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <p class="text-14 text-gray font-400 mb-0 mr-10">From file</p>
+        <nz-switch nzSize="small" [ngModel]="true"></nz-switch>
+        <img
+          class="ml-10"
+          src="../../../../../assets/images/red-delete-icon.svg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <div class="instructions-body p-0 mt-20">
+    <section>
+      <div nz-col nzSpan="14" class="divider-left">
+        <nz-table
+          #basicTable
+          #outBordered
+          nzOuterBordered
+          [nzData]="fileData"
+          [nzShowPagination]="false"
+          nzSize="small"
+          class="mt-20"
+        >
+          <thead>
+            <tr>
+              <th>Upload Document</th>
+              <th class="text-end">
+                <img
+                  src="../../../../../assets/images/upload-file.svg"
+                  alt=""
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td width="300">
+                <nz-space nzAlign="center">
+                  <img
+                    src="../../../assets/images/fileIcon.svg"
+                    alt=""
+                    *nzSpaceItem />
+                  <span *nzSpaceItem>File Name.pdf</span>
+                  <img
+                    *nzSpaceItem
+                    src="../../../assets/images/exam-status-4.svg"
+                    alt="" />
+                  <img
+                    *nzSpaceItem
+                    src="../../../assets/images/red-delete-icon.svg"
+                    alt=""
+                /></nz-space>
+              </td>
+              <td>
+                <div class="d-flex align-items-center float-right">
+                  {{ data.filetype }}
+                  <nz-select
+                    nzBorderless
+                    nzPlaceHolder="Hindi"
+                    style="min-width: 105px"
+                    nzSize="small"
+                  >
+                    <nz-option nzLabel="Hindi" nzValue="Hindi"></nz-option>
+                    <nz-option nzLabel="English" nzValue="English"></nz-option>
+                    <nz-option
+                      nzLabel="Malayalam"
+                      nzValue="Malayalam"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </section>
+  </div>
+</section>
+<section class="instructions-card p-10 mt-20">
+  <div class="instructions-header pl-0 px-0 pb-20 mb-20">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between gap-10">
+        <div class="instructions-img">Section 1</div>
+        <span class="blue-bg-tag ml-10">Edit</span>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <p class="text-14 text-gray font-400 mb-0 mr-10">From file</p>
+        <nz-switch nzSize="small" (click)="clickSwitch()" [(ngModel)]="switchValue"></nz-switch>
+        <img
+          class="ml-10"
+          src="../../../../../assets/images/red-delete-icon.svg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <div class="instructions-body p-0 mt-20">
+    <section *ngIf="noSectionFirst">
+      <div nz-col nzSpan="24" class="mt-20">
+        <nz-tabset class="vetter-tab form-tab">
+          <nz-tab nzTitle="English (Default)">
+            <app-text-editor
+              [defaultHtmlContent]="englishContent"
+            ></app-text-editor>
+          </nz-tab>
+          <nz-tab [nzTitle]="hindi">
+            <ng-template #hindi>
+              <img
+                src="../../../assets/images/language-icon/hindi.svg"
+                alt=""
+              />
+              Hindi
+            </ng-template>
+            <app-text-editor
+              [defaultHtmlContent]="hindiContent"
+            ></app-text-editor>
+          </nz-tab>
+          <nz-tab [nzTitle]="punjabi">
+            <ng-template #punjabi>
+              <img
+                src="../../../assets/images/language-icon/punjabi.svg"
+                alt=""
+              />
+              Punjabi
+            </ng-template>
+            <app-text-editor
+              [defaultHtmlContent]="punjabiContent"
+            ></app-text-editor>
+          </nz-tab>
+          <nz-tab [nzTitle]="bengali">
+            <ng-template #bengali>
+              <img
+                src="../../../assets/images/language-icon/bengali.svg"
+                alt=""
+              />
+              Bengali
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="telugu">
+            <ng-template #telugu>
+              <img
+                src="../../../assets/images/language-icon/telugu.svg"
+                alt=""
+              />
+              Telugu
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="marathi">
+            <ng-template #marathi>
+              <img
+                src="../../../assets/images/language-icon/marathi.svg"
+                alt=""
+              />
+              Marathi
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="tamil">
+            <ng-template #tamil>
+              <img
+                src="../../../assets/images/language-icon/tamil.svg"
+                alt=""
+              />
+              Tamil
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="urdu">
+            <ng-template #urdu>
+              <img src="../../../assets/images/language-icon/urdu.svg" alt="" />
+              Urdu
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="gujarati">
+            <ng-template #gujarati>
+              <img
+                src="../../../assets/images/language-icon/gujarati.svg"
+                alt=""
+              />
+              Gujarati
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="kannada">
+            <ng-template #kannada>
+              <img
+                src="../../../assets/images/language-icon/kannada.svg"
+                alt=""
+              />
+              Kannada
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="malayalam">
+            <ng-template #malayalam>
+              <img
+                src="../../../assets/images/language-icon/malayalam.svg"
+                alt=""
+              />
+              Malayalam
+            </ng-template>
+          </nz-tab>
+          <nz-tab [nzTitle]="odia">
+            <ng-template #odia>
+              <img src="../../../assets/images/language-icon/odia.svg" alt="" />
+              Odia
+            </ng-template>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </section>
+    <section *ngIf="noSectionSecond">
+      <div nz-col nzSpan="14" class="divider-left">
+        <nz-table
+          #basicTable
+          #outBordered
+          nzOuterBordered
+          [nzData]="fileData"
+          [nzShowPagination]="false"
+          nzSize="small"
+          class="mt-20"
+        >
+          <thead>
+            <tr>
+              <th>Upload Document</th>
+              <th class="text-end">
+                <img
+                  src="../../../../../assets/images/upload-file.svg"
+                  alt=""
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td width="300">
+                <nz-space nzAlign="center">
+                  <img
+                    src="../../../assets/images/fileIcon.svg"
+                    alt=""
+                    *nzSpaceItem />
+                  <span *nzSpaceItem>File Name.pdf</span>
+                  <img
+                    *nzSpaceItem
+                    src="../../../assets/images/exam-status-4.svg"
+                    alt="" />
+                  <img
+                    *nzSpaceItem
+                    src="../../../assets/images/red-delete-icon.svg"
+                    alt=""
+                /></nz-space>
+              </td>
+              <td>
+                <div class="d-flex align-items-center float-right">
+                  {{ data.filetype }}
+                  <nz-select
+                    nzBorderless
+                    nzPlaceHolder="Hindi"
+                    style="min-width: 105px"
+                    nzSize="small"
+                  >
+                    <nz-option nzLabel="Hindi" nzValue="Hindi"></nz-option>
+                    <nz-option nzLabel="English" nzValue="English"></nz-option>
+                    <nz-option
+                      nzLabel="Malayalam"
+                      nzValue="Malayalam"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </section>
+  </div>
+</section>

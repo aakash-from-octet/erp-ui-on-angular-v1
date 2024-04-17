@@ -1,0 +1,214 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col><h1>Emulator</h1></div>
+  <div nz-col></div>
+</div>
+<div class="emulator-container mt-10">
+  <div class="header-card-grid">
+    <div class="header-card">
+      <div nz-row nzJustify="space-between">
+        <div nz-col>
+          <p><span>Candidate Name</span>:<b>Varun Malhotra</b></p>
+          <p><span>Roll No.</span>:<b>565EAS56</b></p>
+        </div>
+        <div nz-col>
+          <div nz-space>
+            <img
+              src="../../../assets/images/blue-info.svg"
+              alt=""
+              *nzSpaceItem
+            />
+            <div *nzSpaceItem><span class="text-link">Instruction</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-card">
+      <div nz-row>
+        <div nz-col nzSpan="6">
+          <h3>37Q</h3>
+          <h4>Total Attempted</h4>
+        </div>
+        <div nz-col nzSpan="6">
+          <h3 class="timer">00:00:00</h3>
+          <h4>Time Left</h4>
+        </div>
+        <div nz-col nzSpan="6" class="custom-legend-list">
+          <div nz-space nzAlign="center" class="mb-10">
+            <span *nzSpaceItem class="obj-grey">1</span>
+            <p *nzSpaceItem>Not Visited</p>
+            <img
+              src="../../../assets/images/grey-info.svg"
+              alt=""
+              *nzSpaceItem
+            />
+          </div>
+          <br />
+          <div nz-space>
+            <span *nzSpaceItem class="obj-green"></span>
+            <p *nzSpaceItem>Answered</p>
+            <img
+              src="../../../assets/images/grey-info.svg"
+              alt=""
+              *nzSpaceItem
+            />
+          </div>
+        </div>
+        <div nz-col nzSpan="6" class="custom-legend-list">
+          <div nz-space class="mb-10">
+            <span *nzSpaceItem class="obj-blue"></span>
+            <p *nzSpaceItem>Marked</p>
+            <img
+              src="../../../assets/images/grey-info.svg"
+              alt=""
+              *nzSpaceItem
+            />
+          </div>
+          <br />
+          <div nz-space>
+            <span *nzSpaceItem class="obj-red"></span>
+            <p *nzSpaceItem>Not Answered</p>
+            <img
+              src="../../../assets/images/grey-info.svg"
+              alt=""
+              *nzSpaceItem
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row nzGutter="10" class="mt-10">
+    <div nz-col nzSpan="18">
+      <div nz-row nzGutter="10">
+        <div nz-col nzSpan="13">
+          <div class="preview-card fixed-height">
+            <nz-space
+              ><div *nzSpaceItem class="title-number">Q1</div>
+              <div *nzSpaceItem class="title">Question</div></nz-space
+            >
+            <div class="question-content">
+              <p>
+                Read the given statements and conclusions carefully. Assuming
+                that the information given in the statements is true, even if it
+                appears to be at variance with commonly known facts, decide
+                which of the given conclusions logically follow(s) from the
+                statements. Statements: I. All cards are boxes. II. All boxes
+                are torches. III. All torches are shoes. Conclusions: I. All
+                shoes are torches. II. All torches are boxes. III. All boxes are
+                cards.
+              </p>
+              <br />
+              <p>Statements:</p>
+              <ol style="list-style-type: upper-roman">
+                <li>All cards are boxes.</li>
+                <li>All boxes are torches.</li>
+                <li>All torches are shoes.</li>
+              </ol>
+              <br />
+              <p>Conclusions:</p>
+              <ol style="list-style-type: upper-roman">
+                <li>All shoes are torches.</li>
+                <li>All torches are boxes.</li>
+                <li>All boxes are cards.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="11">
+          <div class="preview-card fixed-height">
+            <h3>Select an Option</h3>
+            <ul class="answer-list">
+              <li>A. Only conclusion IV follows</li>
+              <li>B. Only conclusion IV follows</li>
+              <li>C. Only conclusion IV follows</li>
+              <li>D. Only conclusion IV follows</li>
+            </ul>
+          </div>
+        </div>
+        <div nz-col nzSpan="24" class="mt-20">
+          <nz-radio-group [(ngModel)]="radioValue">
+            <label nz-radio nzValue="A">Option A</label>
+            <label nz-radio nzValue="B">Option B</label>
+            <label nz-radio nzValue="C">Option C</label>
+            <label nz-radio nzValue="D">Option D</label>
+          </nz-radio-group>
+        </div>
+        <div
+          nz-row
+          nzGutter="10"
+          class="mt-20 mb-20 w-100"
+          nzJustify="space-between"
+          nzAlign="middle"
+        >
+          <div nz-col>
+            <button nz-button class="btn-black">Clear Response</button>
+          </div>
+          <div nz-col>
+            <button nz-button class="btn-black">Save for Review</button>
+            <button nz-button nzType="primary" class="ml-10">
+              Save & Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div class="reasoning-card">
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0"><b>01 Reasoning</b> &bull; Attempted <b>09</b></p>
+          <span class="text-link">Instruction</span>
+        </div>
+        <ul class="reasoning-list">
+          <li
+            *ngFor="let number of numbersArray"
+            [ngClass]="getRandomColorClass()"
+          >
+            {{ number }}
+          </li>
+        </ul>
+      </div>
+      <div class="reasoning-card">
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0"><b>02 Reasoning</b> &bull; Attempted <b>09</b></p>
+          <span class="text-link">Instruction</span>
+        </div>
+        <ul class="reasoning-list">
+          <li
+            *ngFor="let number of numbersArray"
+            [ngClass]="getRandomColorClass()"
+          >
+            {{ number }}
+          </li>
+        </ul>
+      </div>
+      <div class="reasoning-card">
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0"><b>03 Reasoning</b> &bull; Attempted <b>09</b></p>
+          <span class="text-link">Instruction</span>
+        </div>
+        <ul class="reasoning-list">
+          <li
+            *ngFor="let number of numbersArray"
+            [ngClass]="getRandomColorClass()"
+          >
+            {{ number }}
+          </li>
+        </ul>
+      </div>
+      <div class="reasoning-card">
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0"><b>04 Reasoning</b> &bull; Attempted <b>09</b></p>
+          <span class="text-link">Instruction</span>
+        </div>
+        <ul class="reasoning-list">
+          <li
+            *ngFor="let number of numbersArray"
+            [ngClass]="getRandomColorClass()"
+          >
+            {{ number }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

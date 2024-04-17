@@ -1,0 +1,140 @@
+<div nz-row nzJustify="space-between" nzAlign="middle" class="sub-header">
+  <div nz-col class="d-flex align-items-center" nzSpan="8">
+    <img
+      src="../../../../assets/images/back-only.svg"
+      alt=""
+      [routerLink]="['/ssc/assessment']"
+      class="pe"
+    />
+    <h1 class="ml-10">Create Assessment</h1>
+  </div>
+  <div nz-col nzSpan="8">
+    <nz-space class="cred-tab">
+      <div class="active">
+        <img
+          src="../../../../assets/images/liveexamIcon.svg"
+          alt=""
+          srcset=""
+        />
+        Live Exam
+      </div>
+      <div>
+        <img
+          src="../../../../assets/images/sampleexamIcon.svg"
+          alt=""
+          srcset=""
+        />
+        Sample Exam
+      </div>
+      <div>
+        <img
+          src="../../../../assets/images/audittabIcon.svg"
+          alt=""
+          srcset=""
+        />
+        Audit
+      </div>
+    </nz-space>
+  </div>
+  <div nz-col nzSpan="8"></div>
+</div>
+<div class="container mt-20">
+  <div nz-row class="account-grid">
+    <div class="grid-1 box-styling">
+      <nz-steps
+        [nzCurrent]="current"
+        class="steps-vertical-view"
+        nzDirection="vertical"
+        (nzIndexChange)="onIndexChange($event)"
+      >
+        <nz-step nzTitle="Basic Details" class="basic-details-icon"></nz-step>
+        <nz-step nzTitle="Section Configuration" class="section-icon"></nz-step>
+        <nz-step
+          nzTitle="Grading and Display Preferences"
+          class="grading-icon"
+        ></nz-step>
+        <nz-step nzTitle="Pattern Matching" class="pattern-icon"></nz-step>
+        <nz-step nzTitle="Overview" class="overview-icon"></nz-step>
+      </nz-steps>
+    </div>
+    <div class="grid-2 box-styling">
+      <div class="auth-title">
+        <div *ngIf="index === 'First-content'">
+          <h3>Basic Details</h3>
+          <div class="steps-action">
+            <app-basic-details></app-basic-details>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Second-content'">
+          <h3>Section Configuration</h3>
+          <div class="steps-action">
+            <app-section-configuration></app-section-configuration>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Third-content'">
+          <h3>Grading and Display Preferences</h3>
+          <div class="steps-action">
+            <app-grading-display></app-grading-display>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="next()"
+              nzSize="small"
+              class="mt-40"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Forth-content'">
+          <h3>Pattern Matching</h3>
+          <div class="steps-action">
+            <app-pattern-matching></app-pattern-matching>
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="small"
+              class="mt-40"
+              (click)="next()"
+            >
+              Save & Next
+            </button>
+          </div>
+        </div>
+        <div *ngIf="index === 'Fifth-content'">
+          <h3>Overview</h3>
+          <div class="steps-action">
+            <app-overview></app-overview>
+            <button
+              nz-button
+              nzType="primary"
+              nzSize="small"
+              class="mt-40"
+              (click)="goTODashboard()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

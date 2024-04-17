@@ -1,0 +1,105 @@
+<nz-steps [nzCurrent]="current" nzSize="small">
+  <nz-step nzTitle="Set up app"></nz-step>
+  <nz-step nzTitle="Launch app"></nz-step>
+  <nz-step nzTitle="Pair device"></nz-step>
+</nz-steps>
+
+<div class="steps-content">
+  <div *ngIf="index === 'First-content'">
+    <h2>Getting Started</h2>
+    <p>
+      Select the device you would like to set up to secure your CAT access and
+      validate your actions.
+    </p>
+    <p class="mt-30 text-16">
+      Set up with <span class="text-dark">CAT mobile app</span>
+    </p>
+    <img
+      src="../../../assets/images/getting-started.png"
+      alt=""
+      width="200px"
+    />
+  </div>
+  <div *ngIf="index === 'Second-content'">
+    <h2>Launch CAT mobile app</h2>
+    <p>Launch your Metaco Mobile application and press on “Get Started”.</p>
+    <img src="../../../assets/images/launch-app.png" alt="" width="200px" />
+    <p class="mb-30">
+      Don’t have the mobile app?
+      <a routerLink="#" class="text-dark"><strong>Download it now</strong></a>
+    </p>
+  </div>
+  <div *ngIf="index === 'third-content'">
+    <h2>Pair your device</h2>
+    <img src="../../../assets/images/qr.png" alt="" width="200px" />
+    <p class="mb-5 mt-30">1. Click on “Scan” on your Harmonize mobile app.</p>
+    <p class="mb-5">2. Point the camera at the QR code.</p>
+    <p class="mb-5">3. Click on “Continue”</p>
+    <p class="mb-5">4. Follow the instructions on your mobile</p>
+  </div>
+</div>
+<div class="steps-action">
+  <button
+    nz-button
+    nzType="primary"
+    (click)="next()"
+    nzBlock
+    nzSize="large"
+    *ngIf="current == 0"
+  >
+    Select Method <img src="../../../assets/images/arrow-right.svg" />
+  </button>
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzSpan]="12">
+      <button
+        nz-button
+        nzBlock
+        nzType="default"
+        (click)="pre()"
+        nzSize="large"
+        *ngIf="current === 1"
+      >
+        <img src="../../../assets/images/arrow-left.svg" />Previous
+      </button>
+    </div>
+    <div nz-col [nzSpan]="12">
+      <button
+        nz-button
+        nzBlock
+        nzType="primary"
+        (click)="next()"
+        nzSize="large"
+        *ngIf="current === 1"
+      >
+        Next <img src="../../../assets/images/arrow-right.svg" />
+      </button>
+    </div>
+  </div>
+
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzSpan]="12">
+      <button
+        nz-button
+        nzBlock
+        nzType="default"
+        (click)="pre()"
+        nzSize="large"
+        *ngIf="current === 2"
+      >
+        <img src="../../../assets/images/arrow-left.svg" />Previous
+      </button>
+    </div>
+    <div nz-col [nzSpan]="12">
+      <button
+        nz-button
+        nzBlock
+        nzType="primary"
+        (click)="done()"
+        nzSize="large"
+        *ngIf="current === 2"
+      >
+        Login again <img src="../../../assets/images/arrow-right.svg" />
+      </button>
+    </div>
+  </div>
+</div>

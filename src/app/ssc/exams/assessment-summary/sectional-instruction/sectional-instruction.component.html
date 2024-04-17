@@ -1,0 +1,97 @@
+<div class="summary-card-type-3 mt-20">
+  <a
+    nz-dropdown
+    [nzDropdownMenu]="menu"
+    class="approval-tag-wrap"
+    nzOverlayClassName="approval-tag-content"
+  >
+    <span class="approval-tag">Pending Approval</span>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>Action 1</li>
+      <li nz-menu-item>Action 2</li>
+      <li nz-menu-item>Action 3</li>
+    </ul>
+  </nz-dropdown-menu>
+  <h3>Sectional Instruction</h3>
+  <div class="summary-body">
+    <div
+      *ngFor="let data of fileData.slice(0, 1)"
+      class="d-flex align-items-center justify-content-between sectional-table"
+    >
+      <nz-space nzAlign="center">
+        <img src="../../../assets/images/fileIcon.svg" alt="" *nzSpaceItem />
+        <span *nzSpaceItem>File Name.pdf</span>
+        <img
+          *nzSpaceItem
+          src="../../../assets/images/exam-status-4.svg"
+          alt="" />
+        <img
+          *nzSpaceItem
+          src="../../../assets/images/red-delete-icon.svg"
+          alt=""
+      /></nz-space>
+
+      <div class="d-flex align-items-center">
+        <nz-select
+          nzBorderless
+          nzPlaceHolder="Hindi"
+          style="min-width: 100px"
+          nzSize="small"
+        >
+          <nz-option nzLabel="Hindi" nzValue="Hindi"></nz-option>
+          <nz-option nzLabel="English" nzValue="English"></nz-option>
+          <nz-option nzLabel="Malayalam" nzValue="Malayalam"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+
+    <section *ngIf="visible">
+      <div
+        *ngFor="let data of fileData"
+        class="d-flex align-items-center justify-content-between sectional-table"
+      >
+        <nz-space nzAlign="center">
+          <img src="../../../assets/images/fileIcon.svg" alt="" *nzSpaceItem />
+          <span *nzSpaceItem>File Name.pdf</span>
+          <img
+            *nzSpaceItem
+            src="../../../assets/images/exam-status-4.svg"
+            alt="" />
+          <img
+            *nzSpaceItem
+            src="../../../assets/images/red-delete-icon.svg"
+            alt=""
+        /></nz-space>
+
+        <div class="d-flex align-items-center">
+          <nz-select
+            nzBorderless
+            nzPlaceHolder="Hindi"
+            style="min-width: 100px"
+            nzSize="small"
+          >
+            <nz-option nzLabel="Hindi" nzValue="Hindi"></nz-option>
+            <nz-option nzLabel="English" nzValue="English"></nz-option>
+            <nz-option nzLabel="Malayalam" nzValue="Malayalam"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div nz-row nzJustify="space-between" nzAlign="middle" class="mt-10">
+        <div nz-col>
+          <p>Duplicate Index: <b>Greater than 25%</b></p>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="summary-footer"
+      [ngClass]="{ clicked: visible }"
+      (click)="divOpen()"
+    >
+      <img src="../../../../../assets/images/arrow-down.svg" alt="" srcset="" />
+    </div>
+  </div>
+</div>

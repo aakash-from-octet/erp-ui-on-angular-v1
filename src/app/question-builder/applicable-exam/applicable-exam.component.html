@@ -1,0 +1,61 @@
+<nz-space [nzSize]="8">
+  <img src="../../assets/images/examIcon.svg" alt="" *nzSpaceItem />
+  <h3 *nzSpaceItem>Applicable Exam</h3>
+</nz-space>
+<div nz-row>
+  <div nz-col [nzSpan]="24">
+    <ul *ngIf="selectedItems.length > 0" class="tag-list mt-15">
+      <li *ngFor="let item of selectedItems">
+        {{ item }}
+        <span (click)="removeItem(item)"
+          ><img src="../../assets/images/tag-close.svg"
+        /></span>
+      </li>
+    </ul>
+
+    <a
+      nz-dropdown
+      [nzDropdownMenu]="menu"
+      nzTrigger="click"
+      [(nzVisible)]="menuVisible"
+      class="btn-checkbox mt-15"
+    >
+      + Choose Exam
+      <span nz-icon nzType="down"></span>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div class="custom-checkbox-dropdown">
+        <div class="checkbox-list">
+          <nz-checkbox-group
+            [(ngModel)]="checkOptionsOne"
+            (ngModelChange)="log(checkOptionsOne)"
+          ></nz-checkbox-group>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-10 text-right">
+          <nz-space [nzSize]="10">
+            <button
+              nz-button
+              nzType="default"
+              (click)="cancelSelection()"
+              nzSize="small"
+              *nzSpaceItem
+            >
+              Cancel
+            </button>
+
+            <button
+              nz-button
+              nzType="primary"
+              (click)="saveSelection()"
+              nzSize="small"
+              *nzSpaceItem
+            >
+              Save
+            </button>
+          </nz-space>
+        </div>
+      </div>
+    </nz-dropdown-menu>
+  </div>
+</div>
